@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
 
-Route::get('/', function () {
-    return view('appPhp');
-});
+Route::get('/', [AppController::class, 'index']);
+Route::get('/register', [AppController::class, 'index']);
+Route::get('/mypage', [AppController::class, 'index']);
+

@@ -3,19 +3,12 @@
     <div class="container">
       <div class="menu col-4">
         <div class="menu-group">
-          <h1 class="text-center menu-title">Регистрация</h1>
+          <h1 class="text-center menu-title">авторизация</h1>
           <form
             method="POST"
             action=""
             class="d-flex flex-column align-items-center form__register"
           >
-            <span class="invalid"></span>
-            <input
-              id="floatingInput"
-              placeholder="Имя"
-              type="text"
-              class="w-100 mt-4 form__register-input"
-            />
             <span class="invalid"></span>
             <input
               placeholder="Эл. адрес"
@@ -31,8 +24,8 @@
             <a
               href="#"
               class="mt-4 w-100 btn-flip"
-              data-back="Зарегистрироваться"
-              data-front="Регистрация"
+              data-back="Авторизироваться "
+              data-front="Авторизация"
             ></a>
           </form>
           <div class="menu-decr"></div>
@@ -40,7 +33,7 @@
             href="#"
             class="mt-2 w-100 btn-flip"
             data-back="перейти"
-            data-front="авторизация"
+            data-front="Регистрация"
           ></a>
         </div>
       </div>
@@ -50,6 +43,6 @@
 
 <script>
 export default {
-  name: "register",
+  name: "login",
 };
 </script>

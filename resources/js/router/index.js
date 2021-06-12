@@ -10,7 +10,23 @@ const routes = [
         meta: {
             layout: 'empty'
         },
-        component: () => import('../../views/Register.vue')
+        component: () => import('../views/Register.vue')
+    },
+    {
+        path: '/',
+        name: '/',
+        meta: {
+            layout: 'empty'
+        },
+        component: () => import('../layouts/CoreLayout.vue')
+    },
+    {
+        path: '/mypage',
+        name: 'mypage',
+        meta:{
+            layout: 'core'
+        },
+        component: ()=>import('../views/MyPage.vue')
     }
 ]
 const router = new VueRouter({
