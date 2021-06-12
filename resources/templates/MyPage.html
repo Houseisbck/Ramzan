@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style-my-page.css">
+    <link rel="stylesheet" href="./css/style-header-navbar.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Моя страница</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__top-background center">
+            <div class="container">
+                <div class="header__top col-12 d-flex justify-content-between pt-2 pb-2">
+                    <a href="#" class="header__top-title">RamZan</a>
+                    <div class="header__top-links d-flex justify-content-between col-7">
+                        <a href="#" class="top__links-item">Моя страница</a>
+                        <a href="#" class="top__links-item">Новости</a>
+                        <a href="#" class="top__links-item">Сообщения</a>
+                        <a href="#" class="top__links-item">Друзья</a>
+                        <a href="#" class="top__links-item">Сообщества</a>
+                    </div>
+                    <a href="#" class="header__top-logout">Выйти</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="header-group pt-4">
+                <div class="group-by__side-center d-flex justify-content-between w-50">
+                    <div class="header__left-side col-1">
+                        <div class="header__left-side__panel mt-5">
+                            <ul>
+                                <li><i class="far fa-solid fa-file fa-2x"></i></li>
+                                <li><i class="far fa-solid fa-file-image fa-2x"></i></li>
+                                <li><i class="far fa-solid fa-file-video fa-2x"></i></li>
+                                <li><i class="far fa-solid fa-file-audio fa-2x"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header__center col-7">
+                        <div class="header__center-image">
+                            <img class="image-block" src="./images/софа.jpg" alt="">
+                            <div class="header__center-group__input">
+                                <input id="headerSearchImage" type="file">
+                                <label for="headerSearchImage"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__right-side__panel col-4">
+                    <div class="right-side__panel-sticks">
+                        <div class="panel__stick-first"></div>
+                        <div class="panel__stick-second"></div>
+                    </div>
+                    <div class="right-side__title">Информация о пользователе</div>
+                    <div class="right-side__descr">
+                        <ul>
+                            <li>Имя: Вбивця</li>
+                            <li>День рождения: 2005</li>
+                            <li>Город: Украина</li>
+                            <li>Языки: Славянский</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="main mt-5">
+        <div class="container d-flex justify-content-between">
+            <div class="main__friendlist col-4">
+                <div class="friendlist-title mb-2 ml-5">Друзья: 6</div>
+                <div class="friendlist-roster">
+                    <ul class="d-flex flex-column col-12 mb-0 pt-4">
+                        <div class="freindlist-roster__group mb-2 d-flex">
+                            <li><a href="#" class="d-flex flex-column">
+                                    <img class="friendlist__roster-image col-12"
+                                        src="./images/avatar-friends-image/xnofTuG-kPg.jpg">
+                                    <div class="friendlist__roster-username">Олег</div>
+                                </a></li>
+                            <li><a href="#">
+                                    <img class="friendlist__roster-image col-12"
+                                        src="./images/avatar-friends-image/xnofTuG-kPg.jpg">
+                                    <div class="friendlist__roster-username">Олег</div>
+                                </a></li>
+                            <li><a href="#">
+                                    <img class="friendlist__roster-image col-12"
+                                        src="./images/avatar-friends-image/xnofTuG-kPg.jpg">
+                                    <div class="friendlist__roster-username">Олег</div>
+                                </a></li>
+                        </div>
+                        <div class="freindlist-roster__group d-flex mt-2">
+                            <li><a href="#">
+                                    <img class="friendlist__roster-image col-12"
+                                        src="./images/avatar-friends-image/xnofTuG-kPg.jpg">
+                                    <div class="friendlist__roster-username">Олег</div>
+                                </a></li>
+                            <li><a href="#">
+                                    <img class="friendlist__roster-image col-12"
+                                        src="./images/avatar-friends-image/xnofTuG-kPg.jpg">
+                                    <div class="friendlist__roster-username">Олег</div>
+                                </a></li>
+                            <li><a href="#">
+                                    <img class="friendlist__roster-image col-12"
+                                        src="./images/avatar-friends-image/xnofTuG-kPg.jpg">
+                                    <div class="friendlist__roster-username">Олег</div>
+                                </a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="main__post-group d-flex flex-column h-25 p-0 col-4">
+                <form action="" class="main__post-form col-12 p-0">
+                    <div class="col-12 d-flex justify-content-end align-items-center flex-column">
+                        <input id="postFormFile" type="file">
+                        <label class="post__form-file d-flex col-12 justify-content-end p-0" for="postFormFile">
+                            <div></div>
+                        </label>
+                        <input class="post__form-text col-12 d-flex pr-4 pl-2" type="text">
+                        <ul class="post__form-attach__files">
+                            <li></li>
+                        </ul>
+                        <input id="postFormText" type="submit">
+                        <label class="post__form-submit col-12 justify-content-center p-0 d-flex"
+                            for="postFormSubmit">Опубликовать</label>
+                    </div>
+                </form>
+                <div class="main__post-note mt-2">
+                    <div class="post__note-title d-flex justify-content-start pl-3 pr-3 mb-2 mt-1">Название поста</div>
+                    <img class="post__note-image col-12 mb-3"
+                        src="./images/orig-16151963622a8b73d4077d7ea242993e1665322891.jpeg" alt="">
+                    <div class="post__note-footer pt-1 pb-1 d-flex col-12 justify-content-around mb-2">
+                        <div class="note__footer-edit"></div>
+                        <div class="note-group__active d-flex justify-content-between col-4">
+                            <div class="footer-note__like-group d-flex">
+                                <div class="note__footer-like"></div>
+                                <div class="note__footer-like__number ml-1">12</div>
+                            </div>
+                            <div class="note__footer-repost"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

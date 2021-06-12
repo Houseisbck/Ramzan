@@ -1,0 +1,100 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box
+}
+
+@font-face {
+    font-family: 'Downcome';
+    src: url(../fonts/Downcome.otf);
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Plumb';
+    src: url(../fonts/Plumb.ttf);
+    font-style: normal;
+}
+
+body {
+    background-color: rgba(87, 87, 87, 0.7) !important;
+}
+
+.center{
+    padding: 0 calc(50% - 700px);
+}
+
+.header__top-background {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+%headerTopFont {
+    font-size: 1rem;
+    font-family: 'Plumb';
+}
+
+.header__top-title {
+    @extend %headerTopFont;
+    @extend %linkHeader;
+}
+
+.header__top-logout {
+    @extend %headerTopFont;
+    @extend %linkHeader;
+}
+
+%linkHeader {
+    text-decoration: none;
+    color: #212529;
+
+    &:hover {
+        text-decoration: none;
+        color: #212529;
+    }
+}
+
+.top__links-item {
+    @extend %headerTopFont;
+    @extend %linkHeader;
+}
+
+.header-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__left-side__panel {
+    ul {
+        min-width: 3rem;
+        padding: 0;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 25px;
+        border-radius: 1rem;
+
+        &::before {
+            position: absolute;
+            content: "";
+            background-color: white;
+            height: 50px;
+            width: 2.5px;
+            margin-top: -50px;
+        }
+    }
+
+    li {
+        margin-top: 25px;
+        list-style: none;
+
+        i {
+            cursor: pointer;
+            opacity: 0.55;
+        }
+    }
+}

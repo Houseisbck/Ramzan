@@ -1,0 +1,75 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Downcome';
+  src: url(../fonts/Downcome.otf);
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Plumb';
+  src: url(../fonts/Plumb.ttf);
+  font-style: normal;
+  font-weight: 300;
+}
+
+.center {
+  padding: 0 calc(50%-500px);
+}
+
+.friendlist__header-number, .friendlist-user__name, .friendlist-user__surname, .friendlist-user__message {
+  font-family: 'Plumb';
+  color: white;
+}
+
+.header-search__input {
+  outline: none;
+  border: none;
+}
+
+.header-search__icon-search {
+  cursor: pointer;
+  margin-top: -1.2rem;
+  right: 1.1rem;
+  position: absolute;
+  background-image: url(../images/friends-search.svg);
+  background-size: cover;
+  height: 1rem;
+  width: 1rem;
+  opacity: 0.5;
+}
+
+.friendlist__user-image {
+  border-radius: 50%;
+}
+
+.friendlist-user__group::after {
+  margin-top: 1rem;
+  content: "";
+  background-color: #fff;
+  height: 1px;
+  width: 10rem;
+}
+
+.friendlist-user__name {
+  font-size: 1.3rem;
+}
+
+.friendlist-user__surname {
+  font-size: 1.2rem;
+}
+
+.friendlist-user__message {
+  text-decoration: none !important;
+}
+
+.friendlist-user__message:hover {
+  color: #d8d7d7;
+}
+/*# sourceMappingURL=style-friends.css.map */

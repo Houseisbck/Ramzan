@@ -1,0 +1,78 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box
+}
+
+@font-face {
+    font-family: 'Downcome';
+    src: url(../fonts/Downcome.otf);
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Plumb';
+    src: url(../fonts/Plumb.ttf);
+    font-style: normal;
+    font-weight: 300;
+}
+
+%mainFont {
+    font-family: 'Plumb';
+    color: white;
+}
+
+.header-search__input {
+    outline: none;
+    border: none;
+}
+
+.header-search__icon-search {
+    cursor: pointer;
+    margin-top: -1.2rem;
+    right: 1.1rem;
+    position: absolute;
+    background-image: url(../images/friends-search.svg);
+    background-size: cover;
+    height: 1rem;
+    width: 1rem;
+    opacity: 0.5;
+}
+
+.friendlist__user-image {
+    border-radius: 50%;
+}
+
+.friendlist__header-number {
+    @extend %mainFont;
+}
+
+.friendlist-user__group {
+    &::after {
+        margin-top: 1rem;
+        content: "";
+        background-color: #fff;
+        height: 1px;
+        width: 10rem;
+    }
+}
+
+.friendlist-user__name {
+    font-size: 1.3rem;
+    @extend %mainFont;
+}
+
+.friendlist-user__surname {
+    @extend %mainFont;
+    font-size: 1.2rem;
+}
+
+.friendlist-user__message {
+    @extend %mainFont;
+    text-decoration: none !important;
+
+    &:hover {
+        color: rgb(216, 215, 215);
+    }
+}

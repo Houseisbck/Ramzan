@@ -1,0 +1,137 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Downcome';
+  src: url(../fonts/Downcome.otf);
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Plumb';
+  src: url(../fonts/Plumb.ttf);
+  font-style: normal;
+  font-weight: 300;
+}
+
+.header {
+  background-image: url(../images/background-authenticating.jpg);
+  background-size: cover;
+  height: 100vh;
+}
+
+.menu-group {
+  padding-top: 20vh;
+}
+
+.menu {
+  background-color: white;
+  height: 100vh;
+  min-width: 370px;
+  border-right: 3px solid rgba(0, 0, 0, 0.65);
+  border-left: 3px solid rgba(0, 0, 0, 0.65);
+}
+
+.menu-title {
+  font-family: 'Downcome';
+  font-size: 27px;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.form__register-input {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  outline: none;
+  font-family: 'Plumb';
+}
+
+.form__register-input:focus::-webkit-input-placeholder {
+  opacity: 0;
+  -webkit-transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease;
+}
+
+.form__register-input :focus::-moz-placeholder {
+  opacity: 0;
+  -webkit-transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease;
+}
+
+.form__register-input :focus:-moz-placeholder {
+  opacity: 0;
+  -webkit-transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease;
+}
+
+.form__register-input :focus:-ms-input-placeholder {
+  opacity: 0;
+  -webkit-transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease;
+}
+
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+  color: #fff;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none !important;
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+}
+
+.btn-flip:hover:after {
+  opacity: 1;
+  -webkit-transform: translateY(0) rotateX(0);
+          transform: translateY(0) rotateX(0);
+}
+
+.btn-flip:hover:before {
+  opacity: 0;
+  -webkit-transform: translateY(50%) rotateX(90deg);
+          transform: translateY(50%) rotateX(90deg);
+}
+
+.btn-flip:after {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  color: #323237;
+  display: block;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: absolute;
+  background: #adadaf;
+  content: attr(data-back);
+  -webkit-transform: translateY(-50%) rotateX(90deg);
+          transform: translateY(-50%) rotateX(90deg);
+}
+
+.btn-flip:before {
+  top: 0;
+  left: 0;
+  opacity: 1;
+  color: #adadaf;
+  display: block;
+  padding: 0 30px;
+  line-height: 40px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: relative;
+  background: #323237;
+  content: attr(data-front);
+  -webkit-transform: translateY(0) rotateX(0);
+          transform: translateY(0) rotateX(0);
+}
+/*# sourceMappingURL=style-authentication.css.map */

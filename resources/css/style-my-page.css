@@ -1,0 +1,226 @@
+.freindlist-roster__group a {
+  text-decoration: none;
+  color: #212529;
+}
+
+.freindlist-roster__group a:hover {
+  text-decoration: none;
+  color: #212529;
+}
+
+.header__center-image {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.header__center-group__input {
+  margin-top: -20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header__center-group__input input {
+  display: none;
+}
+
+.header__center-group__input label {
+  cursor: pointer;
+  opacity: 0.75;
+  background-image: url(../images/avatar-upload.svg);
+  background-size: cover;
+  width: 100%;
+  height: 17px;
+}
+
+.center__image-input {
+  padding: 0 5px;
+  font-family: 'Plumb';
+  font-size: 15px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+  border-radius: 40px;
+  height: 23px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.image-block {
+  border-radius: 5%;
+}
+
+.right-side__panel-sticks {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.panel__stick-first {
+  content: "";
+  background-color: #fff;
+  width: 2px;
+  height: 30px;
+  margin-top: -40px;
+}
+
+.panel__stick-second {
+  content: "";
+  background-color: #fff;
+  width: 2px;
+  height: 30px;
+  margin-top: -40px;
+}
+
+.header__right-side__panel {
+  padding: 10px;
+  margin-top: 30px;
+  border: 1px solid white;
+  border-radius: 5%;
+  background-color: #929292;
+}
+
+.right-side__title {
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.right-side__descr ul {
+  padding: 0;
+}
+
+.right-side__descr ul li {
+  color: #ffffff;
+  list-style: none;
+}
+
+.main__post-form input {
+  display: none;
+}
+
+.post__form-text {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  position: static !important;
+}
+
+.post__form-attach__files {
+  height: 0;
+}
+
+.post__form-attach__files li {
+  overflow: hidden;
+}
+
+.post__form-submit {
+  cursor: pointer;
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.post__form-file div {
+  cursor: pointer;
+  position: absolute;
+  margin-top: 13px;
+  background-image: url(../images/form-post-attach.svg);
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+}
+
+.main__post-note {
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: #929292;
+}
+
+.post__note-footer {
+  background-color: white;
+}
+
+.post__note-title {
+  color: white;
+}
+
+.post__note-image {
+  background-size: contain;
+}
+
+.note__footer-edit, .note__footer-like, .note__footer-repost {
+  cursor: pointer;
+  background-size: cover;
+  width: 1.3rem;
+  height: 1.3rem;
+  opacity: 0.7;
+}
+
+.note__footer-edit {
+  background-image: url(../images/post-footer-edit.svg);
+}
+
+.note__footer-like {
+  background-image: url(../images/post-footer-like.svg);
+}
+
+.note__footer-repost {
+  background-image: url(../images/post-footer-repost.svg);
+}
+
+.footer-note__like-group {
+  cursor: pointer;
+}
+
+.main__friendlist {
+  margin-left: 18%;
+  border: 1px solid white;
+  border-radius: 15px;
+  margin-top: 10%;
+  padding-top: 10px;
+  background-color: #929292;
+}
+
+.friendlist-roster ul {
+  border-top: 1px solid white;
+  padding-top: 15px;
+}
+
+.friendlist-roster ul li {
+  list-style: none;
+}
+
+.friendlist-title {
+  color: white;
+  text-align: start;
+  font-family: 'Plumb';
+  font-size: 1.2rem;
+}
+
+.friendlist__roster-image {
+  border-radius: 50%;
+}
+
+.friendlist__roster-username {
+  text-align: center;
+  color: white;
+  text-decoration: none !important;
+}
+/*# sourceMappingURL=style-my-page.css.map */
