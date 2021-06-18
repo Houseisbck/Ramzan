@@ -25,7 +25,11 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "simple-spinner": "^0.0.5",
+        "vue-req": "^1.0.3",
         "vue-router": "^3.5.1",
+        "vue-simple-spinner": "^1.2.10",
+        "vuelidate": "^0.7.6",
         "vuex": "^3.6.2"
     }
 }

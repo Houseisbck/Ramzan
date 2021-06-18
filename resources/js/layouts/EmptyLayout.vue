@@ -1,12 +1,11 @@
 <template>
-  <div>
-    пусто
-    <router-view></router-view>
-  </div>
+    <div style="background-color: grey">
+        <router-view />
+    </div>
 </template>
 
 <script>
 export default {
-  name: "empty-layout",
-};
+    name: 'empty'
+}
 </script>

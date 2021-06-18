@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/register',
+        path: '/',
         name: 'register',
         meta: {
             layout: 'empty'
@@ -13,20 +13,28 @@ const routes = [
         component: () => import('../views/Register.vue')
     },
     {
-        path: '/',
-        name: '/',
+        path: '/login',
+        name: '/login',
         meta: {
             layout: 'empty'
         },
-        component: () => import('../layouts/CoreLayout.vue')
+        component: () => import('../views/Login.vue')
     },
     {
-        path: '/mypage',
-        name: 'mypage',
-        meta:{
+        path: '/page/:id',
+        name: 'page',
+        meta: {
             layout: 'core'
         },
-        component: ()=>import('../views/MyPage.vue')
+        component: () => import('../views/MyPage.vue')
+    },
+    {
+        path: '*',
+        name: 'mypage',
+        meta: {
+            layout: 'core'
+        },
+        component: () => import('../views/404.vue')
     }
 ]
 const router = new VueRouter({

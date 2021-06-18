@@ -11,6 +11,7 @@ import EmptyLayout from "./layouts/EmptyLayout.vue";
 import CoreLayout from "./layouts/CoreLayout.vue";
 
 export default {
+  props: ["user"],
   computed: {
     layout() {
       return (this.$route.meta.layout || "empty") + "-layout";
@@ -24,6 +25,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~bootstrap/dist/css/bootstrap.min.css'
+@import "https://use.fontawesome.com/releases/v5.15.3/css/all.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
 </style>
 

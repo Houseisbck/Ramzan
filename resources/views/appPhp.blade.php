@@ -9,7 +9,6 @@
 
 <body>
     <div id="app">
-        <app-vue />
     </div>
     <script src="{{mix('js/app.js')}}"></script>
 </body>

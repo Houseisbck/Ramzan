@@ -6,20 +6,20 @@
 
 @font-face {
     font-family: 'Downcome';
-    src: url(../fonts/Downcome.otf);
+    src: url('../assets/fonts/Downcome.otf');
     font-style: normal;
     font-weight: 300;
 }
 
 @font-face {
     font-family: 'Plumb';
-    src: url(../fonts/Plumb.ttf);
+    src: url('../assets/fonts/Plumb.ttf');
     font-style: normal;
     font-weight: 300;
 }
 
 .header {
-    background-image: url(../images/background-authenticating.jpg);
+    background-image: url('../assets/images/background-authenticating.jpg');
     background-size: cover;
     height: 100vh;
 }
@@ -43,7 +43,46 @@
     opacity: 0.9;
 }
 
+.form__submit-button{
+    display: none;
+}
+
+.submit__button-label{
+    margin-top: 10px;
+    font-size: 1.1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    cursor: pointer;
+    color: black!important;
+    opacity: 0.75!important;
+    border: none;
+    background-color: rgb(191, 189, 189);
+    &:hover{
+        color: #ffffff !important;
+        background-color: #929292;
+    }
+}
+
+.input-group{
+    height: 66.40px;
+}
+
+.invalid{
+    height: 1.4rem;
+    color: rgb(120, 36, 65);
+}
+
+.invalid-group{
+    height: 22.39px;
+    width: 100%;
+}
+
 .form__register-input {
+    height: 1.5rem;
+    margin-top: 1rem;
     border-top: 0;
     border-left: 0;
     border-right: 0;
@@ -70,7 +109,6 @@
         transition: opacity 0.8s ease;
     }
 }
-
 
 $speed: 0.5s;
 
