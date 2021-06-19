@@ -45,6 +45,7 @@ body {
 }
 
 .header__top-logout {
+    cursor: pointer;
     @extend %headerTopFont;
     @extend %linkHeader;
 }

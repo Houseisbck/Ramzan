@@ -187,10 +187,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return _this.register(formData);
 
               case 6:
-                _context.next = 8;
-                return _this.$router.push("/page");
-
-              case 8:
               case "end":
                 return _context.stop();
             }

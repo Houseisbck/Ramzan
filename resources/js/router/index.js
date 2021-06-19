@@ -26,15 +26,7 @@ const routes = [
         meta: {
             layout: 'core'
         },
-        component: () => import('../views/MyPage.vue')
-    },
-    {
-        path: '*',
-        name: 'mypage',
-        meta: {
-            layout: 'core'
-        },
-        component: () => import('../views/404.vue')
+        component: () => import('../views/MyPage.vue'),
     }
 ]
 const router = new VueRouter({

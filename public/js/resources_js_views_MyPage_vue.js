@@ -126,7 +126,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'mypage'
+  name: "mypage",
+  data: function data() {
+    return {
+      user: {}
+    };
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    next(function (vm) {
+      axios.get("/user/" + to.params.id).then(function (response) {
+        return vm.user = response.data;
+      });
+    });
+  }
 });
 
 /***/ }),
@@ -199,7 +211,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/avatar-upload.svg?beb4c968fc5b10ec88dd83a4f87cbb23");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/avatar-upload.svg?700e55e5370b1827cac5669639b73b2d");
 
 /***/ }),
 
@@ -214,7 +226,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/form-post-attach.svg?29f6c55ef443e75d99e1a3881b0092ab");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/form-post-attach.svg?24a96b69ab0bfb3d2fd9c49795d9ba46");
 
 /***/ }),
 
@@ -426,412 +438,410 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "d-flex justify-content-around col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "header__right-side__panel col-4" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "right-side__title" }, [
+          _vm._v("Информация о пользователе")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "right-side__descr" }, [
+          _c("ul", [
+            _c("li", [_vm._v("Имя: " + _vm._s(_vm.user.name) + " ")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("День рождения: 2005")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("Город: Украина")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("Языки: Славянский")])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(2)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "d-flex justify-content-around col-12" }, [
-        _c("div", { staticClass: "header__center col-5" }, [
+    return _c("div", { staticClass: "header__center col-5" }, [
+      _c(
+        "div",
+        { staticClass: "header__center-image d-flex align-items-center" },
+        [
+          _c("img", {
+            staticClass: "image-block col-9",
+            attrs: { src: __webpack_require__(/*! ../assets/images/софа.jpg */ "./resources/js/assets/images/софа.jpg"), alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "header__center-group__input" }, [
+            _c("input", { attrs: { id: "headerSearchImage", type: "file" } }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "headerSearchImage" } })
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "right-side__panel-sticks" }, [
+      _c("div", { staticClass: "panel__stick-first" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel__stick-second" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "main mt-5" }, [
+      _c(
+        "div",
+        { staticClass: "container d-flex justify-content-around p-0 col-12" },
+        [
           _c(
             "div",
-            { staticClass: "header__center-image d-flex align-items-center" },
+            {
+              staticClass:
+                "col-5 d-flex align-items-center justify-content-center"
+            },
             [
-              _c("img", {
-                staticClass: "image-block col-9",
-                attrs: { src: __webpack_require__(/*! ../assets/images/софа.jpg */ "./resources/js/assets/images/софа.jpg"), alt: "" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "header__center-group__input" }, [
-                _c("input", {
-                  attrs: { id: "headerSearchImage", type: "file" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "headerSearchImage" } })
-              ])
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-9 main__friendlist d-flex justify-content-center flex-column"
+                },
+                [
+                  _c("div", { staticClass: "friendlist-title mb-2" }, [
+                    _vm._v("Друзья: 6")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "friendlist-roster" }, [
+                    _c(
+                      "ul",
+                      { staticClass: "d-flex flex-column col-12 p-3 m-0" },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "freindlist-roster__group mb-2 d-flex"
+                          },
+                          [
+                            _c("li", [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "d-flex flex-column align-items-center",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      "friendlist__roster-image col-9",
+                                    attrs: {
+                                      src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "friendlist__roster-username"
+                                    },
+                                    [_vm._v("Олег")]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "d-flex flex-column align-items-center",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      "friendlist__roster-image col-9",
+                                    attrs: {
+                                      src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "friendlist__roster-username"
+                                    },
+                                    [_vm._v("Олег")]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "d-flex flex-column align-items-center",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      "friendlist__roster-image col-9",
+                                    attrs: {
+                                      src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "friendlist__roster-username"
+                                    },
+                                    [_vm._v("Олег")]
+                                  )
+                                ]
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "freindlist-roster__group d-flex mt-2"
+                          },
+                          [
+                            _c("li", [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "d-flex flex-column align-items-center",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      "friendlist__roster-image col-9",
+                                    attrs: {
+                                      src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "friendlist__roster-username"
+                                    },
+                                    [_vm._v("Олег")]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "d-flex flex-column align-items-center",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      "friendlist__roster-image col-9",
+                                    attrs: {
+                                      src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "friendlist__roster-username"
+                                    },
+                                    [_vm._v("Олег")]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "d-flex flex-column align-items-center",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      "friendlist__roster-image col-9",
+                                    attrs: {
+                                      src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "friendlist__roster-username"
+                                    },
+                                    [_vm._v("Олег")]
+                                  )
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
             ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "header__right-side__panel col-4" }, [
-          _c("div", { staticClass: "right-side__panel-sticks" }, [
-            _c("div", { staticClass: "panel__stick-first" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel__stick-second" })
-          ]),
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "right-side__title" }, [
-            _vm._v("Информация о пользователе")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "right-side__descr" }, [
-            _c("ul", [
-              _c("li", [_vm._v("Имя: Вбивця")]),
+          _c(
+            "div",
+            {
+              staticClass: "main__post-group d-flex flex-column h-25 p-0 col-4"
+            },
+            [
+              _c(
+                "form",
+                {
+                  staticClass: "main__post-form col-12 p-0",
+                  attrs: { action: "" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-12 d-flex justify-content-end align-items-center flex-column"
+                    },
+                    [
+                      _c("input", {
+                        attrs: { id: "postFormFile", type: "file" }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "post__form-file d-flex col-12 justify-content-end p-0",
+                          attrs: { for: "postFormFile" }
+                        },
+                        [_c("div")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "post__form-text col-12 d-flex pr-4 pl-2",
+                        attrs: { type: "text" }
+                      }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "post__form-attach__files" }, [
+                        _c("li")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: { id: "postFormSubmit", type: "submit" }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "post__form-submit col-12 justify-content-center p-0 d-flex",
+                          attrs: { for: "postFormSubmit" }
+                        },
+                        [_vm._v("Опубликовать")]
+                      )
+                    ]
+                  )
+                ]
+              ),
               _vm._v(" "),
-              _c("li", [_vm._v("День рождения: 2005")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Город: Украина")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Языки: Славянский")])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "main mt-5" }, [
-        _c(
-          "div",
-          { staticClass: "container d-flex justify-content-around p-0 col-12" },
-          [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "col-5 d-flex align-items-center justify-content-center"
-              },
-              [
+              _c("div", { staticClass: "main__post-note mt-2" }, [
                 _c(
                   "div",
                   {
                     staticClass:
-                      "col-9 main__friendlist d-flex justify-content-center flex-column"
+                      "post__note-title d-flex justify-content-start pl-3 pr-3 m-1"
                   },
-                  [
-                    _c("div", { staticClass: "friendlist-title mb-2" }, [
-                      _vm._v("Друзья: 6")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "friendlist-roster" }, [
-                      _c(
-                        "ul",
-                        { staticClass: "d-flex flex-column col-12 p-3 m-0" },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "freindlist-roster__group mb-2 d-flex"
-                            },
-                            [
-                              _c("li", [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass:
-                                      "d-flex flex-column align-items-center",
-                                    attrs: { href: "#" }
-                                  },
-                                  [
-                                    _c("img", {
-                                      staticClass:
-                                        "friendlist__roster-image col-9",
-                                      attrs: {
-                                        src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "friendlist__roster-username"
-                                      },
-                                      [_vm._v("Олег")]
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass:
-                                      "d-flex flex-column align-items-center",
-                                    attrs: { href: "#" }
-                                  },
-                                  [
-                                    _c("img", {
-                                      staticClass:
-                                        "friendlist__roster-image col-9",
-                                      attrs: {
-                                        src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "friendlist__roster-username"
-                                      },
-                                      [_vm._v("Олег")]
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass:
-                                      "d-flex flex-column align-items-center",
-                                    attrs: { href: "#" }
-                                  },
-                                  [
-                                    _c("img", {
-                                      staticClass:
-                                        "friendlist__roster-image col-9",
-                                      attrs: {
-                                        src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "friendlist__roster-username"
-                                      },
-                                      [_vm._v("Олег")]
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "freindlist-roster__group d-flex mt-2"
-                            },
-                            [
-                              _c("li", [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass:
-                                      "d-flex flex-column align-items-center",
-                                    attrs: { href: "#" }
-                                  },
-                                  [
-                                    _c("img", {
-                                      staticClass:
-                                        "friendlist__roster-image col-9",
-                                      attrs: {
-                                        src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "friendlist__roster-username"
-                                      },
-                                      [_vm._v("Олег")]
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass:
-                                      "d-flex flex-column align-items-center",
-                                    attrs: { href: "#" }
-                                  },
-                                  [
-                                    _c("img", {
-                                      staticClass:
-                                        "friendlist__roster-image col-9",
-                                      attrs: {
-                                        src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "friendlist__roster-username"
-                                      },
-                                      [_vm._v("Олег")]
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass:
-                                      "d-flex flex-column align-items-center",
-                                    attrs: { href: "#" }
-                                  },
-                                  [
-                                    _c("img", {
-                                      staticClass:
-                                        "friendlist__roster-image col-9",
-                                      attrs: {
-                                        src: __webpack_require__(/*! ../assets/images/avatar-friends-image/xnofTuG-kPg.jpg */ "./resources/js/assets/images/avatar-friends-image/xnofTuG-kPg.jpg")
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "friendlist__roster-username"
-                                      },
-                                      [_vm._v("Олег")]
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "main__post-group d-flex flex-column h-25 p-0 col-4"
-              },
-              [
+                  [_vm._v("Название поста")]
+                ),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "post__note-image col-12 mb-3",
+                  attrs: {
+                    src: __webpack_require__(/*! ../assets/images/orig-16151963622a8b73d4077d7ea242993e1665322891.jpeg */ "./resources/js/assets/images/orig-16151963622a8b73d4077d7ea242993e1665322891.jpeg"),
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
                 _c(
-                  "form",
+                  "div",
                   {
-                    staticClass: "main__post-form col-12 p-0",
-                    attrs: { action: "" }
+                    staticClass:
+                      "post__note-footer pt-1 pb-1 d-flex col-12 justify-content-around mb-2"
                   },
                   [
+                    _c("div", { staticClass: "note__footer-edit" }),
+                    _vm._v(" "),
                     _c(
                       "div",
                       {
                         staticClass:
-                          "col-12 d-flex justify-content-end align-items-center flex-column"
+                          "note-group__active d-flex justify-content-between col-4"
                       },
                       [
-                        _c("input", {
-                          attrs: { id: "postFormFile", type: "file" }
-                        }),
-                        _vm._v(" "),
                         _c(
-                          "label",
-                          {
-                            staticClass:
-                              "post__form-file d-flex col-12 justify-content-end p-0",
-                            attrs: { for: "postFormFile" }
-                          },
-                          [_c("div")]
+                          "div",
+                          { staticClass: "footer-note__like-group d-flex" },
+                          [
+                            _c("div", { staticClass: "note__footer-like" }),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "note__footer-like__number ml-1" },
+                              [_vm._v("12")]
+                            )
+                          ]
                         ),
                         _vm._v(" "),
-                        _c("input", {
-                          staticClass:
-                            "post__form-text col-12 d-flex pr-4 pl-2",
-                          attrs: { type: "text" }
-                        }),
-                        _vm._v(" "),
-                        _c("ul", { staticClass: "post__form-attach__files" }, [
-                          _c("li")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          attrs: { id: "postFormSubmit", type: "submit" }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass:
-                              "post__form-submit col-12 justify-content-center p-0 d-flex",
-                            attrs: { for: "postFormSubmit" }
-                          },
-                          [_vm._v("Опубликовать")]
-                        )
+                        _c("div", { staticClass: "note__footer-repost" })
                       ]
                     )
                   ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "main__post-note mt-2" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "post__note-title d-flex justify-content-start pl-3 pr-3 m-1"
-                    },
-                    [_vm._v("Название поста")]
-                  ),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticClass: "post__note-image col-12 mb-3",
-                    attrs: {
-                      src: __webpack_require__(/*! ../assets/images/orig-16151963622a8b73d4077d7ea242993e1665322891.jpeg */ "./resources/js/assets/images/orig-16151963622a8b73d4077d7ea242993e1665322891.jpeg"),
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "post__note-footer pt-1 pb-1 d-flex col-12 justify-content-around mb-2"
-                    },
-                    [
-                      _c("div", { staticClass: "note__footer-edit" }),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "note-group__active d-flex justify-content-between col-4"
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "footer-note__like-group d-flex" },
-                            [
-                              _c("div", { staticClass: "note__footer-like" }),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "note__footer-like__number ml-1"
-                                },
-                                [_vm._v("12")]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "note__footer-repost" })
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ]
-            )
-          ]
-        )
-      ])
+                )
+              ])
+            ]
+          )
+        ]
+      )
     ])
   }
 ]

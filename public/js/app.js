@@ -2122,15 +2122,6 @@ var routes = [{
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_views_MyPage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/MyPage.vue */ "./resources/js/views/MyPage.vue"));
   }
-}, {
-  path: '*',
-  name: 'mypage',
-  meta: {
-    layout: 'core'
-  },
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ "resources_js_views_404_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/404.vue */ "./resources/js/views/404.vue"));
-  }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__.default({
   mode: 'history',
@@ -6792,7 +6783,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_Downcome_otf__WEBPACK_IMPORTED_MODULE_2__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_Plumb_ttf__WEBPACK_IMPORTED_MODULE_3__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-c7c1cae6],\n*[data-v-c7c1cae6]::after,\n*[data-v-c7c1cae6]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\nbody[data-v-c7c1cae6] {\n  height: 100vmax;\n  background-color: rgba(87, 87, 87, 0.7) !important;\n}\n.center[data-v-c7c1cae6] {\n  padding: 0 calc(50% - 700px);\n}\n.header__top-background[data-v-c7c1cae6] {\n  position: fixed;\n  z-index: 1000;\n  width: 100%;\n  background-color: white;\n}\n.top__links-item[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6] {\n  font-size: 1rem;\n  font-family: \"Plumb\";\n}\n.top__links-item[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6] {\n  text-decoration: none;\n  color: #212529;\n}\n.top__links-item[data-v-c7c1cae6]:hover, .header__top-title[data-v-c7c1cae6]:hover, .header__top-logout[data-v-c7c1cae6]:hover {\n  text-decoration: none;\n  color: #212529;\n}\n.header-group[data-v-c7c1cae6] {\n  display: flex;\n  justify-content: space-between;\n}\n.header__left-side__panel[data-v-c7c1cae6] {\n  position: fixed;\n}\n.header__left-side__panel ul[data-v-c7c1cae6] {\n  min-width: 3rem;\n  padding: 0;\n  background-color: white;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding-bottom: 25px;\n  border-radius: 1rem;\n}\n.header__left-side__panel ul[data-v-c7c1cae6]::before {\n  position: absolute;\n  content: \"\";\n  background-color: white;\n  height: 50px;\n  width: 2.5px;\n  margin-top: -50px;\n}\n.header__left-side__panel li[data-v-c7c1cae6] {\n  margin-top: 25px;\n  list-style: none;\n}\n.header__left-side__panel li i[data-v-c7c1cae6] {\n  cursor: pointer;\n  opacity: 0.55;\n}\n.main-content[data-v-c7c1cae6] {\n  margin-left: 20%;\n  padding-top: 35px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-c7c1cae6],\n*[data-v-c7c1cae6]::after,\n*[data-v-c7c1cae6]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\nbody[data-v-c7c1cae6] {\n  height: 100vmax;\n  background-color: rgba(87, 87, 87, 0.7) !important;\n}\n.center[data-v-c7c1cae6] {\n  padding: 0 calc(50% - 700px);\n}\n.header__top-background[data-v-c7c1cae6] {\n  position: fixed;\n  z-index: 1000;\n  width: 100%;\n  background-color: white;\n}\n.top__links-item[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6] {\n  font-size: 1rem;\n  font-family: \"Plumb\";\n}\n.header__top-logout[data-v-c7c1cae6] {\n  cursor: pointer;\n}\n.top__links-item[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6] {\n  text-decoration: none;\n  color: #212529;\n}\n.top__links-item[data-v-c7c1cae6]:hover, .header__top-title[data-v-c7c1cae6]:hover, .header__top-logout[data-v-c7c1cae6]:hover {\n  text-decoration: none;\n  color: #212529;\n}\n.header-group[data-v-c7c1cae6] {\n  display: flex;\n  justify-content: space-between;\n}\n.header__left-side__panel[data-v-c7c1cae6] {\n  position: fixed;\n}\n.header__left-side__panel ul[data-v-c7c1cae6] {\n  min-width: 3rem;\n  padding: 0;\n  background-color: white;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding-bottom: 25px;\n  border-radius: 1rem;\n}\n.header__left-side__panel ul[data-v-c7c1cae6]::before {\n  position: absolute;\n  content: \"\";\n  background-color: white;\n  height: 50px;\n  width: 2.5px;\n  margin-top: -50px;\n}\n.header__left-side__panel li[data-v-c7c1cae6] {\n  margin-top: 25px;\n  list-style: none;\n}\n.header__left-side__panel li i[data-v-c7c1cae6] {\n  cursor: pointer;\n  opacity: 0.55;\n}\n.main-content[data-v-c7c1cae6] {\n  margin-left: 20%;\n  padding-top: 35px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56960,7 +56951,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_Register_vue":1,"resources_js_views_Login_vue":1,"resources_js_views_MyPage_vue":1,"resources_js_views_404_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_Register_vue":1,"resources_js_views_Login_vue":1,"resources_js_views_MyPage_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

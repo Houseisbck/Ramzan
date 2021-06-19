@@ -17,6 +17,14 @@ class AppController extends Controller
         }
     }
 
+    public function getUser(Request $request, int $id)
+    {
+        $user = User::where('id', $id)->first();
+        if (isset($user)) {
+            return response($user);
+        }
+    }
+
     // public function init()
     // {
     //     $user = Auth::user();

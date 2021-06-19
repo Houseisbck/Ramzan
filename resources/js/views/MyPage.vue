@@ -18,7 +18,7 @@
                 <div class="right-side__title">Информация о пользователе</div>
                 <div class="right-side__descr">
                     <ul>
-                        <li>Имя: Вбивця</li>
+                        <li>Имя: {{ user.name }} </li>
                         <li>День рождения: 2005</li>
                         <li>Город: Украина</li>
                         <li>Языки: Славянский</li>
@@ -114,6 +114,16 @@
 
 <script>
 export default {
-    name: 'mypage'
-}
+  name: "mypage",
+  data: () => ({
+    user: {},
+  }),
+  beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      axios
+        .get("/user/" + to.params.id)
+        .then((response) => (vm.user = response.data));
+    });
+  },
+};
 </script>

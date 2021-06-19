@@ -134,7 +134,6 @@ export default {
         name: this.name,
       };
       await this.register(formData);
-      await this.$router.push("/page");
     },
   },
 };

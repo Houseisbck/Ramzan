@@ -6,18 +6,14 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-// Route::get('/', function () {
-//     return view('auth/register');
-// });
-// Route::get('/', [AppController::class, 'index']);
-// Route::post('/login', [AppController::class, 'index']);
-// Route::get('/mypage', [AppController::class, 'index']);
-
 Route::get('/', function () {
     return view('appPhp');
 });
 
 Route::get('/page/{id}', [AppController::class, 'getPage'])->name('page');
+
+Route::get('/user/{id}', [AppController::class, 'getUser'])->name('user');
+
 
 // Route::prefix('auth')->group(function () {
 //     Route::get('init', 'AppController@init');
