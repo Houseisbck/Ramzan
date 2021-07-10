@@ -83,12 +83,11 @@
 
 <script>
 import { email, required, minLength } from "vuelidate/lib/validators";
-import messages from "../utils/messages";
-import { mapActions } from "vuex";
 
 export default {
   name: "login",
   data: () => ({
+    sessionId: {},
     email: "",
     password: "",
   }),
@@ -96,13 +95,7 @@ export default {
     email: { email, required },
     password: { required, minLength: minLength(6) },
   },
-  // mounted () {
-  //     if (messages[this.$route.query.message]) {
-  //         this.$message(messages[this.$route.query.message])
-  //     }
-  // },
   methods: {
-    ...mapActions(["login"]),
     async submitHandler() {
       if (this.$v.$invalid) {
         this.$v.$touch();
@@ -113,8 +106,12 @@ export default {
         password: this.password,
       };
       try {
-        await this.login(formData);
-        await this.$router.push("/page");
+        await axios.post("/login", {
+          email: formData.email,
+          password: formData.password,
+        });
+        let response = await axios.get("/id");
+        this.$router.push(`/page/${response.data}`);
       } catch (e) {}
     },
   },

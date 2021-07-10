@@ -2106,7 +2106,7 @@ var routes = [{
   }
 }, {
   path: '/login',
-  name: '/login',
+  name: 'login',
   meta: {
     layout: 'empty'
   },
@@ -2153,67 +2153,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   actions: {
-    login: function login(_ref, _ref2) {
+    logout: function logout(_ref) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var commit, email, password;
+        var commit;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 commit = _ref.commit;
-                email = _ref2.email, password = _ref2.password;
-                axios.post('/login', {
-                  email: email,
-                  password: password
-                });
+                axios.post('/logout');
 
-              case 3:
+              case 2:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
-      }))();
-    },
-    register: function register(_ref3, _ref4) {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        var commit, email, password, name;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                commit = _ref3.commit;
-                email = _ref4.email, password = _ref4.password, name = _ref4.name;
-                axios.post('/register', {
-                  email: email,
-                  password: password,
-                  name: name
-                });
-
-              case 3:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }))();
-    },
-    logout: function logout(_ref5) {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var commit;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                commit = _ref5.commit;
-                axios.post('/logout');
-
-              case 2:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3);
       }))();
     }
   }
@@ -6783,7 +6738,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_Downcome_otf__WEBPACK_IMPORTED_MODULE_2__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_Plumb_ttf__WEBPACK_IMPORTED_MODULE_3__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-c7c1cae6],\n*[data-v-c7c1cae6]::after,\n*[data-v-c7c1cae6]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\nbody[data-v-c7c1cae6] {\n  height: 100vmax;\n  background-color: rgba(87, 87, 87, 0.7) !important;\n}\n.center[data-v-c7c1cae6] {\n  padding: 0 calc(50% - 700px);\n}\n.header__top-background[data-v-c7c1cae6] {\n  position: fixed;\n  z-index: 1000;\n  width: 100%;\n  background-color: white;\n}\n.top__links-item[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6] {\n  font-size: 1rem;\n  font-family: \"Plumb\";\n}\n.header__top-logout[data-v-c7c1cae6] {\n  cursor: pointer;\n}\n.top__links-item[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6] {\n  text-decoration: none;\n  color: #212529;\n}\n.top__links-item[data-v-c7c1cae6]:hover, .header__top-title[data-v-c7c1cae6]:hover, .header__top-logout[data-v-c7c1cae6]:hover {\n  text-decoration: none;\n  color: #212529;\n}\n.header-group[data-v-c7c1cae6] {\n  display: flex;\n  justify-content: space-between;\n}\n.header__left-side__panel[data-v-c7c1cae6] {\n  position: fixed;\n}\n.header__left-side__panel ul[data-v-c7c1cae6] {\n  min-width: 3rem;\n  padding: 0;\n  background-color: white;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding-bottom: 25px;\n  border-radius: 1rem;\n}\n.header__left-side__panel ul[data-v-c7c1cae6]::before {\n  position: absolute;\n  content: \"\";\n  background-color: white;\n  height: 50px;\n  width: 2.5px;\n  margin-top: -50px;\n}\n.header__left-side__panel li[data-v-c7c1cae6] {\n  margin-top: 25px;\n  list-style: none;\n}\n.header__left-side__panel li i[data-v-c7c1cae6] {\n  cursor: pointer;\n  opacity: 0.55;\n}\n.main-content[data-v-c7c1cae6] {\n  margin-left: 20%;\n  padding-top: 35px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-c7c1cae6],\n*[data-v-c7c1cae6]::after,\n*[data-v-c7c1cae6]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\nbody[data-v-c7c1cae6] {\n  height: 100vh;\n  background-color: rgba(87, 87, 87, 0.7) !important;\n}\n.center[data-v-c7c1cae6] {\n  padding: 0 calc(50% - 700px);\n}\n.header__top-background[data-v-c7c1cae6] {\n  position: fixed;\n  z-index: 1000;\n  width: 100%;\n  background-color: white;\n}\n.top__links-item[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6] {\n  font-size: 1rem;\n  font-family: \"Plumb\";\n}\n.header__top-logout[data-v-c7c1cae6] {\n  cursor: pointer;\n}\n.top__links-item[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6] {\n  text-decoration: none;\n  color: #212529;\n}\n.top__links-item[data-v-c7c1cae6]:hover, .header__top-title[data-v-c7c1cae6]:hover, .header__top-logout[data-v-c7c1cae6]:hover {\n  text-decoration: none;\n  color: #212529;\n}\n.header-group[data-v-c7c1cae6] {\n  display: flex;\n  justify-content: space-between;\n}\n.header__left-side__panel[data-v-c7c1cae6] {\n  position: fixed;\n}\n.header__left-side__panel ul[data-v-c7c1cae6] {\n  min-width: 3rem;\n  padding: 0;\n  background-color: white;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding-bottom: 25px;\n  border-radius: 1rem;\n}\n.header__left-side__panel ul[data-v-c7c1cae6]::before {\n  position: absolute;\n  content: \"\";\n  background-color: white;\n  height: 50px;\n  width: 2.5px;\n  margin-top: -50px;\n}\n.header__left-side__panel li[data-v-c7c1cae6] {\n  margin-top: 25px;\n  list-style: none;\n}\n.header__left-side__panel li i[data-v-c7c1cae6] {\n  cursor: pointer;\n  opacity: 0.55;\n}\n.main-content[data-v-c7c1cae6] {\n  margin-left: 20%;\n  padding-top: 35px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

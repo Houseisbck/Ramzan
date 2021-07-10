@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\AppController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -10,15 +11,12 @@ Route::get('/', function () {
     return view('appPhp');
 });
 
-Route::get('/page/{id}', [AppController::class, 'getPage'])->name('page');
+Route::prefix('/page')->group(function () {
+    Route::get('/{id}', [AppController::class, 'getPage'])->name('page');
+});
+
+Route::post('/upload', [UploadController::class, 'updateAvatar'])->name('updateAvatar');
 
 Route::get('/user/{id}', [AppController::class, 'getUser'])->name('user');
 
-
-// Route::prefix('auth')->group(function () {
-//     Route::get('init', 'AppController@init');
-//     Route::post('login', 'AppController@login');
-//     Route::post('register', 'AppController@register');
-//     Route::post('logout', 'AppController@logout');
-//     Route::get('/mypage/{id}', 'PagesController@getPage')->name('mypage');
-// });
+Route::get('/id', [AppController::class, 'getSessionId'])->name('id');

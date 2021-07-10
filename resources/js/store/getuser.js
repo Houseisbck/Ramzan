@@ -1,6 +1,17 @@
 export default {
-    actions:{
-        async getUser ({ commit }, { email, password }) {
-            axios.post('/login',{email, password})
+    state: {
+        error: null
+    },
+    mutations: {
+        setError(state, error) {
+            state.error = error
+        },
+        clearError(state) {
+            state.error = null
         }
-}}
+    },
+    actions: {},
+    getters: {
+        error: s => s.error
+    },
+}

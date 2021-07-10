@@ -107,7 +107,6 @@
 
 <script>
 import { email, required, minLength } from "vuelidate/lib/validators";
-import { mapActions } from "vuex";
 
 export default {
   name: "register",
@@ -122,7 +121,6 @@ export default {
     password: { required, minLength: minLength(6) },
   },
   methods: {
-    ...mapActions(["register"]),
     async submitHandler() {
       if (this.$v.$invalid) {
         this.$v.$touch();
@@ -134,6 +132,13 @@ export default {
         name: this.name,
       };
       await this.register(formData);
+      await axios.post("/register", {
+        email: formData.email,
+        password: formData.password,
+        name: formData.name,
+      });
+      let response = await axios.get("/id");
+      this.$router.push(`/page/${response.data}`);
     },
   },
 };

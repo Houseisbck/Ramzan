@@ -14,7 +14,7 @@ const routes = [
     },
     {
         path: '/login',
-        name: '/login',
+        name: 'login',
         meta: {
             layout: 'empty'
         },
