@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateAvatar extends Migration
+class UserAvatar extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class UpdateAvatar extends Migration
      */
     public function up()
     {
-        Schema::create('avatar', function (Blueprint $table) {
+        Schema::create('user_avatar', function (Blueprint $table) {
             $table->id();
-            $table->int('userId');
-            $table->string('avatar')->nullable();
-            $table->string('avatarMiniature')->nullable();
+            $table->integer('user_id');
+            $table->primary('user_id');
+            $table->string('avatar_image')->nullable();
+            $table->string('avatar_image_miniature')->nullable();
         });
     }
 
@@ -28,6 +29,6 @@ class UpdateAvatar extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('user_avatar');
     }
 }
