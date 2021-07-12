@@ -176,26 +176,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   name: _this.name
                 };
                 _context.next = 6;
-                return _this.register(formData);
-
-              case 6:
-                _context.next = 8;
                 return axios.post("/register", {
                   email: formData.email,
                   password: formData.password,
                   name: formData.name
                 });
 
-              case 8:
-                _context.next = 10;
+              case 6:
+                _context.next = 8;
                 return axios.get("/id");
 
-              case 10:
+              case 8:
                 response = _context.sent;
 
                 _this.$router.push("/page/".concat(response.data));
 
-              case 12:
+              case 10:
               case "end":
                 return _context.stop();
             }

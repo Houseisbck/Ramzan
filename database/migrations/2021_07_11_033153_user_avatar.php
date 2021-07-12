@@ -13,12 +13,12 @@ class UserAvatar extends Migration
      */
     public function up()
     {
-        Schema::create('user_avatar', function (Blueprint $table) {
+        Schema::create('user_avatars', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->primary('user_id');
-            $table->string('avatar_image')->nullable();
-            $table->string('avatar_image_miniature')->nullable();
+            $table->biginteger('user_id');
+            $table->string('path')->nullable();
+            $table->string('path_miniature')->nullable();
+            $table->timestamps();
         });
     }
 

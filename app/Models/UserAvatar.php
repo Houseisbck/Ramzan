@@ -9,11 +9,5 @@ class UserAvatar extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-
-        'user_id',
-        'avatar_image',
-        'avatar_image_miniature'
-
-    ];
+    protected $guarded = [];
 }

@@ -1,7 +1,12 @@
 <template>
   <div>
     <div class="mypage-group d-flex justify-content-center col-12 p-0">
-      <myPageAvatar @avatar="updateAvatar" :user="user" :sessionId="sessionId"></myPageAvatar>
+      <myPageAvatar
+        @avatar="updateAvatar"
+        :user="user"
+        :sessionId="sessionId"
+        :userAvatar="userAvatar"
+      ></myPageAvatar>
       <myPageAbout :user="user"></myPageAbout>
     </div>
     <section class="main mt-5">
@@ -35,6 +40,7 @@ export default {
   name: "mypage",
   data: () => ({
     user: {},
+    userAvatar: {},
     sessionId: {},
   }),
   methods: {
@@ -49,9 +55,15 @@ export default {
     next((vm) => {
       axios.get("/user/" + to.params.id).then((response) => {
         vm.user = response.data;
-        if (response.data.avatar === null || undefined) {
-          vm.user.avatar = "/public/images/default.jpg";
-        }
+        axios.get("/getUserAvatar").then((response) => {
+          if (response.data.length == 0) {
+            vm.userAvatar = [
+              {path: ''}
+            ];
+          } else {
+            vm.userAvatar = response.data;
+          }
+        });
       });
     });
   },

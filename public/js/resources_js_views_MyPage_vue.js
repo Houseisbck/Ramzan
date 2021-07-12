@@ -44,6 +44,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -59,6 +64,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       user: {},
+      userAvatar: {},
       sessionId: {}
     };
   },
@@ -92,10 +98,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     next(function (vm) {
       axios.get("/user/" + to.params.id).then(function (response) {
         vm.user = response.data;
-
-        if (response.data.avatar === null || undefined) {
-          vm.user.avatar = "/public/images/default.jpg";
-        }
+        axios.get("/getUserAvatar").then(function (response) {
+          if (response.data.length == 0) {
+            vm.userAvatar = [{
+              path: ''
+            }];
+          } else {
+            vm.userAvatar = response.data;
+          }
+        });
       });
     });
   }
@@ -187,13 +198,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   name: "myPageAvatar",
   props: {
     user: {},
-    sessionId: {}
+    sessionId: {},
+    userAvatar: []
   },
   data: function data() {
     return {
       hoverClass: {},
-      avatar: "",
-      user: {}
+      avatar: ""
     };
   },
   methods: {
@@ -215,13 +226,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 formData.set("avatar", _this.avatar);
                 _context.next = 7;
                 return axios.post("/upload", formData).then(function (response) {
-                  return _this.user = response.data;
+                  return _this.userAvatar[userAvatar.length - 1] = response.data;
                 });
 
               case 7:
-                _this.$emit("avatar", _this.user);
-
-              case 8:
               case "end":
                 return _context.stop();
             }
@@ -1055,7 +1063,11 @@ var render = function() {
       { staticClass: "mypage-group d-flex justify-content-center col-12 p-0" },
       [
         _c("myPageAvatar", {
-          attrs: { user: _vm.user, sessionId: _vm.sessionId },
+          attrs: {
+            user: _vm.user,
+            sessionId: _vm.sessionId,
+            userAvatar: _vm.userAvatar
+          },
           on: { avatar: _vm.updateAvatar }
         }),
         _vm._v(" "),
@@ -1164,7 +1176,10 @@ var render = function() {
       [
         _c("img", {
           staticClass: "image-block col-9",
-          attrs: { src: _vm.user.avatar, alt: "" },
+          attrs: {
+            src: _vm.userAvatar[_vm.userAvatar.length - 1].path,
+            alt: ""
+          },
           on: {
             mouseenter: function($event) {
               _vm.hoverClass = "show-upload"

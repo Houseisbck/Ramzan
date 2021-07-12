@@ -131,7 +131,6 @@ export default {
         password: this.password,
         name: this.name,
       };
-      await this.register(formData);
       await axios.post("/register", {
         email: formData.email,
         password: formData.password,

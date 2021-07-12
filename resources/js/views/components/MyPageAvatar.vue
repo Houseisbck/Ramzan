@@ -5,7 +5,7 @@
         @mouseenter="hoverClass = 'show-upload'"
         @mouseleave="hoverClass = 'hide-upload'"
         class="image-block col-9"
-        :src="user.avatar"
+        :src="userAvatar[userAvatar.length - 1].path"
         alt=""
       />
       <div
@@ -27,12 +27,12 @@ export default {
   props: {
     user: {},
     sessionId: {},
+    userAvatar: [],
   },
 
   data: () => ({
     hoverClass: {},
     avatar: "",
-    user: {},
   }),
   methods: {
     async handleOnChange(e) {
@@ -44,9 +44,9 @@ export default {
 
       await axios
         .post("/upload", formData)
-        .then((response) => (this.user = response.data));
-
-      this.$emit("avatar", this.user);
+        .then(
+          (response) => (this.userAvatar[userAvatar.length - 1] = response.data)
+        );
     },
   },
 };

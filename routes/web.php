@@ -17,6 +17,8 @@ Route::prefix('/page')->group(function () {
 
 Route::post('/upload', [UploadController::class, 'updateAvatar'])->name('updateAvatar');
 
+Route::get('/getUserAvatar', [UploadController::class, 'getUserAvatar'])->name('getUserAvatar');
+
 Route::get('/user/{id}', [AppController::class, 'getUser'])->name('user');
 
 Route::get('/id', [AppController::class, 'getSessionId'])->name('id');
