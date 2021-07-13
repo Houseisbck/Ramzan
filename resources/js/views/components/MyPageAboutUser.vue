@@ -1,5 +1,5 @@
 <template>
-  <div class="header__right-side__panel col-4">
+  <div class="header__right-side__panel">
     <div class="right-side__panel-sticks">
       <div class="panel__stick-first"></div>
       <div class="panel__stick-second"></div>

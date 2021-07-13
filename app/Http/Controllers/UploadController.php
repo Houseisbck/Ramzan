@@ -20,10 +20,12 @@ class UploadController extends Controller
 
             Image::make($avatar)->resize(1025, 460)->save(storage_path('/app/public/images/' . $filename));
 
-            $userAvatar = UserAvatar::create([
+            UserAvatar::create([
                 'user_id' => $user->id,
                 'path' => '/public/images/' . $filename,
             ]);
+
+            $userAvatar = UserAvatar::where('user_id', $user->id)->get();
 
             return response($userAvatar);
         }

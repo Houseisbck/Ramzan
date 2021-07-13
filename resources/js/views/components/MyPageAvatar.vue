@@ -1,10 +1,10 @@
 <template>
-  <div class="header__center col-5">
-    <form class="header__center-image d-flex align-items-center" action="">
+  <div class="header__center">
+    <form class="header__center-image" action="">
       <img
         @mouseenter="hoverClass = 'show-upload'"
         @mouseleave="hoverClass = 'hide-upload'"
-        class="image-block col-9"
+        class="image-block"
         :src="userAvatar[userAvatar.length - 1].path"
         alt=""
       />
@@ -33,6 +33,7 @@ export default {
   data: () => ({
     hoverClass: {},
     avatar: "",
+    createAvatar: {},
   }),
   methods: {
     async handleOnChange(e) {
@@ -44,9 +45,8 @@ export default {
 
       await axios
         .post("/upload", formData)
-        .then(
-          (response) => (this.userAvatar[userAvatar.length - 1] = response.data)
-        );
+        .then((response) => (this.createAvatar = response.data));
+      this.$emit("avatar", this.createAvatar);
     },
   },
 };

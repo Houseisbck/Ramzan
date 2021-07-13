@@ -1,22 +1,14 @@
 <template>
-  <div>
-    <div class="mypage-group d-flex justify-content-center col-12 p-0">
-      <myPageAvatar
-        @avatar="updateAvatar"
-        :user="user"
-        :sessionId="sessionId"
-        :userAvatar="userAvatar"
-      ></myPageAvatar>
-      <myPageAbout :user="user"></myPageAbout>
-    </div>
-    <section class="main mt-5">
-      <div
-        class="mypage-group container d-flex justify-content-center p-0 col-12"
-      >
-        <myPageFriendList></myPageFriendList>
-        <myPagePost></myPagePost>
-      </div>
-    </section>
+  <div class="page-group">
+    <myPageAvatar
+      @avatar="updateAvatar"
+      :user="user"
+      :sessionId="sessionId"
+      :userAvatar="userAvatar"
+    ></myPageAvatar>
+    <myPageAbout :user="user"></myPageAbout>
+    <myPageFriendList></myPageFriendList>
+    <myPagePost></myPagePost>
   </div>
 </template>
   
@@ -44,8 +36,8 @@ export default {
     sessionId: {},
   }),
   methods: {
-    updateAvatar(user) {
-      this.user = user;
+    updateAvatar(createAvatar) {
+      this.userAvatar = createAvatar;
     },
   },
   async mounted() {
@@ -57,9 +49,7 @@ export default {
         vm.user = response.data;
         axios.get("/getUserAvatar").then((response) => {
           if (response.data.length == 0) {
-            vm.userAvatar = [
-              {path: ''}
-            ];
+            vm.userAvatar = [{ path: "/public/images/default.jpg" }];
           } else {
             vm.userAvatar = response.data;
           }

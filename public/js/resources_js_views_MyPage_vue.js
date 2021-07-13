@@ -41,14 +41,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -69,8 +61,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    updateAvatar: function updateAvatar(user) {
-      this.user = user;
+    updateAvatar: function updateAvatar(createAvatar) {
+      this.userAvatar = createAvatar;
     }
   },
   mounted: function mounted() {
@@ -101,7 +93,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         axios.get("/getUserAvatar").then(function (response) {
           if (response.data.length == 0) {
             vm.userAvatar = [{
-              path: ''
+              path: "/public/images/default.jpg"
             }];
           } else {
             vm.userAvatar = response.data;
@@ -204,7 +196,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       hoverClass: {},
-      avatar: ""
+      avatar: "",
+      createAvatar: {}
     };
   },
   methods: {
@@ -226,10 +219,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 formData.set("avatar", _this.avatar);
                 _context.next = 7;
                 return axios.post("/upload", formData).then(function (response) {
-                  return _this.userAvatar[userAvatar.length - 1] = response.data;
+                  return _this.createAvatar = response.data;
                 });
 
               case 7:
+                _this.$emit("avatar", _this.createAvatar);
+
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -288,44 +284,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "myPageFriendList",
@@ -350,56 +308,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _assets_images_orig_16151963622a8b73d4077d7ea242993e1665322891_jpeg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/images/orig-16151963622a8b73d4077d7ea242993e1665322891.jpeg */ "./resources/js/assets/images/orig-16151963622a8b73d4077d7ea242993e1665322891.jpeg");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _UI_DynamicTextarea_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UI/DynamicTextarea.vue */ "./resources/js/views/components/UI/DynamicTextarea.vue");
 //
 //
 //
@@ -409,12 +318,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    DynamicTextarea: _UI_DynamicTextarea_vue__WEBPACK_IMPORTED_MODULE_1__.default
+  },
   name: "myPagePost",
   data: function data() {
     return {
-      postImage: _assets_images_orig_16151963622a8b73d4077d7ea242993e1665322891_jpeg__WEBPACK_IMPORTED_MODULE_0__.default
+      postImage: _assets_images_orig_16151963622a8b73d4077d7ea242993e1665322891_jpeg__WEBPACK_IMPORTED_MODULE_0__.default,
+      textarea: "",
+      rows: 1,
+      cols: 47
     };
+  },
+  methods: {
+    input: function input() {
+      console.log(this.cols);
+      this.rows = 1 + Math.floor(this.textarea.length / 36);
+    }
   }
 });
 
@@ -455,7 +377,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_post_footer_like_svg__WEBPACK_IMPORTED_MODULE_5__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_post_footer_repost_svg__WEBPACK_IMPORTED_MODULE_6__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".freindlist-roster__group a {\n  text-decoration: none;\n  color: #212529;\n}\n.freindlist-roster__group a:hover {\n  text-decoration: none;\n  color: #212529;\n}\n.mypage-group {\n  height: 330px;\n}\n.header__center-image {\n  margin-top: 30px;\n  display: flex;\n  flex-direction: column;\n}\n.header__center-group__input {\n  margin-top: -20px;\n  display: flex;\n  justify-content: flex-start;\n}\n.header__center-group__input input {\n  display: none;\n}\n.header__center-group__input label {\n  cursor: pointer;\n  opacity: 0;\n  padding-bottom: 15px;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: cover;\n  width: 12rem;\n  height: 17px;\n}\n.center__image-input {\n  padding: 0 5px;\n  font-family: \"Plumb\";\n  font-size: 15px;\n  cursor: pointer;\n  display: flex;\n  background: white;\n  border-radius: 40px;\n  height: 23px;\n  align-items: center;\n  justify-content: center;\n}\n.image-block {\n  margin-top: 25px;\n  min-height: 250px;\n  min-width: 250px;\n  border-radius: 10%;\n}\n.right-side__panel-sticks {\n  width: 100%;\n  display: flex;\n  justify-content: space-around;\n}\n.panel__stick-first {\n  content: \"\";\n  background-color: #fff;\n  width: 2px;\n  height: 30px;\n  margin-top: -40px;\n}\n.panel__stick-second {\n  content: \"\";\n  background-color: #fff;\n  width: 2px;\n  height: 30px;\n  margin-top: -40px;\n}\n.header__right-side__panel {\n  padding: 10px;\n  margin-top: 30px;\n  border: 1px solid white;\n  border-radius: 5%;\n  background-color: #929292;\n}\n.right-side__title {\n  font-size: 1.3rem;\n  color: #ffffff;\n}\n.right-side__descr ul {\n  padding: 0;\n}\n.right-side__descr ul li {\n  color: #ffffff;\n  list-style: none;\n}\n.main__post-form input {\n  display: none;\n}\n.post__form-text {\n  background-color: #fff;\n  border: none;\n  outline: none;\n  position: static !important;\n}\n.post__form-attach__files {\n  height: 0;\n}\n.post__form-attach__files li {\n  overflow: hidden;\n}\n.post__form-submit {\n  cursor: pointer;\n  color: white;\n  border-bottom: 1px solid white;\n}\n.post__form-file div {\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 3px;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  background-size: cover;\n  width: 20px;\n  height: 20px;\n}\n.main__post-note {\n  border: 2px solid white;\n  border-radius: 10px;\n  background-color: #929292;\n}\n.post__note-footer {\n  background-color: white;\n}\n.post__note-title {\n  color: white;\n}\n.post__note-image {\n  background-size: contain;\n}\n.note__footer-repost, .note__footer-like, .note__footer-edit {\n  cursor: pointer;\n  background-size: cover;\n  width: 1.3rem;\n  height: 1.3rem;\n  opacity: 0.7;\n}\n.note__footer-edit {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n}\n.note__footer-like {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n}\n.note__footer-repost {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\n}\n.footer-note__like-group {\n  cursor: pointer;\n}\n.main__friendlist {\n  border: 1px solid white;\n  border-radius: 15px;\n  margin-top: 0;\n  padding-top: 10px;\n  background-color: #929292;\n}\n.friendlist-roster ul {\n  border-top: 1px solid white;\n  padding-top: 15px;\n}\n.friendlist-roster ul li {\n  list-style: none;\n}\n.friendlist-title {\n  color: white;\n  text-align: start;\n  font-family: \"Plumb\";\n  font-size: 1.2rem;\n  margin-left: 10%;\n}\n.friendlist__roster-image {\n  border-radius: 50%;\n}\n.friendlist__roster-username {\n  text-align: center;\n  color: white;\n  text-decoration: none !important;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".note__footer-repost, .note__footer-like, .note__footer-edit {\n  cursor: pointer;\n  background-size: cover;\n  width: 1.3rem;\n  height: 1.3rem;\n  opacity: 0.7;\n}\n.page-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-columns: 1fr 1fr;\n}\n.header__center-image {\n  margin-top: 30px;\n  display: flex;\n  flex-direction: column;\n}\n.header__top {\n  align-items: center;\n  max-height: 40px;\n}\n.header__top-background {\n  align-items: center;\n  max-height: 40px;\n  display: flex;\n}\n.header__center-group__input {\n  margin-top: -20px;\n  display: flex;\n  justify-content: center;\n}\n.header__center-group__input input {\n  display: none;\n}\n.header__center-group__input label {\n  cursor: pointer;\n  opacity: 0;\n  padding-bottom: 15px;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: cover;\n  width: 12rem;\n  height: 17px;\n}\n.center__image-input {\n  padding: 0 5px;\n  font-family: \"Plumb\";\n  font-size: 15px;\n  cursor: pointer;\n  display: flex;\n  background: white;\n  border-radius: 40px;\n  height: 23px;\n  align-items: center;\n  justify-content: center;\n}\n.image-block {\n  margin-top: 25px;\n  margin: auto;\n  height: 250px;\n  width: 350px;\n}\n.right-side__panel-sticks {\n  width: 100%;\n  display: flex;\n  justify-content: space-around;\n}\n.panel__stick-first {\n  content: \"\";\n  background-color: #fff;\n  width: 2px;\n  height: 30px;\n  margin-top: -40px;\n}\n.panel__stick-second {\n  content: \"\";\n  background-color: #fff;\n  width: 2px;\n  height: 30px;\n  margin-top: -40px;\n}\n.header__right-side__panel {\n  width: 350px;\n  height: 250px;\n  padding: 10px;\n  margin: 30px 0 0 0;\n  border: 1px solid white;\n  border-radius: 5%;\n  background-color: #999999;\n}\n.right-side__title {\n  font-size: 1.3rem;\n  color: #ffffff;\n}\n.right-side__descr ul {\n  padding: 0;\n}\n.right-side__descr ul li {\n  color: #ffffff;\n  list-style: none;\n}\n.post__form-file div {\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 3px;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  background-size: cover;\n  width: 20px;\n  height: 20px;\n}\n.note__footer-edit {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n}\n.note__footer-like {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n}\n.note__footer-repost {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\n}\n.footer-note__like-group {\n  cursor: pointer;\n}\n.friendlist-container {\n  padding: 10px;\n  border-radius: 10px;\n  margin: 80px auto 0 auto;\n  height: 350px;\n  width: 350px;\n  border: 1px solid white;\n  background-color: #999999;\n}\n.friendlist__content-group {\n  margin-top: 10px;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-columns: 1fr 1fr 1fr;\n}\n.friendlist__top-panel {\n  padding: 10px 20px 20px 20px;\n  color: white;\n  border-bottom: 2px solid white;\n}\n.friendlist-item {\n  cursor: pointer;\n  margin-top: 20px;\n  margin-left: auto;\n  margin-right: auto;\n  max-width: 100px;\n  max-height: 110px;\n  text-decoration: none !important;\n}\n.friendlist-item img {\n  border-radius: 50%;\n  height: 80px;\n  width: 80px;\n}\n.friendlist-item div {\n  color: white;\n  display: flex;\n  justify-content: center;\n  height: 20px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1057,37 +979,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "mypage-group d-flex justify-content-center col-12 p-0" },
-      [
-        _c("myPageAvatar", {
-          attrs: {
-            user: _vm.user,
-            sessionId: _vm.sessionId,
-            userAvatar: _vm.userAvatar
-          },
-          on: { avatar: _vm.updateAvatar }
-        }),
-        _vm._v(" "),
-        _c("myPageAbout", { attrs: { user: _vm.user } })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("section", { staticClass: "main mt-5" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "mypage-group container d-flex justify-content-center p-0 col-12"
+  return _c(
+    "div",
+    { staticClass: "page-group" },
+    [
+      _c("myPageAvatar", {
+        attrs: {
+          user: _vm.user,
+          sessionId: _vm.sessionId,
+          userAvatar: _vm.userAvatar
         },
-        [_c("myPageFriendList"), _vm._v(" "), _c("myPagePost")],
-        1
-      )
-    ])
-  ])
+        on: { avatar: _vm.updateAvatar }
+      }),
+      _vm._v(" "),
+      _c("myPageAbout", { attrs: { user: _vm.user } }),
+      _vm._v(" "),
+      _c("myPageFriendList"),
+      _vm._v(" "),
+      _c("myPagePost")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1112,7 +1024,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "header__right-side__panel col-4" }, [
+  return _c("div", { staticClass: "header__right-side__panel" }, [
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "right-side__title" }, [
@@ -1166,20 +1078,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "header__center col-5" }, [
-    _c(
-      "form",
-      {
-        staticClass: "header__center-image d-flex align-items-center",
-        attrs: { action: "" }
-      },
-      [
-        _c("img", {
-          staticClass: "image-block col-9",
-          attrs: {
-            src: _vm.userAvatar[_vm.userAvatar.length - 1].path,
-            alt: ""
+  return _c("div", { staticClass: "header__center" }, [
+    _c("form", { staticClass: "header__center-image", attrs: { action: "" } }, [
+      _c("img", {
+        staticClass: "image-block",
+        attrs: { src: _vm.userAvatar[_vm.userAvatar.length - 1].path, alt: "" },
+        on: {
+          mouseenter: function($event) {
+            _vm.hoverClass = "show-upload"
           },
+          mouseleave: function($event) {
+            _vm.hoverClass = "hide-upload"
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "header__center-group__input",
+          class: _vm.hoverClass,
           on: {
             mouseenter: function($event) {
               _vm.hoverClass = "show-upload"
@@ -1188,35 +1106,19 @@ var render = function() {
               _vm.hoverClass = "hide-upload"
             }
           }
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "header__center-group__input",
-            class: _vm.hoverClass,
-            on: {
-              mouseenter: function($event) {
-                _vm.hoverClass = "show-upload"
-              },
-              mouseleave: function($event) {
-                _vm.hoverClass = "hide-upload"
-              }
-            }
-          },
-          [
-            _c("input", {
-              attrs: { id: "headerSearchImage", type: "file" },
-              on: { change: _vm.handleOnChange }
-            }),
-            _vm._v(" "),
-            _vm.sessionId == _vm.user.id
-              ? _c("label", { attrs: { for: "headerSearchImage" } })
-              : _vm._e()
-          ]
-        )
-      ]
-    )
+        },
+        [
+          _c("input", {
+            attrs: { id: "headerSearchImage", type: "file" },
+            on: { change: _vm.handleOnChange }
+          }),
+          _vm._v(" "),
+          _vm.sessionId == _vm.user.id
+            ? _c("label", { attrs: { for: "headerSearchImage" } })
+            : _vm._e()
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -1242,172 +1144,51 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "col-5 d-flex align-items-center justify-content-center" },
-    [
-      _c(
-        "div",
-        {
-          staticClass:
-            "col-9 main__friendlist d-flex justify-content-center flex-column"
-        },
-        [
-          _c("div", { staticClass: "friendlist-title mb-2" }, [
-            _vm._v("Друзья: 6")
-          ]),
+  return _c("div", { staticClass: "friendlist-container" }, [
+    _c("div", { staticClass: "friendlist-group" }, [
+      _c("div", { staticClass: "friendlist__top-panel" }, [
+        _vm._v("Друзья: 6")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "friendlist__content-group" }, [
+        _c("a", { staticClass: "friendlist-item", attrs: { href: "#" } }, [
+          _c("img", { attrs: { src: _vm.friendavatar, alt: "" } }),
           _vm._v(" "),
-          _c("div", { staticClass: "friendlist-roster" }, [
-            _c("ul", { staticClass: "d-flex flex-column col-12 p-3 m-0" }, [
-              _c(
-                "div",
-                { staticClass: "freindlist-roster__group mb-2 d-flex" },
-                [
-                  _c("li", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "d-flex flex-column align-items-center",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "friendlist__roster-image col-12",
-                          attrs: { src: _vm.friendavatar }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "friendlist__roster-username" },
-                          [_vm._v("Олег")]
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "d-flex flex-column align-items-center",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "friendlist__roster-image col-12",
-                          attrs: { src: _vm.friendavatar }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "friendlist__roster-username" },
-                          [_vm._v("Олег")]
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "d-flex flex-column align-items-center",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "friendlist__roster-image col-12",
-                          attrs: { src: _vm.friendavatar }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "friendlist__roster-username" },
-                          [_vm._v("Олег")]
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "freindlist-roster__group d-flex mt-2" },
-                [
-                  _c("li", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "d-flex flex-column align-items-center",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "friendlist__roster-image col-12",
-                          attrs: { src: _vm.friendavatar }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "friendlist__roster-username" },
-                          [_vm._v("Олег")]
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "d-flex flex-column align-items-center",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "friendlist__roster-image col-12",
-                          attrs: { src: _vm.friendavatar }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "friendlist__roster-username" },
-                          [_vm._v("Олег")]
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "d-flex flex-column align-items-center",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "friendlist__roster-image col-12",
-                          attrs: { src: _vm.friendavatar }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "friendlist__roster-username" },
-                          [_vm._v("Олег")]
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              )
-            ])
-          ])
-        ]
-      )
-    ]
-  )
+          _c("div", [_vm._v("Олег")])
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "friendlist-item" }, [
+          _c("img", { attrs: { src: _vm.friendavatar, alt: "" } }),
+          _vm._v(" "),
+          _c("div", [_vm._v("Олег")])
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "friendlist-item" }, [
+          _c("img", { attrs: { src: _vm.friendavatar, alt: "" } }),
+          _vm._v(" "),
+          _c("div", [_vm._v("Олег")])
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "friendlist-item" }, [
+          _c("img", { attrs: { src: _vm.friendavatar, alt: "" } }),
+          _vm._v(" "),
+          _c("div", [_vm._v("Олег")])
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "friendlist-item" }, [
+          _c("img", { attrs: { src: _vm.friendavatar, alt: "" } }),
+          _vm._v(" "),
+          _c("div", [_vm._v("Олег")])
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "friendlist-item" }, [
+          _c("img", { attrs: { src: _vm.friendavatar, alt: "" } }),
+          _vm._v(" "),
+          _c("div", [_vm._v("Олег")])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1432,118 +1213,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "main__post-group d-flex flex-column h-25 p-0 col-4" },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "main__post-note mt-2" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "post__note-title d-flex justify-content-start pl-3 pr-3 m-1"
-          },
-          [_vm._v("\n      Название поста\n    ")]
-        ),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "post__note-image col-12 mb-3",
-          attrs: { src: _vm.postImage, alt: "" }
-        }),
-        _vm._v(" "),
-        _vm._m(1)
-      ])
-    ]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
+  return _c("div", { staticClass: "post-group" }, [
+    _c(
       "form",
-      { staticClass: "main__post-form col-12 p-0", attrs: { action: "" } },
-      [
-        _c(
-          "div",
-          {
-            staticClass:
-              "col-12 d-flex justify-content-end align-items-center flex-column"
-          },
-          [
-            _c("input", { attrs: { id: "postFormFile", type: "file" } }),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "post__form-file d-flex col-12 justify-content-end p-0",
-                attrs: { for: "postFormFile" }
-              },
-              [_c("div")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "post__form-text col-12 d-flex pr-4 pl-2",
-              attrs: { type: "text" }
-            }),
-            _vm._v(" "),
-            _c("ul", { staticClass: "post__form-attach__files" }, [_c("li")]),
-            _vm._v(" "),
-            _c("input", { attrs: { id: "postFormSubmit", type: "submit" } }),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "post__form-submit col-12 justify-content-center p-0 d-flex",
-                attrs: { for: "postFormSubmit" }
-              },
-              [_vm._v("Опубликовать")]
-            )
-          ]
-        )
-      ]
+      { staticClass: "post-form", attrs: { action: "" } },
+      [_c("dynamic-textarea")],
+      1
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "\n        post__note-footer\n        pt-1\n        pb-1\n        d-flex\n        col-12\n        justify-content-around\n        mb-2\n      "
-      },
-      [
-        _c("div", { staticClass: "note__footer-edit" }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "note-group__active d-flex justify-content-between col-4"
-          },
-          [
-            _c("div", { staticClass: "footer-note__like-group d-flex" }, [
-              _c("div", { staticClass: "note__footer-like" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "note__footer-like__number ml-1" }, [
-                _vm._v("12")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "note__footer-repost" })
-          ]
-        )
-      ]
-    )
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
