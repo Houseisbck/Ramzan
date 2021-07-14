@@ -4,26 +4,14 @@
     box-sizing: border-box
 }
 
-@font-face {
-    font-family: 'Downcome';
-    src: url('../assets/fonts/Downcome.otf');
-    font-style: normal;
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: 'Plumb';
-    src: url('../assets/fonts/Plumb.ttf');
-    font-style: normal;
-    font-weight: 300;
-}
+@import './variables/_fonts';
 
 body {
     height: 100vh;
     background-color: rgba(87, 87, 87, 0.7) !important;
 }
 
-.center{
+.center {
     padding: 0 calc(50% - 600px);
 }
 
@@ -72,6 +60,7 @@ body {
 
 .header__left-side__panel {
     position: fixed;
+
     ul {
         min-width: 3rem;
         padding: 0;
@@ -103,7 +92,7 @@ body {
     }
 }
 
-.main-content{
+.main-content {
     margin-left: 20%;
     padding-top: 35px;
 }

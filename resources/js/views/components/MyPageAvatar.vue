@@ -47,7 +47,7 @@ export default {
         .post("/upload", formData)
         .then((response) => (this.createAvatar = response.data));
       this.$emit("avatar", this.createAvatar);
-    },
+    },  
   },
 };
 </script>

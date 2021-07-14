@@ -2001,6 +2001,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _assets_images_form_post_attach_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../assets/images/form-post-attach.svg */ "./resources/js/assets/images/form-post-attach.svg");
 //
 //
 //
@@ -2008,8 +2009,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "dynamic-textarea"
+  name: "dynamic-textarea",
+  data: function data() {
+    return {
+      svgAttach: _assets_images_form_post_attach_svg__WEBPACK_IMPORTED_MODULE_0__.default
+    };
+  }
 });
 
 /***/ }),
@@ -6781,7 +6791,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _assets_fonts_Downcome_otf__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/fonts/Downcome.otf */ "./resources/js/assets/fonts/Downcome.otf");
 /* harmony import */ var _assets_fonts_Plumb_ttf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/fonts/Plumb.ttf */ "./resources/js/assets/fonts/Plumb.ttf");
+/* harmony import */ var _assets_fonts_ApexMk3_ttf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/fonts/ApexMk3.ttf */ "./resources/js/assets/fonts/ApexMk3.ttf");
+/* harmony import */ var _assets_fonts_Geometos_ttf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/fonts/Geometos.ttf */ "./resources/js/assets/fonts/Geometos.ttf");
 // Imports
+
+
 
 
 
@@ -6789,8 +6803,10 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_Downcome_otf__WEBPACK_IMPORTED_MODULE_2__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_Plumb_ttf__WEBPACK_IMPORTED_MODULE_3__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_ApexMk3_ttf__WEBPACK_IMPORTED_MODULE_4__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_Geometos_ttf__WEBPACK_IMPORTED_MODULE_5__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-c7c1cae6],\n*[data-v-c7c1cae6]::after,\n*[data-v-c7c1cae6]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\nbody[data-v-c7c1cae6] {\n  height: 100vh;\n  background-color: rgba(87, 87, 87, 0.7) !important;\n}\n.center[data-v-c7c1cae6] {\n  padding: 0 calc(50% - 600px);\n}\n.header__top-background[data-v-c7c1cae6] {\n  position: fixed;\n  z-index: 1000;\n  width: 100%;\n  background-color: white;\n}\n.top__links-item[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6] {\n  font-size: 1rem;\n  font-family: \"Plumb\";\n}\n.header__top-logout[data-v-c7c1cae6] {\n  cursor: pointer;\n}\n.top__links-item[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6] {\n  text-decoration: none;\n  color: #212529;\n}\n.top__links-item[data-v-c7c1cae6]:hover, .header__top-title[data-v-c7c1cae6]:hover, .header__top-logout[data-v-c7c1cae6]:hover {\n  text-decoration: none;\n  color: #212529;\n}\n.header-group[data-v-c7c1cae6] {\n  display: flex;\n  justify-content: space-between;\n}\n.header__left-side__panel[data-v-c7c1cae6] {\n  position: fixed;\n}\n.header__left-side__panel ul[data-v-c7c1cae6] {\n  min-width: 3rem;\n  padding: 0;\n  background-color: white;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding-bottom: 25px;\n  border-radius: 1rem;\n}\n.header__left-side__panel ul[data-v-c7c1cae6]::before {\n  position: absolute;\n  content: \"\";\n  background-color: white;\n  height: 50px;\n  width: 2.5px;\n  margin-top: -50px;\n}\n.header__left-side__panel li[data-v-c7c1cae6] {\n  margin-top: 25px;\n  list-style: none;\n}\n.header__left-side__panel li i[data-v-c7c1cae6] {\n  cursor: pointer;\n  opacity: 0.55;\n}\n.main-content[data-v-c7c1cae6] {\n  margin-left: 20%;\n  padding-top: 35px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-c7c1cae6],\n*[data-v-c7c1cae6]::after,\n*[data-v-c7c1cae6]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"ApexMk3\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Geometos\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n  font-style: normal;\n  font-weight: 200;\n}\nbody[data-v-c7c1cae6] {\n  height: 100vh;\n  background-color: rgba(87, 87, 87, 0.7) !important;\n}\n.center[data-v-c7c1cae6] {\n  padding: 0 calc(50% - 600px);\n}\n.header__top-background[data-v-c7c1cae6] {\n  position: fixed;\n  z-index: 1000;\n  width: 100%;\n  background-color: white;\n}\n.top__links-item[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6] {\n  font-size: 1rem;\n  font-family: \"Plumb\";\n}\n.header__top-logout[data-v-c7c1cae6] {\n  cursor: pointer;\n}\n.top__links-item[data-v-c7c1cae6], .header__top-title[data-v-c7c1cae6], .header__top-logout[data-v-c7c1cae6] {\n  text-decoration: none;\n  color: #212529;\n}\n.top__links-item[data-v-c7c1cae6]:hover, .header__top-title[data-v-c7c1cae6]:hover, .header__top-logout[data-v-c7c1cae6]:hover {\n  text-decoration: none;\n  color: #212529;\n}\n.header-group[data-v-c7c1cae6] {\n  display: flex;\n  justify-content: space-between;\n}\n.header__left-side__panel[data-v-c7c1cae6] {\n  position: fixed;\n}\n.header__left-side__panel ul[data-v-c7c1cae6] {\n  min-width: 3rem;\n  padding: 0;\n  background-color: white;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding-bottom: 25px;\n  border-radius: 1rem;\n}\n.header__left-side__panel ul[data-v-c7c1cae6]::before {\n  position: absolute;\n  content: \"\";\n  background-color: white;\n  height: 50px;\n  width: 2.5px;\n  margin-top: -50px;\n}\n.header__left-side__panel li[data-v-c7c1cae6] {\n  margin-top: 25px;\n  list-style: none;\n}\n.header__left-side__panel li i[data-v-c7c1cae6] {\n  cursor: pointer;\n  opacity: 0.55;\n}\n.main-content[data-v-c7c1cae6] {\n  margin-left: 20%;\n  padding-top: 35px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -6814,7 +6830,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".textarea-group {\n  position: relative;\n}\n.textarea-box {\n  position: relative;\n}\n.textarea-file {\n  position: absolute;\n  margin-top: -5px;\n  width: 350px;\n  background-color: white;\n}\n.textarea-file img {\n  cursor: pointer;\n}\n.textarea-file span {\n  cursor: pointer;\n}\n#input-12 {\n  padding: 0;\n  width: 350px;\n  outline: none;\n  resize: none;\n  overflow: hidden;\n  font-family: \"Plumb\";\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -6941,6 +6957,36 @@ module.exports = function (url, options) {
 
 /***/ }),
 
+/***/ "./resources/js/assets/images/form-post-attach.svg":
+/*!*********************************************************!*\
+  !*** ./resources/js/assets/images/form-post-attach.svg ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/form-post-attach.svg?24a96b69ab0bfb3d2fd9c49795d9ba46");
+
+/***/ }),
+
+/***/ "./resources/js/assets/fonts/ApexMk3.ttf":
+/*!***********************************************!*\
+  !*** ./resources/js/assets/fonts/ApexMk3.ttf ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/ApexMk3.ttf?0c3a4c93768656acf9cca0d52fd5642f");
+
+/***/ }),
+
 /***/ "./resources/js/assets/fonts/Downcome.otf":
 /*!************************************************!*\
   !*** ./resources/js/assets/fonts/Downcome.otf ***!
@@ -6953,6 +6999,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/Downcome.otf?497ad8a99cbf91d91e02cd767c3a39f0");
+
+/***/ }),
+
+/***/ "./resources/js/assets/fonts/Geometos.ttf":
+/*!************************************************!*\
+  !*** ./resources/js/assets/fonts/Geometos.ttf ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/Geometos.ttf?9f2a8e9bb8ccea4f899b4945d178723d");
 
 /***/ }),
 
@@ -39575,13 +39636,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "textarea-group" },
+    { staticClass: "textarea-box" },
     [
       _c("v-textarea", {
         attrs: { "auto-grow": "", rows: "1", color: "white" }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "textarea-file" })
+      _c("div", { staticClass: "textarea-file" }, [
+        _c("img", { attrs: { src: _vm.svgAttach, alt: "" } }),
+        _vm._v(" "),
+        _c("span", [_vm._v("Опубликовать")])
+      ])
     ],
     1
   )
