@@ -186,6 +186,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "myPageAvatar",
   props: {
@@ -196,41 +200,66 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       hoverClass: {},
+      canvas: {},
       avatar: "",
-      createAvatar: {}
+      createAvatar: {},
+      canvasShow: false
     };
   },
   methods: {
     handleOnChange: function handleOnChange(e) {
       var _this = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var formData;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var urlImage, ctx, canvas, pic, formData;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                _context.next = 2;
+                _context2.next = 2;
                 return e.target.files[0];
 
               case 2:
-                _this.avatar = _context.sent;
+                _this.avatar = _context2.sent;
+                urlImage = URL.createObjectURL(_this.avatar);
+                ctx = _this.$refs.canvas.getContext("2d");
+                canvas = _this.$refs.canvas;
+                pic = new Image();
+                pic.src = urlImage;
+                pic.onload = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+                    while (1) {
+                      switch (_context.prev = _context.next) {
+                        case 0:
+                          canvas.height = pic.height;
+                          canvas.width = pic.width;
+                          ctx.drawImage(pic, 0, 0, pic.width, pic.height);
+                          return _context.abrupt("return");
+
+                        case 4:
+                        case "end":
+                          return _context.stop();
+                      }
+                    }
+                  }, _callee);
+                }));
+                _this.canvasShow = true;
                 formData = new FormData();
                 formData.set("avatar", _this.avatar);
-                _context.next = 7;
+                _context2.next = 14;
                 return axios.post("/upload", formData).then(function (response) {
                   return _this.createAvatar = response.data;
                 });
 
-              case 7:
+              case 14:
                 _this.$emit("avatar", _this.createAvatar);
 
-              case 8:
+              case 15:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }))();
     }
   }
@@ -357,11 +386,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _assets_images_avatar_upload_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/images/avatar-upload.svg */ "./resources/js/assets/images/avatar-upload.svg");
-/* harmony import */ var _assets_images_form_post_attach_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/images/form-post-attach.svg */ "./resources/js/assets/images/form-post-attach.svg");
-/* harmony import */ var _assets_images_post_footer_edit_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/images/post-footer-edit.svg */ "./resources/js/assets/images/post-footer-edit.svg");
-/* harmony import */ var _assets_images_post_footer_like_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/images/post-footer-like.svg */ "./resources/js/assets/images/post-footer-like.svg");
-/* harmony import */ var _assets_images_post_footer_repost_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/images/post-footer-repost.svg */ "./resources/js/assets/images/post-footer-repost.svg");
+/* harmony import */ var _assets_images_form_post_attach_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/images/form-post-attach.svg */ "./resources/js/assets/images/form-post-attach.svg");
+/* harmony import */ var _assets_images_post_footer_edit_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/images/post-footer-edit.svg */ "./resources/js/assets/images/post-footer-edit.svg");
+/* harmony import */ var _assets_images_post_footer_like_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/images/post-footer-like.svg */ "./resources/js/assets/images/post-footer-like.svg");
+/* harmony import */ var _assets_images_post_footer_repost_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/images/post-footer-repost.svg */ "./resources/js/assets/images/post-footer-repost.svg");
 // Imports
 
 
@@ -369,15 +397,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_avatar_upload_svg__WEBPACK_IMPORTED_MODULE_2__.default);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_form_post_attach_svg__WEBPACK_IMPORTED_MODULE_3__.default);
-var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_post_footer_edit_svg__WEBPACK_IMPORTED_MODULE_4__.default);
-var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_post_footer_like_svg__WEBPACK_IMPORTED_MODULE_5__.default);
-var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_post_footer_repost_svg__WEBPACK_IMPORTED_MODULE_6__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_form_post_attach_svg__WEBPACK_IMPORTED_MODULE_2__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_post_footer_edit_svg__WEBPACK_IMPORTED_MODULE_3__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_post_footer_like_svg__WEBPACK_IMPORTED_MODULE_4__.default);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_post_footer_repost_svg__WEBPACK_IMPORTED_MODULE_5__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".note__footer-repost, .note__footer-like, .note__footer-edit {\n  cursor: pointer;\n  background-size: cover;\n  width: 1.3rem;\n  height: 1.3rem;\n  opacity: 0.7;\n}\n.page-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-columns: 1fr 1fr;\n}\n.header__center-image {\n  margin-top: 30px;\n  display: flex;\n  flex-direction: column;\n}\n.header__top {\n  align-items: center;\n  max-height: 40px;\n}\n.header__top-background {\n  align-items: center;\n  max-height: 40px;\n  display: flex;\n}\n.header__center-group__input {\n  margin-top: -20px;\n  display: flex;\n  justify-content: center;\n}\n.header__center-group__input input {\n  display: none;\n}\n.header__center-group__input label {\n  cursor: pointer;\n  opacity: 0;\n  padding-bottom: 15px;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: cover;\n  width: 12rem;\n  height: 17px;\n}\n.center__image-input {\n  padding: 0 5px;\n  font-family: \"Plumb\";\n  font-size: 15px;\n  cursor: pointer;\n  display: flex;\n  background: white;\n  border-radius: 40px;\n  height: 23px;\n  align-items: center;\n  justify-content: center;\n}\n.image-block {\n  margin-top: 25px;\n  margin: auto;\n  height: 250px;\n  width: 350px;\n}\n.right-side__panel-sticks {\n  width: 100%;\n  display: flex;\n  justify-content: space-around;\n}\n.panel__stick-first {\n  content: \"\";\n  background-color: #fff;\n  width: 2px;\n  height: 30px;\n  margin-top: -40px;\n}\n.panel__stick-second {\n  content: \"\";\n  background-color: #fff;\n  width: 2px;\n  height: 30px;\n  margin-top: -40px;\n}\n.header__right-side__panel {\n  width: 350px;\n  height: 250px;\n  padding: 10px;\n  margin: 30px 0 0 0;\n  border: 1px solid white;\n  border-radius: 5%;\n  background-color: #999999;\n}\n.right-side__title {\n  font-size: 1.3rem;\n  color: #ffffff;\n}\n.right-side__descr ul {\n  padding: 0;\n}\n.right-side__descr ul li {\n  color: #ffffff;\n  list-style: none;\n}\n.post-group {\n  width: 350px;\n}\n.post__form-file div {\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 3px;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  background-size: cover;\n  width: 20px;\n  height: 20px;\n}\n.note__footer-edit {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n}\n.note__footer-like {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n}\n.note__footer-repost {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\n}\n.footer-note__like-group {\n  cursor: pointer;\n}\n.friendlist-container {\n  padding: 10px;\n  border-radius: 10px;\n  margin: 80px auto 0 auto;\n  height: 350px;\n  width: 350px;\n  border: 1px solid white;\n  background-color: #999999;\n}\n.friendlist__content-group {\n  margin-top: 10px;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-columns: 1fr 1fr 1fr;\n}\n.friendlist__top-panel {\n  padding: 10px 20px 20px 20px;\n  color: white;\n  border-bottom: 2px solid white;\n}\n.friendlist-item {\n  cursor: pointer;\n  margin-top: 20px;\n  margin-left: auto;\n  margin-right: auto;\n  max-width: 100px;\n  max-height: 110px;\n  text-decoration: none !important;\n}\n.friendlist-item img {\n  border-radius: 50%;\n  height: 80px;\n  width: 80px;\n}\n.friendlist-item div {\n  color: white;\n  display: flex;\n  justify-content: center;\n  height: 20px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".note__footer-repost, .note__footer-like, .note__footer-edit {\n  cursor: pointer;\n  background-size: cover;\n  width: 1.3rem;\n  height: 1.3rem;\n  opacity: 0.7;\n}\n.page-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-columns: 1fr 1fr;\n}\n.header__top {\n  align-items: center;\n  max-height: 40px;\n}\n.header__top-background {\n  align-items: center;\n  max-height: 40px;\n  display: flex;\n}\n.right-side__panel-sticks {\n  width: 100%;\n  display: flex;\n  justify-content: space-around;\n}\n.panel__stick-first {\n  content: \"\";\n  background-color: #fff;\n  width: 2px;\n  height: 30px;\n  margin-top: -40px;\n}\n.panel__stick-second {\n  content: \"\";\n  background-color: #fff;\n  width: 2px;\n  height: 30px;\n  margin-top: -40px;\n}\n.header__right-side__panel {\n  width: 350px;\n  height: 250px;\n  padding: 10px;\n  margin: 30px 0 0 0;\n  border: 1px solid white;\n  border-radius: 5%;\n  background-color: #999999;\n}\n.right-side__title {\n  font-size: 1.3rem;\n  color: #ffffff;\n}\n.right-side__descr ul {\n  padding: 0;\n}\n.right-side__descr ul li {\n  color: #ffffff;\n  list-style: none;\n}\n.post-group {\n  width: 350px;\n}\n.post__form-file div {\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 3px;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: cover;\n  width: 20px;\n  height: 20px;\n}\n.note__footer-edit {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n}\n.note__footer-like {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n}\n.note__footer-repost {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n}\n.footer-note__like-group {\n  cursor: pointer;\n}\n.friendlist-container {\n  padding: 10px;\n  border-radius: 10px;\n  margin: 80px auto 0 auto;\n  height: 350px;\n  width: 350px;\n  border: 1px solid white;\n  background-color: #999999;\n}\n.friendlist__content-group {\n  margin-top: 10px;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-columns: 1fr 1fr 1fr;\n}\n.friendlist__top-panel {\n  padding: 10px 20px 20px 20px;\n  color: white;\n  border-bottom: 2px solid white;\n}\n.friendlist-item {\n  cursor: pointer;\n  margin-top: 20px;\n  margin-left: auto;\n  margin-right: auto;\n  max-width: 100px;\n  max-height: 110px;\n  text-decoration: none !important;\n}\n.friendlist-item img {\n  border-radius: 50%;\n  height: 80px;\n  width: 80px;\n}\n.friendlist-item div {\n  color: white;\n  display: flex;\n  justify-content: center;\n  height: 20px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -388,23 +414,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".note__footer-repost, .note__footer-li
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/components/MyPageAvatar.vue?vue&type=style&index=0&id=32eba444&lang=scss&scoped=true& ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".show-upload label[data-v-32eba444] {\n  opacity: 0.9;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
+throw new Error("Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n   ╷\n84 │ @import \"../../js/assets/scss/__my-page-avatar\";\n   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   ╵\n  resources\\js\\views\\components\\MyPageAvatar.vue 84:9  root stylesheet");
 
 /***/ }),
 
@@ -420,21 +432,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/xnofTuG-kPg.jpg?fe98bcd892e72764f043ba30c1ae9b67");
-
-/***/ }),
-
-/***/ "./resources/js/assets/images/avatar-upload.svg":
-/*!******************************************************!*\
-  !*** ./resources/js/assets/images/avatar-upload.svg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/avatar-upload.svg?700e55e5370b1827cac5669639b73b2d");
 
 /***/ }),
 
@@ -975,13 +972,7 @@ var render = function() {
           userAvatar: _vm.userAvatar
         },
         on: { avatar: _vm.updateAvatar }
-      }),
-      _vm._v(" "),
-      _c("myPageAbout", { attrs: { user: _vm.user } }),
-      _vm._v(" "),
-      _c("myPageFriendList"),
-      _vm._v(" "),
-      _c("myPagePost")
+      })
     ],
     1
   )
@@ -1064,25 +1055,16 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "header__center" }, [
-    _c("form", { staticClass: "header__center-image", attrs: { action: "" } }, [
-      _c("img", {
-        staticClass: "image-block",
-        attrs: { src: _vm.userAvatar[_vm.userAvatar.length - 1].path, alt: "" },
-        on: {
-          mouseenter: function($event) {
-            _vm.hoverClass = "show-upload"
+    _c(
+      "form",
+      { staticClass: "header__center-image", attrs: { action: "POST" } },
+      [
+        _c("img", {
+          staticClass: "image-block",
+          attrs: {
+            src: _vm.userAvatar[_vm.userAvatar.length - 1].path,
+            alt: ""
           },
-          mouseleave: function($event) {
-            _vm.hoverClass = "hide-upload"
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "header__center-group__input",
-          class: _vm.hoverClass,
           on: {
             mouseenter: function($event) {
               _vm.hoverClass = "show-upload"
@@ -1091,19 +1073,61 @@ var render = function() {
               _vm.hoverClass = "hide-upload"
             }
           }
-        },
-        [
-          _c("input", {
-            attrs: { id: "headerSearchImage", type: "file" },
-            on: { change: _vm.handleOnChange }
-          }),
-          _vm._v(" "),
-          _vm.sessionId == _vm.user.id
-            ? _c("label", { attrs: { for: "headerSearchImage" } })
-            : _vm._e()
-        ]
-      )
-    ])
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "header__center-group__input",
+            class: _vm.hoverClass,
+            on: {
+              mouseenter: function($event) {
+                _vm.hoverClass = "show-upload"
+              },
+              mouseleave: function($event) {
+                _vm.hoverClass = "hide-upload"
+              }
+            }
+          },
+          [
+            _c("input", {
+              attrs: { id: "headerSearchImage", type: "file" },
+              on: { change: _vm.handleOnChange }
+            }),
+            _vm._v(" "),
+            _vm.sessionId == _vm.user.id
+              ? _c("label", { attrs: { for: "headerSearchImage" } })
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.canvasShow,
+                expression: "canvasShow"
+              }
+            ],
+            staticClass: "canvas-group"
+          },
+          [
+            _c("canvas", {
+              ref: "canvas",
+              staticClass: "canvas",
+              class: _vm.canvas
+            }),
+            _vm._v(" "),
+            _c("button", { staticClass: "canvas-btn" }, [
+              _vm._v("сохранить миниатюру")
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = []

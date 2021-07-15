@@ -77,7 +77,7 @@
                   class="invalid"
                   v-else-if="$v.password.$dirty && !$v.password.minLength"
                 >
-                  Пароль должен быть
+                  Пароль должен быть 6
                   {{ $v.password.$params.minLength }} символов. Сейчас он
                   {{ password.length }}
                 </div>

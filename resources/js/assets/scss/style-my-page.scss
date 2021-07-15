@@ -7,11 +7,6 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.header__center-image {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-}
 
 .header__top {
     align-items: center;
@@ -24,45 +19,6 @@
     display: flex;
 }
 
-.header__center-group__input {
-    margin-top: -20px;
-    display: flex;
-    justify-content: center;
-
-    input {
-        display: none;
-    }
-
-    label {
-        cursor: pointer;
-        opacity: 0;
-        padding-bottom: 15px;
-        background-image: url("../assets/images/avatar-upload.svg");
-        background-size: cover;
-        width: 12rem;
-        height: 17px;
-    }
-}
-
-.center__image-input {
-    padding: 0 5px;
-    font-family: 'Plumb';
-    font-size: 15px;
-    cursor: pointer;
-    display: flex;
-    background: rgb(255, 255, 255);
-    border-radius: 40px;
-    height: 23px;
-    align-items: center;
-    justify-content: center;
-}
-
-.image-block {
-    margin-top: 25px;
-    margin: auto;
-    height: 250px;
-    width: 350px;
-}
 
 .right-side__panel-sticks {
     width: 100%;

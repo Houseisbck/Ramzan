@@ -1,0 +1,70 @@
+@import './variables/_fonts';
+
+
+.header__center-image {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-block {
+    margin-top: 25px;
+    margin: auto;
+    height: 250px;
+    width: 350px;
+}
+
+.header__center-group__input {
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+
+    input {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+        opacity: 0;
+        padding-bottom: 15px;
+        background-image: url("../assets/images/avatar-upload.svg");
+        background-size: cover;
+        width: 12rem;
+        height: 17px;
+    }
+}
+
+.show-upload {
+    label {
+        opacity: 0.9;
+    }
+}
+
+.canvas-group {
+    background-color: rgb(41, 41, 41);
+    padding: 0px 100px 100px 100px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    top: 100px;
+    left: 100px;
+    position: absolute;
+}
+
+.canvas {
+    max-height: 600px;
+    max-width: 600px;
+}
+
+.canvas-btn {
+    font-family: "Plumb";
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 100px;
+    height: 50px;
+}

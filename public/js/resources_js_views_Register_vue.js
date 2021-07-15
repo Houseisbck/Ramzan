@@ -559,7 +559,7 @@ var render = function() {
                       : _vm.$v.password.$dirty && !_vm.$v.password.minLength
                       ? _c("div", { staticClass: "invalid" }, [
                           _vm._v(
-                            "\n                Пароль должен быть\n                " +
+                            "\n                Пароль должен быть 6\n                " +
                               _vm._s(_vm.$v.password.$params.minLength) +
                               " символов. Сейчас он\n                " +
                               _vm._s(_vm.password.length) +
