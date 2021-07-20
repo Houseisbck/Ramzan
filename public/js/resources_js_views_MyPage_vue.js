@@ -232,7 +232,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       avatar: "",
       createAvatar: {},
       canvasShow: false,
-      formData: {}
+      selection: {}
     };
   },
   methods: {
@@ -251,11 +251,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         mDown: this.drag,
         x: 0,
         y: 0,
-        top: 50,
+        top: this.inputTopValue,
         left: this.inputLeftValue,
         width: parseInt(this.inputWidthValue),
         height: parseInt(this.inputHeightValue)
       };
+      this.selection = selection;
 
       function CheckSelection() {
         if (selection.width < 100) {
@@ -351,6 +352,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var pic = new Image();
       pic.src = this.picSrc = urlImage;
       this.canvasShow = true;
+      this.canvas = canvas;
 
       pic.onload = function (e) {
         canvas.height = canvasImg.height;
@@ -358,31 +360,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return;
       };
 
-      var formData = new FormData();
-      formData.set("avatar", this.avatar);
-      this.formData = formData;
       return;
     },
     save: function save() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var formData, canvas, canvasJson, selectionJson;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return axios.post("/upload", _this.formData).then(function (response) {
+                formData = new FormData();
+                canvas = {
+                  width: _this.canvas.width,
+                  height: _this.canvas.height
+                };
+                canvasJson = JSON.stringify(canvas);
+                selectionJson = JSON.stringify(_this.selection);
+                formData.set("avatar", _this.avatar);
+                formData.append("selection", selectionJson);
+                formData.append("canvas", canvasJson);
+                _context.next = 9;
+                return axios.post("/upload", formData).then(function (response) {
                   return _this.createAvatar = response.data;
                 });
 
-              case 2:
+              case 9:
                 _this.$emit("avatar", _this.createAvatar);
 
                 _this.canvasShow = false;
                 return _context.abrupt("return");
 
-              case 5:
+              case 12:
               case "end":
                 return _context.stop();
             }
@@ -1174,7 +1184,7 @@ var render = function() {
         _c("img", {
           staticClass: "image-block",
           attrs: {
-            src: _vm.userAvatar[_vm.userAvatar.length - 1].path,
+            src: _vm.userAvatar[_vm.userAvatar.length - 1].path_miniature,
             alt: ""
           },
           on: {

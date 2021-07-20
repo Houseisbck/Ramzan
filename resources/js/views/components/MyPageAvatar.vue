@@ -5,7 +5,7 @@
         @mouseenter="hoverClass = 'show-upload'"
         @mouseleave="hoverClass = 'hide-upload'"
         class="image-block"
-        :src="userAvatar[userAvatar.length - 1].path"
+        :src="userAvatar[userAvatar.length - 1].path_miniature"
         alt=""
       />
       <div
@@ -68,7 +68,7 @@ export default {
     avatar: "",
     createAvatar: {},
     canvasShow: false,
-    formData: {},
+    selection: {},
   }),
 
   methods: {
@@ -89,11 +89,13 @@ export default {
         mDown: this.drag,
         x: 0,
         y: 0,
-        top: 50,
+        top: this.inputTopValue,
         left: this.inputLeftValue,
         width: parseInt(this.inputWidthValue),
         height: parseInt(this.inputHeightValue),
       };
+
+      this.selection = selection;
 
       function CheckSelection() {
         if (selection.width < 100) {
@@ -214,6 +216,8 @@ export default {
 
       this.canvasShow = true;
 
+      this.canvas = canvas;
+
       pic.onload = function (e) {
         canvas.height = canvasImg.height;
 
@@ -222,18 +226,22 @@ export default {
         return;
       };
 
-      const formData = new FormData();
-
-      formData.set("avatar", this.avatar);
-
-      this.formData = formData;
-
       return;
     },
 
     async save() {
+      const formData = new FormData();
+      let canvas = {
+        width: this.canvas.width,
+        height: this.canvas.height,
+      };
+      let canvasJson = JSON.stringify(canvas);
+      let selectionJson = JSON.stringify(this.selection);
+      formData.set("avatar", this.avatar);
+      formData.append("selection", selectionJson);
+      formData.append("canvas", canvasJson);
       await axios
-        .post("/upload", this.formData)
+        .post("/upload", formData)
         .then((response) => (this.createAvatar = response.data));
       this.$emit("avatar", this.createAvatar);
       this.canvasShow = false;
