@@ -4,10 +4,44 @@
       <img
         @mouseenter="hoverClass = 'show-upload'"
         @mouseleave="hoverClass = 'hide-upload'"
+        @click="toggleShowSlider"
         class="image-block"
-        :src="userAvatar[userAvatar.length - 1].path_miniature"
+        :src="userAvatar[0].path_miniature"
         alt=""
       />
+      <div
+        class="slider"
+        v-click-outside="toggleShowSlider"
+        v-if="sliderShow === true"
+      >
+        <slick ref="slick" :options="slickOptions">
+          <div
+            class="slider-group"
+            v-for="objectAvatar in userAvatar"
+            :key="objectAvatar.path"
+          >
+            <div class="slider__image-block">
+              <img class="slider-image" :src="objectAvatar.path" alt="" />
+            </div>
+            <div class="slider__image-descr">
+              <div class="image__descr-crud">
+                <button
+                  @click.prevent="deleteImg(objectAvatar)"
+                  class="image__descr-delete"
+                >
+                  Удалить изображение
+                </button>
+                <button @click.prevent="" class="image__descr-edit">
+                  Редактировать
+                </button>
+                <button @click.prevent="" class="image__descr-upload">
+                  Сделать фотографией профиля
+                </button>
+              </div>
+            </div>
+          </div>
+        </slick>
+      </div>
       <div
         @mouseenter="hoverClass = 'show-upload'"
         @mouseleave="hoverClass = 'hide-upload'"
@@ -46,9 +80,21 @@
   </div>
 </template>
 
+<style scoped>
+@import "slick-carousel/slick/slick.css";
+</style>
+
 <script>
+import image from "../../assets/images/image-default.jpg";
+import Slick from "vue-slick";
+
 export default {
   name: "myPageAvatar",
+
+  components: {
+    Slick,
+  },
+
   props: {
     user: {},
     sessionId: {},
@@ -56,6 +102,12 @@ export default {
   },
 
   data: () => ({
+    sliderShow: true,
+    image: image,
+    slickOptions: {
+      slidesToShow: 1,
+      arrows: false,
+    },
     ctx: {},
     picSrc: "",
     inputWidthValue: 350,
@@ -72,6 +124,35 @@ export default {
   }),
 
   methods: {
+    deleteImg(objectAvatar) {
+      const deleteAvatar = new FormData();
+      deleteAvatar.append("id", objectAvatar.id);
+      console.log(deleteAvatar);
+      axios.post("/deleteAvatarImage", deleteAvatar);
+    },
+
+    toggleShowSlider() {
+      this.sliderShow = !this.sliderShow;
+    },
+
+    next() {
+      this.$refs.slick.next();
+    },
+
+    prev() {
+      this.$refs.slick.prev();
+    },
+
+    reInit() {
+      this.$nextTick(() => {
+        this.$refs.slick.reSlick();
+      });
+    },
+
+    showSlider() {
+      this.sliderShow = true;
+    },
+
     mousedown(e) {
       this.drag = true;
       return this.drag;
@@ -192,6 +273,14 @@ export default {
           this.inputTopValue = canvas.height - this.inputHeightValue;
         }
 
+        if (this.inputWidthValue >= canvas.width) {
+          this.inputWidthValue = canvas.width;
+        }
+
+        if (this.inputHeightValue >= canvas.height) {
+          this.inputHeightValue = canvas.height;
+        }
+
         selection.left = selection.x - selection.width / 2;
         selection.top = selection.y - selection.height / 2;
 
@@ -230,18 +319,18 @@ export default {
     },
 
     async save() {
-      const formData = new FormData();
+      const uploadAvatar = new FormData();
       let canvas = {
         width: this.canvas.width,
         height: this.canvas.height,
       };
       let canvasJson = JSON.stringify(canvas);
       let selectionJson = JSON.stringify(this.selection);
-      formData.set("avatar", this.avatar);
-      formData.append("selection", selectionJson);
-      formData.append("canvas", canvasJson);
+      uploadAvatar.set("avatar", this.avatar);
+      uploadAvatar.append("selection", selectionJson);
+      uploadAvatar.append("canvas", canvasJson);
       await axios
-        .post("/upload", formData)
+        .post("/uploadAvatar", uploadAvatar)
         .then((response) => (this.createAvatar = response.data));
       this.$emit("avatar", this.createAvatar);
       this.canvasShow = false;

@@ -5,6 +5,7 @@
 }
 
 .image-block {
+    cursor: pointer;
     margin-top: 25px;
     margin: auto;
     height: 250px;
@@ -33,7 +34,7 @@
 
 .show-upload {
     label {
-        opacity: 0.9;
+        opacity: 1;
     }
 }
 
@@ -82,4 +83,57 @@
     input {
         margin: 5px;
     }
+}
+
+.slider {
+    background-color: rgb(34, 34, 34);
+    width: 900px;
+    height: 100%;
+    z-index: 100 !important;
+    top: 50px;
+    left: 100px;
+    position: absolute;
+}
+
+.slider-group {
+    border: 3px solid rgb(70, 70, 70);
+    height: 800px;
+    padding: 15px;
+    background-color: rgb(207, 207, 207);
+    display: flex !important;
+}
+
+.slider__image-descr {
+    border: 2px solid rgb(70, 70, 70);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: auto auto auto 15px;
+    height: 500px;
+    width: 300px;
+    background-color: rgb(161, 161, 161);
+    color: white;
+}
+
+.image__descr-crud {
+    display: flex;
+    flex-direction: column;
+
+    button {
+        font-family: "Plumb";
+        border: 1px solid;
+        margin: 3px;
+    }
+}
+
+.slider__image-block {
+    display: flex;
+    align-items: center;
+    min-width: 600px;
+    min-height: 600px;
+}
+
+.slider-image {
+    margin: auto;
+    align-items: center;
 }

@@ -25,7 +25,9 @@ class UploadController extends Controller
 
             Image::make($avatar)->resize($canvas->width, $canvas->height)->save(storage_path('/app/public/images/' . $filename));
 
-            $imgDefaultResized = imagecreatefromjpeg(storage_path('/app/public/images/' . $filename));
+            $src = storage_path('/app/public/images/' . $filename);
+
+            $imgDefaultResized = imagecreatefromstring(file_get_contents($src));
 
             $imgMiniatureResized = imagecreatetruecolor($selection->width, $selection->height);
 
@@ -41,17 +43,18 @@ class UploadController extends Controller
                 'path_miniature' => '/public/images/' . 'min' . $filename
             ]);
 
-            $userAvatar = UserAvatar::where('user_id', $user->id)->get();
+            $userAvatar = UserAvatar::where('user_id', $user->id)->latest('updated_at')->get();
 
             return response($userAvatar);
         }
     }
 
-    public function getUserAvatar(Request $request)
+    public function getUserAvatar(Request $request, int $id)
     {
-        $user = Auth::user();
 
-        $userAvatar = UserAvatar::where('user_id', $user->id)->get();
+        $user = User::where('id', $id)->first();
+
+        $userAvatar = UserAvatar::where('user_id', $user->id)->latest('updated_at')->get();
 
         return response($userAvatar);
     }

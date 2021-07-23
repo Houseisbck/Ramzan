@@ -47,9 +47,14 @@ export default {
     next((vm) => {
       axios.get("/user/" + to.params.id).then((response) => {
         vm.user = response.data;
-        axios.get("/getUserAvatar").then((response) => {
+        axios.get("/getUserAvatar/" + to.params.id).then((response) => {
           if (response.data.length == 0) {
-            vm.userAvatar = [{ path: "/public/images/default.jpg" }];
+            vm.userAvatar = [
+              {
+                path: "/public/images/default.jpg",
+                path_miniature: "/public/images/defaultmin.jpg",
+              },
+            ];
           } else {
             vm.userAvatar = response.data;
           }

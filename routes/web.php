@@ -15,9 +15,11 @@ Route::prefix('/page')->group(function () {
     Route::get('/{id}', [AppController::class, 'getPage'])->name('page');
 });
 
-Route::post('/upload', [UploadController::class, 'updateAvatar'])->name('updateAvatar');
+Route::post('/uploadAvatar', [UploadController::class, 'updateAvatar'])->name('updateAvatar');
 
-Route::get('/getUserAvatar', [UploadController::class, 'getUserAvatar'])->name('getUserAvatar');
+Route::post('/deleteAvatarImage', [DeleteContoller::class, 'deleteAvatar'])->name('deleteAvatar');
+
+Route::get('/getUserAvatar/{id}', [UploadController::class, 'getUserAvatar'])->name('getUserAvatar');
 
 Route::get('/user/{id}', [AppController::class, 'getUser'])->name('user');
 
