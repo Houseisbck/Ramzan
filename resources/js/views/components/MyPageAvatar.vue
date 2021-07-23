@@ -14,33 +14,31 @@
         v-click-outside="toggleShowSlider"
         v-if="sliderShow === true"
       >
-        <slick ref="slick" :options="slickOptions">
-          <div
-            class="slider-group"
-            v-for="objectAvatar in userAvatar"
-            :key="objectAvatar.path"
-          >
-            <div class="slider__image-block">
-              <img class="slider-image" :src="objectAvatar.path" alt="" />
-            </div>
-            <div class="slider__image-descr">
-              <div class="image__descr-crud">
-                <button
-                  @click.prevent="deleteImg(objectAvatar)"
-                  class="image__descr-delete"
-                >
-                  Удалить изображение
-                </button>
-                <button @click.prevent="" class="image__descr-edit">
-                  Редактировать
-                </button>
-                <button @click.prevent="" class="image__descr-upload">
-                  Сделать фотографией профиля
-                </button>
-              </div>
+        <div
+          class="slider-group"
+          v-for="objectAvatar in userAvatar"
+          :key="objectAvatar.path"
+        >
+          <div class="slider__image-block">
+            <img class="slider-image" :src="objectAvatar.path" alt="" />
+          </div>
+          <div class="slider__image-descr">
+            <div class="image__descr-crud">
+              <button
+                @click.prevent="deleteImg(objectAvatar)"
+                class="image__descr-delete"
+              >
+                Удалить изображение
+              </button>
+              <button @click.prevent="" class="image__descr-edit">
+                Редактировать
+              </button>
+              <button @click.prevent="" class="image__descr-upload">
+                Сделать фотографией профиля
+              </button>
             </div>
           </div>
-        </slick>
+        </div>
       </div>
       <div
         @mouseenter="hoverClass = 'show-upload'"
@@ -102,12 +100,8 @@ export default {
   },
 
   data: () => ({
-    sliderShow: true,
+    sliderShow: false,
     image: image,
-    slickOptions: {
-      slidesToShow: 1,
-      arrows: false,
-    },
     ctx: {},
     picSrc: "",
     inputWidthValue: 350,
@@ -118,39 +112,31 @@ export default {
     hoverClass: {},
     canvas: {},
     avatar: "",
-    createAvatar: {},
+    updateAvatar: {},
     canvasShow: false,
     selection: {},
   }),
 
   methods: {
-    deleteImg(objectAvatar) {
+    async deleteImg(objectAvatar) {
       const deleteAvatar = new FormData();
-      deleteAvatar.append("id", objectAvatar.id);
-      console.log(deleteAvatar);
-      axios.post("/deleteAvatarImage", deleteAvatar);
+      objectAvatar = JSON.stringify(objectAvatar);
+      deleteAvatar.append("objectAvatar", objectAvatar);
+      await axios
+        .post("/deleteAvatarImage", deleteAvatar)
+        .then((response) => (this.updateAvatar = response.data));
+      this.$emit("avatar", this.updateAvatar);
+      return;
     },
 
     toggleShowSlider() {
       this.sliderShow = !this.sliderShow;
-    },
-
-    next() {
-      this.$refs.slick.next();
-    },
-
-    prev() {
-      this.$refs.slick.prev();
-    },
-
-    reInit() {
-      this.$nextTick(() => {
-        this.$refs.slick.reSlick();
-      });
+      return;
     },
 
     showSlider() {
       this.sliderShow = true;
+      return;
     },
 
     mousedown(e) {
@@ -287,6 +273,8 @@ export default {
         CheckSelection();
 
         Update();
+
+        return;
       }
     },
 
@@ -331,8 +319,8 @@ export default {
       uploadAvatar.append("canvas", canvasJson);
       await axios
         .post("/uploadAvatar", uploadAvatar)
-        .then((response) => (this.createAvatar = response.data));
-      this.$emit("avatar", this.createAvatar);
+        .then((response) => (this.updateAvatar = response.data));
+      this.$emit("avatar", this.updateAvatar);
       this.canvasShow = false;
       return;
     },

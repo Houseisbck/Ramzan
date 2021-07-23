@@ -36,8 +36,17 @@ export default {
     sessionId: {},
   }),
   methods: {
-    updateAvatar(createAvatar) {
-      this.userAvatar = createAvatar;
+    updateAvatar(updateAvatar) {
+      if (updateAvatar.length <= 0) {
+        this.userAvatar = [
+          {
+            path: "/public/images/default.jpg",
+            path_miniature: "/public/images/defaultmin.jpg",
+          },
+        ];
+      } else {
+        this.userAvatar = updateAvatar;
+      }
     },
   },
   async mounted() {

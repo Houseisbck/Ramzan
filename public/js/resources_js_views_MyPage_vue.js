@@ -61,8 +61,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    updateAvatar: function updateAvatar(createAvatar) {
-      this.userAvatar = createAvatar;
+    updateAvatar: function updateAvatar(_updateAvatar) {
+      if (_updateAvatar.length <= 0) {
+        this.userAvatar = [{
+          path: "/public/images/default.jpg",
+          path_miniature: "/public/images/defaultmin.jpg"
+        }];
+      } else {
+        this.userAvatar = _updateAvatar;
+      }
     }
   },
   mounted: function mounted() {
@@ -250,8 +257,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -266,12 +271,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      sliderShow: true,
+      sliderShow: false,
       image: _assets_images_image_default_jpg__WEBPACK_IMPORTED_MODULE_1__.default,
-      slickOptions: {
-        slidesToShow: 1,
-        arrows: false
-      },
       ctx: {},
       picSrc: "",
       inputWidthValue: 350,
@@ -282,36 +283,49 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       hoverClass: {},
       canvas: {},
       avatar: "",
-      createAvatar: {},
+      updateAvatar: {},
       canvasShow: false,
       selection: {}
     };
   },
   methods: {
     deleteImg: function deleteImg(objectAvatar) {
-      var deleteAvatar = new FormData();
-      deleteAvatar.append("id", objectAvatar.id);
-      console.log(deleteAvatar);
-      axios.post("/deleteAvatarImage", deleteAvatar);
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var deleteAvatar;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                deleteAvatar = new FormData();
+                objectAvatar = JSON.stringify(objectAvatar);
+                deleteAvatar.append("objectAvatar", objectAvatar);
+                _context.next = 5;
+                return axios.post("/deleteAvatarImage", deleteAvatar).then(function (response) {
+                  return _this.updateAvatar = response.data;
+                });
+
+              case 5:
+                _this.$emit("avatar", _this.updateAvatar);
+
+                return _context.abrupt("return");
+
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     },
     toggleShowSlider: function toggleShowSlider() {
       this.sliderShow = !this.sliderShow;
-    },
-    next: function next() {
-      this.$refs.slick.next();
-    },
-    prev: function prev() {
-      this.$refs.slick.prev();
-    },
-    reInit: function reInit() {
-      var _this = this;
-
-      this.$nextTick(function () {
-        _this.$refs.slick.reSlick();
-      });
+      return;
     },
     showSlider: function showSlider() {
       this.sliderShow = true;
+      return;
     },
     mousedown: function mousedown(e) {
       this.drag = true;
@@ -427,6 +441,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         selection.top = selection.y - selection.height / 2;
         CheckSelection();
         Update();
+        return;
       }
     },
     handleOnChange: function handleOnChange(e) {
@@ -450,11 +465,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     save: function save() {
       var _this2 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
         var uploadAvatar, canvas, canvasJson, selectionJson;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 uploadAvatar = new FormData();
                 canvas = {
@@ -466,23 +481,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 uploadAvatar.set("avatar", _this2.avatar);
                 uploadAvatar.append("selection", selectionJson);
                 uploadAvatar.append("canvas", canvasJson);
-                _context.next = 9;
+                _context2.next = 9;
                 return axios.post("/uploadAvatar", uploadAvatar).then(function (response) {
-                  return _this2.createAvatar = response.data;
+                  return _this2.updateAvatar = response.data;
                 });
 
               case 9:
-                _this2.$emit("avatar", _this2.createAvatar);
+                _this2.$emit("avatar", _this2.updateAvatar);
 
                 _this2.canvasShow = false;
-                return _context.abrupt("return");
+                return _context2.abrupt("return");
 
               case 12:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }))();
     }
   }
@@ -1405,84 +1420,77 @@ var render = function() {
                 ],
                 staticClass: "slider"
               },
-              [
-                _c(
-                  "slick",
-                  { ref: "slick", attrs: { options: _vm.slickOptions } },
-                  _vm._l(_vm.userAvatar, function(objectAvatar) {
-                    return _c(
-                      "div",
-                      { key: objectAvatar.path, staticClass: "slider-group" },
-                      [
-                        _c("div", { staticClass: "slider__image-block" }, [
-                          _c("img", {
-                            staticClass: "slider-image",
-                            attrs: { src: objectAvatar.path, alt: "" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "slider__image-descr" }, [
-                          _c("div", { staticClass: "image__descr-crud" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "image__descr-delete",
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.deleteImg(objectAvatar)
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                Удалить изображение\n              "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "image__descr-edit",
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                Редактировать\n              "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "image__descr-upload",
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                Сделать фотографией профиля\n              "
-                                )
-                              ]
+              _vm._l(_vm.userAvatar, function(objectAvatar) {
+                return _c(
+                  "div",
+                  { key: objectAvatar.path, staticClass: "slider-group" },
+                  [
+                    _c("div", { staticClass: "slider__image-block" }, [
+                      _c("img", {
+                        staticClass: "slider-image",
+                        attrs: { src: objectAvatar.path, alt: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "slider__image-descr" }, [
+                      _c("div", { staticClass: "image__descr-crud" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "image__descr-delete",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.deleteImg(objectAvatar)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n              Удалить изображение\n            "
                             )
-                          ])
-                        ])
-                      ]
-                    )
-                  }),
-                  0
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "image__descr-edit",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n              Редактировать\n            "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "image__descr-upload",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n              Сделать фотографией профиля\n            "
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
                 )
-              ],
-              1
+              }),
+              0
             )
           : _vm._e(),
         _vm._v(" "),

@@ -12,6 +12,22 @@ class DeleteController extends Controller
     public function deleteAvatar(Request $request)
     {
 
-        dd($request);
+        $user = Auth::user();
+
+        $objectAvatar = json_decode($request->objectAvatar);
+
+        UserAvatar::where('id', $objectAvatar->id)->where('user_id', $user->id)->delete();
+
+        $deleteAvatarPath = (storage_path('/app' . $objectAvatar->path));
+
+        $deleteAvatarPathMin = (storage_path('/app' . $objectAvatar->path_miniature));
+
+        unlink($deleteAvatarPath);
+
+        unlink($deleteAvatarPathMin);
+
+        $userAvatar = UserAvatar::where('user_id', $user->id)->latest('updated_at')->get();
+
+        return response($userAvatar);
     }
 }
