@@ -6,9 +6,9 @@
       :sessionId="sessionId"
       :userAvatar="userAvatar"
     ></myPageAvatar>
-    <!-- <myPageAbout :user="user"></myPageAbout>
+    <myPageAbout :user="user"></myPageAbout>
     <myPageFriendList></myPageFriendList>
-    <myPagePost></myPagePost> -->
+    <myPagePost></myPagePost>
   </div>
 </template>
   

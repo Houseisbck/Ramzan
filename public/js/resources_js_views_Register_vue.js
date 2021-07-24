@@ -13,7 +13,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var _assets_images_rak_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/images/rak.png */ "./resources/js/assets/images/rak.png");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -127,11 +128,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "register",
   data: function data() {
     return {
+      image: _assets_images_rak_png__WEBPACK_IMPORTED_MODULE_1__.default,
       email: "",
       password: "",
       name: ""
@@ -139,15 +143,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   validations: {
     name: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.required
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
     },
     email: {
-      email: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.email,
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.required
+      email: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.email,
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
     },
     password: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.required,
-      minLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.minLength)(6)
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required,
+      minLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.minLength)(6)
     }
   },
   methods: {
@@ -223,9 +227,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_fonts_Plumb_ttf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/fonts/Plumb.ttf */ "./resources/js/assets/fonts/Plumb.ttf");
 /* harmony import */ var _assets_fonts_ApexMk3_ttf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/fonts/ApexMk3.ttf */ "./resources/js/assets/fonts/ApexMk3.ttf");
 /* harmony import */ var _assets_fonts_Geometos_ttf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/fonts/Geometos.ttf */ "./resources/js/assets/fonts/Geometos.ttf");
-/* harmony import */ var _assets_images_background_authenticating_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/images/background-authenticating.jpg */ "./resources/js/assets/images/background-authenticating.jpg");
 // Imports
-
 
 
 
@@ -237,19 +239,18 @@ var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_Plumb_ttf__WEBPACK_IMPORTED_MODULE_3__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_ApexMk3_ttf__WEBPACK_IMPORTED_MODULE_4__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_Geometos_ttf__WEBPACK_IMPORTED_MODULE_5__.default);
-var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_background_authenticating_jpg__WEBPACK_IMPORTED_MODULE_6__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-3563ad7c],\n*[data-v-3563ad7c]::after,\n*[data-v-3563ad7c]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"ApexMk3\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Geometos\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n  font-style: normal;\n  font-weight: 200;\n}\n.header[data-v-3563ad7c] {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\n  background-size: cover;\n  height: 100vh;\n}\n.menu-group[data-v-3563ad7c] {\n  padding-top: 20vh;\n}\n.menu[data-v-3563ad7c] {\n  background-color: white;\n  height: 100vh;\n  min-width: 400px;\n  border-right: 3px solid rgba(0, 0, 0, 0.65);\n  border-left: 3px solid rgba(0, 0, 0, 0.65);\n}\n.menu-title[data-v-3563ad7c] {\n  font-family: \"Geometos\";\n  font-size: 20px;\n  opacity: 0.8;\n}\n.form__submit-button[data-v-3563ad7c] {\n  display: none;\n}\n.submit__button-label[data-v-3563ad7c] {\n  font-family: \"Geometos\";\n  margin-top: 10px;\n  font-size: 1rem;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 2.5rem;\n  cursor: pointer;\n  color: black !important;\n  opacity: 0.6 !important;\n  border: none;\n  background-color: #bfbdbd;\n}\n.submit__button-label[data-v-3563ad7c]:hover {\n  color: #ffffff !important;\n  background-color: #929292;\n}\n.input-group[data-v-3563ad7c] {\n  height: 66.4px;\n}\n.invalid[data-v-3563ad7c] {\n  height: 1.4rem;\n  color: #782441;\n}\n.invalid-group[data-v-3563ad7c] {\n  height: 22.39px;\n  width: 100%;\n}\n.form__register-input[data-v-3563ad7c] {\n  height: 1.5rem;\n  margin-top: 1rem;\n  border-top: 0;\n  border-left: 0;\n  border-right: 0;\n  outline: none;\n  font-family: \"Plumb\";\n}\n.form__register-input[data-v-3563ad7c]:focus::-webkit-input-placeholder {\n  opacity: 0;\n  -webkit-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus::-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus:-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus:-ms-input-placeholder {\n  opacity: 0;\n  -ms-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.btn-flip[data-v-3563ad7c] {\n  opacity: 1;\n  outline: 0;\n  color: #fff;\n  line-height: 40px;\n  position: relative;\n  text-align: center;\n  letter-spacing: 1px;\n  display: inline-block;\n  text-decoration: none !important;\n  font-family: \"Geometos\";\n  text-transform: uppercase;\n}\n.btn-flip[data-v-3563ad7c]:hover:after {\n  opacity: 1;\n  transform: translateY(0) rotateX(0);\n}\n.btn-flip[data-v-3563ad7c]:hover:before {\n  opacity: 0;\n  transform: translateY(50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:after {\n  top: 0;\n  left: 0;\n  opacity: 0;\n  width: 100%;\n  color: #323237;\n  display: block;\n  transition: 0.5s;\n  position: absolute;\n  background: #adadaf;\n  content: attr(data-back);\n  transform: translateY(-50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:before {\n  top: 0;\n  left: 0;\n  opacity: 1;\n  color: #adadaf;\n  display: block;\n  padding: 0 30px;\n  line-height: 40px;\n  transition: 0.5s;\n  position: relative;\n  background: #323237;\n  content: attr(data-front);\n  transform: translateY(0) rotateX(0);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-3563ad7c],\n*[data-v-3563ad7c]::after,\n*[data-v-3563ad7c]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"ApexMk3\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Geometos\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n  font-style: normal;\n  font-weight: 200;\n}\n.header[data-v-3563ad7c] {\n  background-color: #9EC4C9;\n  height: 100vh;\n}\n.menu-group[data-v-3563ad7c] {\n  padding-top: 20vh;\n}\n.menu[data-v-3563ad7c] {\n  background-color: #4D5462;\n  height: 100vh;\n  min-width: 400px;\n  border-left: 2px solid white;\n  border-right: 2px solid white;\n}\n.menu-title[data-v-3563ad7c] {\n  margin: auto;\n  padding: 5px;\n  width: 60%;\n  border-bottom: 3px solid #9EC4C9;\n  color: white;\n  font-family: \"Geometos\";\n  font-size: 20px;\n}\n.form__submit-button[data-v-3563ad7c] {\n  display: none;\n}\n.submit__button-label[data-v-3563ad7c] {\n  font-family: \"Geometos\";\n  margin-top: 15px;\n  font-size: 1rem;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 2.5rem;\n  cursor: pointer;\n  color: #4D5462 !important;\n  border: none;\n  background-color: #9EC4C9;\n}\n.submit__button-label[data-v-3563ad7c]:hover {\n  color: #ffffff !important;\n  background-color: #8F828D;\n}\n.input-group[data-v-3563ad7c] {\n  height: 66.4px;\n}\n.invalid[data-v-3563ad7c] {\n  height: 1.4rem;\n  color: white;\n}\n.invalid-group[data-v-3563ad7c] {\n  height: 22.39px;\n  width: 100%;\n}\n.form__register-input[data-v-3563ad7c] {\n  height: 2rem;\n  margin-top: 1rem;\n  border: 0;\n  border-bottom: 2px solid #9EC4C9;\n  outline: none;\n  font-family: \"Plumb\";\n}\n.form__register-input[data-v-3563ad7c]:focus::-webkit-input-placeholder {\n  opacity: 0;\n  -webkit-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus::-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus:-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus:-ms-input-placeholder {\n  opacity: 0;\n  -ms-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.btn-flip[data-v-3563ad7c] {\n  opacity: 1;\n  outline: 0;\n  color: #ffff;\n  line-height: 40px;\n  position: relative;\n  text-align: center;\n  letter-spacing: 1px;\n  display: inline-block;\n  text-decoration: none !important;\n  font-family: \"Geometos\";\n  text-transform: uppercase;\n}\n.btn-flip[data-v-3563ad7c]:hover:after {\n  opacity: 1;\n  transform: translateY(0) rotateX(0);\n}\n.btn-flip[data-v-3563ad7c]:hover:before {\n  opacity: 0;\n  transform: translateY(50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:after {\n  top: 0;\n  left: 0;\n  opacity: 0;\n  width: 100%;\n  color: white;\n  display: block;\n  transition: 0.5s;\n  position: absolute;\n  background: #8F828D;\n  content: attr(data-back);\n  transform: translateY(-50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:before {\n  top: 0;\n  left: 0;\n  opacity: 1;\n  color: #4D5462;\n  display: block;\n  padding: 0 30px;\n  line-height: 40px;\n  transition: 0.5s;\n  position: relative;\n  background: #9EC4C9;\n  content: attr(data-front);\n  transform: translateY(0) rotateX(0);\n}\n.img[data-v-3563ad7c] {\n  margin-top: 50px;\n  margin-left: 40px;\n  border-radius: 50%;\n  height: 100px;\n  width: 100px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
 
-/***/ "./resources/js/assets/images/background-authenticating.jpg":
-/*!******************************************************************!*\
-  !*** ./resources/js/assets/images/background-authenticating.jpg ***!
-  \******************************************************************/
+/***/ "./resources/js/assets/images/rak.png":
+/*!********************************************!*\
+  !*** ./resources/js/assets/images/rak.png ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -257,7 +258,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/background-authenticating.jpg?56e0f5ffc7be17afe981864a0b2db51e");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/rak.png?bf780ce9e43cf6490d90b20405ec02d3");
 
 /***/ }),
 
@@ -598,7 +599,9 @@ var render = function() {
             })
           ],
           1
-        )
+        ),
+        _vm._v(" "),
+        _c("img", { staticClass: "img", attrs: { src: _vm.image, alt: "" } })
       ])
     ])
   ])

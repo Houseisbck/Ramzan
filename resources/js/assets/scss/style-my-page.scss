@@ -50,28 +50,37 @@
     height: 250px;
     padding: 10px;
     margin: 30px 0 0 0;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 5%;
     background-color: $backgroundColorComponent;
 }
 
 .right-side__title {
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #4D5462;
     font-size: 1.3rem;
-    color: #ffffff;
+    color: white;
 }
 
 .right-side__descr {
     ul {
-        padding: 0;
+        height: 180px;
+        margin-top: 10px;
+        padding: 10px 15px;
+        background-color: #4D5462;
+        border-radius: 10px;
 
         li {
-            color: #ffffff;
+            color: white;
             list-style: none;
         }
     }
 }
 
 .post-group {
+    margin-top: 80px;
     width: 350px;
 }
 
@@ -112,23 +121,26 @@
     padding: 10px;
     border-radius: 10px;
     margin: 80px auto 0 auto;
-    height: 350px;
+    height: 340px;
     width: 350px;
-    border: 1px solid white;
+    border: 1px solid black;
     background-color: $backgroundColorComponent;
 }
 
 .friendlist__content-group {
+    background-color: #4D5462;
+    border-radius: 15px;
+    padding-bottom: 20px;
     margin-top: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
 .friendlist__top-panel {
-    padding: 10px 20px 20px 20px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: #4D5462;
     color: white;
-    border-bottom: 2px solid white;
 }
 
 .friendlist-item {

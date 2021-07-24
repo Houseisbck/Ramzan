@@ -2,6 +2,7 @@
   <div class="header__center">
     <form @submit.prevent="save" class="header__center-image" action="POST">
       <img
+        v-if="userAvatar[0]"
         @mouseenter="hoverClass = 'show-upload'"
         @mouseleave="hoverClass = 'hide-upload'"
         @click="toggleShowSlider"

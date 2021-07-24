@@ -8,7 +8,7 @@
 
 body {
     height: 100vh;
-    background-color: rgb(150 150 150) !important;
+    background-color: #9EC4C9 !important;
 }
 
 .center {
@@ -19,7 +19,7 @@ body {
     position: fixed;
     z-index: 1000;
     width: 100%;
-    background-color: rgb(255, 255, 255);
+    background-color: #4D5462;
 }
 
 %headerTopFont {
@@ -40,11 +40,11 @@ body {
 
 %linkHeader {
     text-decoration: none;
-    color: #212529;
+    color: white;
 
     &:hover {
         text-decoration: none;
-        color: #212529;
+        color: white;
     }
 }
 
@@ -87,7 +87,6 @@ body {
 
         i {
             cursor: pointer;
-            opacity: 0.55;
         }
     }
 }

@@ -100,17 +100,20 @@
             data-front="авторизация"
           ></router-link>
         </div>
+        <img class="img" :src="image" alt="">
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import image from '../assets/images/rak.png'
 import { email, required, minLength } from "vuelidate/lib/validators";
 
 export default {
   name: "register",
   data: () => ({
+    image: image,
     email: "",
     password: "",
     name: "",
