@@ -41,9 +41,9 @@ export default {
   }
 }
 
-#input-12 {
+#input-14 {
   padding: 0;
-  width: 350px;
+  width: 350px !important;
   outline: none;
   resize: none;
   overflow: hidden;

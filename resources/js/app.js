@@ -7,11 +7,16 @@ import VueRouter from 'vue-router'
 import Vuelidate from 'vuelidate/src'
 import store from './store'
 import vuetify from './utils/vuetify'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import VueAnime from 'vue-animejs';
 
 import UIcomponents from './views/components/UI'
 import CoreLayout from './layouts/CoreLayout'
 import EmptyLayout from './layouts/EmptyLayout'
 import Vue from 'vue'
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.component('core-layout', CoreLayout)
 Vue.component('empty-layout', EmptyLayout)
@@ -20,6 +25,10 @@ Vue.component('dynamic-textarea', UIcomponents)
 
 Vue.use(VueRouter)
 Vue.use(Vuelidate)
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
+Vue.use(VueAnime)
+Vue.use(vuetify)
 
 let app
 

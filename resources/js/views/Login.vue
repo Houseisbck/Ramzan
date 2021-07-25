@@ -76,17 +76,65 @@
             data-front="Регистрация"
           ></router-link>
         </div>
+        <div class="menu__bottom-icons">
+          <div class="menu__icon-item">
+            <img v-show="iconShow" class="menu-icon" :src="crayfish" alt="" />
+            <b-spinner
+              v-if="spinnerShow"
+              class="icon-spinner"
+              type="grow"
+              label="Loading..."
+            ></b-spinner>
+          </div>
+          <div class="menu__icon-item">
+            <img v-show="iconShow" class="menu-icon" :src="halibut" alt="" />
+            <b-spinner
+              v-if="spinnerShow"
+              class="icon-spinner"
+              type="grow"
+              label="Loading..."
+            ></b-spinner>
+          </div>
+          <div class="menu__icon-item">
+            <img v-show="iconShow" class="menu-icon" :src="shrimp" alt="" />
+            <b-spinner
+              v-if="spinnerShow"
+              class="icon-spinner"
+              type="grow"
+              label="Loading..."
+            ></b-spinner>
+          </div>
+          <div class="menu__icon-item">
+            <img v-show="iconShow" class="menu-icon" :src="acne" alt="" />
+            <b-spinner
+              v-if="spinnerShow"
+              class="icon-spinner"
+              type="grow"
+              label="Loading..."
+            ></b-spinner>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import crayfish from "../assets/images/crayfish.png";
+import halibut from "../assets/images/halibut.png";
+import shrimp from "../assets/images/shrimp.png";
+import acne from "../assets/images/acne.png";
 import { email, required, minLength } from "vuelidate/lib/validators";
 
 export default {
   name: "login",
   data: () => ({
+    iconShow: false,
+    spinnerShow: true,
+    crayfish: crayfish,
+    halibut: halibut,
+    shrimp: shrimp,
+    acne: acne,
     sessionId: {},
     email: "",
     password: "",
@@ -94,6 +142,14 @@ export default {
   validations: {
     email: { email, required },
     password: { required, minLength: minLength(6) },
+  },
+  mounted() {
+    setTimeout(() => {
+      this.iconShow = true;
+      setTimeout(() => {
+        this.spinnerShow = false;
+      }, 80);
+    }, 500);
   },
   methods: {
     async submitHandler() {
