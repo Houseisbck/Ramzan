@@ -17,7 +17,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_images_halibut_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/images/halibut.png */ "./resources/js/assets/images/halibut.png");
 /* harmony import */ var _assets_images_shrimp_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/images/shrimp.png */ "./resources/js/assets/images/shrimp.png");
 /* harmony import */ var _assets_images_acne_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/images/acne.png */ "./resources/js/assets/images/acne.png");
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var _components_UI_AnimateMessages_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/UI/AnimateMessages.vue */ "./resources/js/views/components/UI/AnimateMessages.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -140,86 +141,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    AnimateMessages: _components_UI_AnimateMessages_vue__WEBPACK_IMPORTED_MODULE_5__.default
+  },
   name: "register",
   data: function data() {
     return {
-      animeFirstItem: "FirstItem",
-      animeSecondItem: "SecondItem",
-      animeThirdItem: "ThirdItem",
-      animeItemFirstShow: false,
-      animeItemSecondShow: false,
-      animeItemThirdShow: false,
-      iconShow: false,
-      spinnerShow: true,
       crayfish: _assets_images_crayfish_png__WEBPACK_IMPORTED_MODULE_1__.default,
       halibut: _assets_images_halibut_png__WEBPACK_IMPORTED_MODULE_2__.default,
       shrimp: _assets_images_shrimp_png__WEBPACK_IMPORTED_MODULE_3__.default,
@@ -231,90 +165,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   validations: {
     name: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__.required
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__.required
     },
     email: {
-      email: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__.email,
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__.required
+      email: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__.email,
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__.required
     },
     password: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__.required,
-      minLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__.minLength)(6)
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__.required,
+      minLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__.minLength)(6)
     }
   },
-  mounted: function mounted() {
-    this.selectRandomAnimeMessages();
-    this.animateMessages();
-    this.animateIcons();
-  },
   methods: {
-    selectRandomAnimeMessages: function selectRandomAnimeMessages() {
-      function items() {
-        var itemsAnime = [];
-        var animeMessages = ["Ваше имя? Олег? или не Олег?", "Собака помогла с дизайном", "Это палтус? Ого какая рыбка", "Ведро гречки?..", "Знакомьтесь, это - RamZan", "Дружите, общайтесь, существуйте", "(с)Конфуций, 502 г. до н.э.", "Привет, как дела?", "Какой из адресов на этот раз?", "Минимум 6 символов, а максимум?", "Бот это не прочитает"];
-        console.log(animeMessages);
-        var item = animeMessages[Math.floor(Math.random() * animeMessages.length)];
-
-        for (var index = 6; index > itemsAnime.length; index--) {
-          if (index > 0) {
-            console.log(item);
-            animeMessages = animeMessages.filter(function (val) {
-              return val !== item;
-            });
-            console.log(animeMessages);
-          } else {
-            return itemsAnime;
-          }
-        }
-      }
-
-      console.log(items());
-    },
-    animateIcons: function animateIcons() {
-      var _this = this;
-
-      setTimeout(function () {
-        _this.iconShow = true;
-        setTimeout(function () {
-          _this.spinnerShow = false;
-        }, 80);
-      }, 500);
-    },
-    animateMessages: function animateMessages() {
-      var _this2 = this;
-
-      var targets = this.$refs.animeFirstItem;
-      this.$anime.timeline().add({
-        targets: targets,
-        translateX: 200,
-        duration: 2000
-      });
-      this.animeItemFirstShow = true;
-      setTimeout(function () {
-        var targets = _this2.$refs.animeSecondItem;
-
-        _this2.$anime.timeline().add({
-          targets: targets,
-          translateX: 225,
-          duration: 2000
-        });
-
-        _this2.animeItemSecondShow = true;
-      }, 400);
-      setTimeout(function () {
-        var targets = _this2.$refs.animeThirdItem;
-
-        _this2.$anime.timeline().add({
-          targets: targets,
-          translateX: 250,
-          duration: 2000
-        });
-
-        _this2.animeItemThirdShow = true;
-      }, 800);
-    },
     submitHandler: function submitHandler() {
-      var _this3 = this;
+      var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         var formData, response;
@@ -322,20 +186,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!_this3.$v.$invalid) {
+                if (!_this.$v.$invalid) {
                   _context.next = 3;
                   break;
                 }
 
-                _this3.$v.$touch();
+                _this.$v.$touch();
 
                 return _context.abrupt("return");
 
               case 3:
                 formData = {
-                  email: _this3.email,
-                  password: _this3.password,
-                  name: _this3.name
+                  email: _this.email,
+                  password: _this.password,
+                  name: _this.name
                 };
                 _context.next = 6;
                 return axios.post("/register", {
@@ -351,7 +215,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 8:
                 response = _context.sent;
 
-                _this3.$router.push("/page/".concat(response.data));
+                _this.$router.push("/page/".concat(response.data));
 
               case 10:
               case "end":
@@ -398,7 +262,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_ApexMk3_ttf__WEBPACK_IMPORTED_MODULE_4__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_Geometos_ttf__WEBPACK_IMPORTED_MODULE_5__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-3563ad7c],\n*[data-v-3563ad7c]::after,\n*[data-v-3563ad7c]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"ApexMk3\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Geometos\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n  font-style: normal;\n  font-weight: 200;\n}\n.header[data-v-3563ad7c] {\n  background-color: #9EC4C9;\n  height: 100vh;\n}\n.menu-group[data-v-3563ad7c] {\n  padding-top: 20vh;\n}\n.menu[data-v-3563ad7c] {\n  position: relative;\n  background-color: #4D5462;\n  height: 100vh;\n  min-width: 400px;\n  border-left: 2px solid white;\n  border-right: 2px solid white;\n}\n.menu-title[data-v-3563ad7c] {\n  margin: auto;\n  padding: 5px;\n  width: 60%;\n  border-bottom: 3px solid #9EC4C9;\n  color: white;\n  font-family: \"Geometos\";\n  font-size: 20px;\n}\n.form__submit-button[data-v-3563ad7c] {\n  display: none;\n}\n.submit__button-label[data-v-3563ad7c] {\n  font-family: \"Geometos\";\n  margin-top: 15px;\n  font-size: 1rem;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 2.5rem;\n  cursor: pointer;\n  color: #4D5462 !important;\n  border: none;\n  background-color: #9EC4C9;\n}\n.submit__button-label[data-v-3563ad7c]:hover {\n  color: #ffffff !important;\n  background-color: #8F828D;\n}\n.input-group[data-v-3563ad7c] {\n  height: 66.4px;\n}\n.invalid[data-v-3563ad7c] {\n  height: 1.4rem;\n  color: white;\n}\n.invalid-group[data-v-3563ad7c] {\n  height: 22.39px;\n  width: 100%;\n}\n.form__register-input[data-v-3563ad7c] {\n  color: #4D5462;\n  padding-left: 10px;\n  padding-right: 10px;\n  height: 2rem;\n  margin-top: 1rem;\n  border: 0;\n  border-bottom: 2px solid #9EC4C9;\n  outline: none;\n  font-family: \"Plumb\";\n}\n.form__register-input[data-v-3563ad7c]:focus::-webkit-input-placeholder {\n  opacity: 0;\n  -webkit-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus::-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus:-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus:-ms-input-placeholder {\n  opacity: 0;\n  -ms-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.btn-flip[data-v-3563ad7c] {\n  opacity: 1;\n  outline: 0;\n  color: #ffff;\n  line-height: 40px;\n  position: relative;\n  text-align: center;\n  letter-spacing: 1px;\n  display: inline-block;\n  text-decoration: none !important;\n  font-family: \"Geometos\";\n  text-transform: uppercase;\n}\n.btn-flip[data-v-3563ad7c]:hover:after {\n  opacity: 1;\n  transform: translateY(0) rotateX(0);\n}\n.btn-flip[data-v-3563ad7c]:hover:before {\n  opacity: 0;\n  transform: translateY(50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:after {\n  top: 0;\n  left: 0;\n  opacity: 0;\n  width: 100%;\n  color: white;\n  display: block;\n  transition: 0.5s;\n  position: absolute;\n  background: #8F828D;\n  content: attr(data-back);\n  transform: translateY(-50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:before {\n  top: 0;\n  left: 0;\n  opacity: 1;\n  color: #4D5462;\n  display: block;\n  padding: 0 30px;\n  line-height: 40px;\n  transition: 0.5s;\n  position: relative;\n  background: #9EC4C9;\n  content: attr(data-front);\n  transform: translateY(0) rotateX(0);\n}\n.menu__bottom-icons[data-v-3563ad7c] {\n  margin-top: 50px;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-rows: 150px 150px;\n}\n.menu__icon-item[data-v-3563ad7c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n}\n.menu-icon[data-v-3563ad7c] {\n  position: absolute;\n  border: 5px solid #8dc5ca;\n  border-radius: 50%;\n  height: 100px;\n  width: 100px;\n}\n.icon-spinner[data-v-3563ad7c] {\n  position: absolute;\n  height: 100px;\n  width: 100px !important;\n  width: 0px;\n  background-color: #9ec4c9;\n}\n.menu-animation__messages-items[data-v-3563ad7c] {\n  top: 200px;\n  right: -170px;\n  position: absolute;\n}\n.animation__message-item[data-v-3563ad7c] {\n  font-size: 27px;\n  margin-top: 60px;\n  background-color: rgba(157, 179, 179, 0) !important;\n  color: #D5E0E4;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-3563ad7c],\n*[data-v-3563ad7c]::after,\n*[data-v-3563ad7c]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"ApexMk3\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Geometos\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n  font-style: normal;\n  font-weight: 200;\n}\n.header[data-v-3563ad7c] {\n  background-color: #9EC4C9;\n  height: 100vh;\n}\n.menu-group[data-v-3563ad7c] {\n  padding-top: 20vh;\n}\n.menu[data-v-3563ad7c] {\n  position: relative;\n  background-color: #4D5462;\n  height: 100vh;\n  min-width: 400px;\n  border-left: 2px solid white;\n  border-right: 2px solid white;\n}\n.menu-title[data-v-3563ad7c] {\n  margin: auto;\n  padding: 5px;\n  width: 60%;\n  border-bottom: 3px solid #9EC4C9;\n  color: white;\n  font-family: \"Geometos\";\n  font-size: 20px;\n}\n.form__submit-button[data-v-3563ad7c] {\n  display: none;\n}\n.submit__button-label[data-v-3563ad7c] {\n  font-family: \"Geometos\";\n  margin-top: 15px;\n  font-size: 1rem;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 2.5rem;\n  cursor: pointer;\n  color: #4D5462 !important;\n  border: none;\n  background-color: #9EC4C9;\n}\n.submit__button-label[data-v-3563ad7c]:hover {\n  color: #ffffff !important;\n  background-color: #8F828D;\n}\n.input-group[data-v-3563ad7c] {\n  height: 66.4px;\n}\n.invalid[data-v-3563ad7c] {\n  height: 1.4rem;\n  color: white;\n}\n.invalid-group[data-v-3563ad7c] {\n  height: 22.39px;\n  width: 100%;\n}\n.form__register-input[data-v-3563ad7c] {\n  color: #4D5462;\n  padding-left: 10px;\n  padding-right: 10px;\n  height: 2rem;\n  margin-top: 1rem;\n  border: 0;\n  border-bottom: 2px solid #9EC4C9;\n  outline: none;\n  font-family: \"Plumb\";\n}\n.form__register-input[data-v-3563ad7c]:focus::-webkit-input-placeholder {\n  opacity: 0;\n  -webkit-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus::-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus:-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus:-ms-input-placeholder {\n  opacity: 0;\n  -ms-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.btn-flip[data-v-3563ad7c] {\n  opacity: 1;\n  outline: 0;\n  color: #ffff;\n  line-height: 40px;\n  position: relative;\n  text-align: center;\n  letter-spacing: 1px;\n  display: inline-block;\n  text-decoration: none !important;\n  font-family: \"Geometos\";\n  text-transform: uppercase;\n}\n.btn-flip[data-v-3563ad7c]:hover:after {\n  opacity: 1;\n  transform: translateY(0) rotateX(0);\n}\n.btn-flip[data-v-3563ad7c]:hover:before {\n  opacity: 0;\n  transform: translateY(50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:after {\n  top: 0;\n  left: 0;\n  opacity: 0;\n  width: 100%;\n  color: white;\n  display: block;\n  transition: 0.5s;\n  position: absolute;\n  background: #8F828D;\n  content: attr(data-back);\n  transform: translateY(-50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:before {\n  top: 0;\n  left: 0;\n  opacity: 1;\n  color: #4D5462;\n  display: block;\n  padding: 0 30px;\n  line-height: 40px;\n  transition: 0.5s;\n  position: relative;\n  background: #9EC4C9;\n  content: attr(data-front);\n  transform: translateY(0) rotateX(0);\n}\n.menu__bottom-icons[data-v-3563ad7c] {\n  margin-top: 50px;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-rows: 150px 150px;\n}\n.menu-animation__messages-items[data-v-3563ad7c] {\n  width: 400px;\n  top: 200px;\n  right: -400px;\n  position: absolute;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -601,86 +465,12 @@ var render = function() {
   return _c("header", { staticClass: "header" }, [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "menu col-4" }, [
-        _c("div", { staticClass: "menu-animation__messages-items" }, [
-          _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "anime",
-                  rawName: "v-anime",
-                  value: {
-                    backgroundColor: "#9EC4C9",
-                    duration: 0
-                  },
-                  expression:
-                    "{\n            backgroundColor: '#9EC4C9',\n            duration: 0,\n          }"
-                }
-              ],
-              ref: "animeFirstItem",
-              staticClass: "animation__message-item"
-            },
-            [_vm._v("\n          " + _vm._s(_vm.animeFirstItem) + "\n        ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.animeItemSecondShow,
-                  expression: "animeItemSecondShow"
-                },
-                {
-                  name: "anime",
-                  rawName: "v-anime",
-                  value: {
-                    backgroundColor: "#9EC4C9",
-                    duration: 0
-                  },
-                  expression:
-                    "{\n            backgroundColor: '#9EC4C9',\n            duration: 0,\n          }"
-                }
-              ],
-              ref: "animeSecondItem",
-              staticClass: "animation__message-item"
-            },
-            [
-              _vm._v(
-                "\n          " + _vm._s(_vm.animeSecondItem) + "\n        "
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.animeItemThirdShow,
-                  expression: "animeItemThirdShow"
-                },
-                {
-                  name: "anime",
-                  rawName: "v-anime",
-                  value: {
-                    backgroundColor: "#9EC4C9",
-                    duration: 0
-                  },
-                  expression:
-                    "{\n            backgroundColor: '#9EC4C9',\n            duration: 0,\n          }"
-                }
-              ],
-              ref: "animeThirdItem",
-              staticClass: "animation__message-item"
-            },
-            [_vm._v("\n          " + _vm._s(_vm.animeThirdItem) + "\n        ")]
-          )
-        ]),
+        _c(
+          "div",
+          { staticClass: "menu-animation__messages-items" },
+          [_c("animate-message", { attrs: { amount: 3 } })],
+          1
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -885,115 +675,20 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "menu__bottom-icons" }, [
-          _c(
-            "div",
-            { staticClass: "menu__icon-item" },
-            [
-              _c("img", {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.iconShow,
-                    expression: "iconShow"
-                  }
-                ],
-                staticClass: "menu-icon",
-                attrs: { src: _vm.crayfish, alt: "" }
-              }),
-              _vm._v(" "),
-              _vm.spinnerShow
-                ? _c("b-spinner", {
-                    staticClass: "icon-spinner",
-                    attrs: { type: "grow", label: "Loading..." }
-                  })
-                : _vm._e()
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "menu__icon-item" },
-            [
-              _c("img", {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.iconShow,
-                    expression: "iconShow"
-                  }
-                ],
-                staticClass: "menu-icon",
-                attrs: { src: _vm.halibut, alt: "" }
-              }),
-              _vm._v(" "),
-              _vm.spinnerShow
-                ? _c("b-spinner", {
-                    staticClass: "icon-spinner",
-                    attrs: { type: "grow", label: "Loading..." }
-                  })
-                : _vm._e()
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "menu__icon-item" },
-            [
-              _c("img", {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.iconShow,
-                    expression: "iconShow"
-                  }
-                ],
-                staticClass: "menu-icon",
-                attrs: { src: _vm.shrimp, alt: "" }
-              }),
-              _vm._v(" "),
-              _vm.spinnerShow
-                ? _c("b-spinner", {
-                    staticClass: "icon-spinner",
-                    attrs: { type: "grow", label: "Loading..." }
-                  })
-                : _vm._e()
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "menu__icon-item" },
-            [
-              _c("img", {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.iconShow,
-                    expression: "iconShow"
-                  }
-                ],
-                staticClass: "menu-icon",
-                attrs: { src: _vm.acne, alt: "" }
-              }),
-              _vm._v(" "),
-              _vm.spinnerShow
-                ? _c("b-spinner", {
-                    staticClass: "icon-spinner",
-                    attrs: { type: "grow", label: "Loading..." }
-                  })
-                : _vm._e()
-            ],
-            1
-          )
-        ])
+        _c(
+          "div",
+          { staticClass: "menu__bottom-icons" },
+          [
+            _c("animate-icon", { attrs: { src: _vm.crayfish } }),
+            _vm._v(" "),
+            _c("animate-icon", { attrs: { src: _vm.halibut } }),
+            _vm._v(" "),
+            _c("animate-icon", { attrs: { src: _vm.shrimp } }),
+            _vm._v(" "),
+            _c("animate-icon", { attrs: { src: _vm.acne } })
+          ],
+          1
+        )
       ])
     ])
   ])

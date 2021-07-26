@@ -5,11 +5,13 @@
 }
 
 .image-block {
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 25px;
-    margin: auto;
+    margin-left: 25%;
+    margin-top: auto;
     height: 250px;
     width: 350px;
+
 }
 
 .header__center-group__input {
@@ -24,6 +26,7 @@
     label {
         cursor: pointer;
         opacity: 0;
+        margin-left: 15%;
         padding-bottom: 15px;
         background-image: url("../assets/images/avatar-upload.svg");
         background-size: cover;
@@ -53,7 +56,7 @@
     cursor: none;
     position: absolute;
     z-index: 50;
-    bottom: 140px;
+    top: 160px;
     max-height: 600px;
     max-width: 600px;
 }

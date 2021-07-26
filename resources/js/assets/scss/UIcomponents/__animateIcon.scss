@@ -1,0 +1,29 @@
+.animation__message-item {
+    font-size: 27px;
+    margin-top: 55px;
+    background-color: rgba(157, 179, 179, 0) !important;
+    color: #D5E0E4;
+}
+
+.menu__icon-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.menu-icon {
+    position: absolute;
+    border: 5px solid rgb(141, 197, 202);
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.icon-spinner {
+    position: absolute;
+    height: 100px !important;
+    width: 100px !important;
+    width: 0px;
+    background-color: #9ec4c9 !important;
+}

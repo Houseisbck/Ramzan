@@ -3,6 +3,9 @@
     <div class="container">
       <div class="menu col-4">
         <div class="menu-group">
+          <div class="menu-animation__messages-items">
+            <animate-message :amount="3" />
+          </div>
           <h1 class="text-center menu-title">авторизация</h1>
           <form
             @submit.prevent="submitHandler"
@@ -77,42 +80,10 @@
           ></router-link>
         </div>
         <div class="menu__bottom-icons">
-          <div class="menu__icon-item">
-            <img v-show="iconShow" class="menu-icon" :src="crayfish" alt="" />
-            <b-spinner
-              v-if="spinnerShow"
-              class="icon-spinner"
-              type="grow"
-              label="Loading..."
-            ></b-spinner>
-          </div>
-          <div class="menu__icon-item">
-            <img v-show="iconShow" class="menu-icon" :src="halibut" alt="" />
-            <b-spinner
-              v-if="spinnerShow"
-              class="icon-spinner"
-              type="grow"
-              label="Loading..."
-            ></b-spinner>
-          </div>
-          <div class="menu__icon-item">
-            <img v-show="iconShow" class="menu-icon" :src="shrimp" alt="" />
-            <b-spinner
-              v-if="spinnerShow"
-              class="icon-spinner"
-              type="grow"
-              label="Loading..."
-            ></b-spinner>
-          </div>
-          <div class="menu__icon-item">
-            <img v-show="iconShow" class="menu-icon" :src="acne" alt="" />
-            <b-spinner
-              v-if="spinnerShow"
-              class="icon-spinner"
-              type="grow"
-              label="Loading..."
-            ></b-spinner>
-          </div>
+          <animate-icon :src="crayfish" />
+          <animate-icon :src="halibut" />
+          <animate-icon :src="shrimp" />
+          <animate-icon :src="acne" />
         </div>
       </div>
     </div>
@@ -129,8 +100,6 @@ import { email, required, minLength } from "vuelidate/lib/validators";
 export default {
   name: "login",
   data: () => ({
-    iconShow: false,
-    spinnerShow: true,
     crayfish: crayfish,
     halibut: halibut,
     shrimp: shrimp,
