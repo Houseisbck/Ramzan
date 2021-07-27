@@ -1,40 +1,44 @@
 <template>
-  <div class="header__center">
-    <form @submit.prevent="save" class="header__center-image" action="POST">
+  <div class="imageBlock">
+    <form @submit.prevent="save" class="imageBlock__form" action="POST">
       <img
         v-if="userAvatar[0]"
         @mouseenter="hoverClass = 'show-upload'"
         @mouseleave="hoverClass = 'hide-upload'"
         @click="toggleShowSlider"
-        class="image-block"
+        class="imageBlock__image"
         :src="userAvatar[0].path_miniature"
         alt=""
       />
       <div
-        class="slider"
+        class="imageBlock__slider"
         v-click-outside="toggleShowSlider"
         v-if="sliderShow === true"
       >
         <div
-          class="slider-group"
+          class="imageBlock__slider-group"
           v-for="objectAvatar in userAvatar"
           :key="objectAvatar.path"
         >
-          <div class="slider__image-block">
-            <img class="slider-image" :src="objectAvatar.path" alt="" />
+          <div class="imageBlock__slider-image-group">
+            <img
+              class="imageBlock__slider-image"
+              :src="objectAvatar.path"
+              alt=""
+            />
           </div>
-          <div class="slider__image-descr">
-            <div class="image__descr-crud">
+          <div class="imageBlock__slider-descr">
+            <div class="imageBlock__slider-crud">
               <button
                 @click.prevent="deleteImg(objectAvatar)"
-                class="image__descr-delete"
+                class="imageBlock__slider-delete"
               >
                 Удалить изображение
               </button>
-              <button @click.prevent="" class="image__descr-edit">
+              <button @click.prevent="" class="imageBlock__slider-edit">
                 Редактировать
               </button>
-              <button @click.prevent="" class="image__descr-upload">
+              <button @click.prevent="" class="imageBlock__slider-upload">
                 Сделать фотографией профиля
               </button>
             </div>
@@ -45,35 +49,42 @@
         @mouseenter="hoverClass = 'show-upload'"
         @mouseleave="hoverClass = 'hide-upload'"
         :class="hoverClass"
-        class="header__center-group__input"
+        class="imageBlock__group-input"
       >
         <input @change="handleOnChange" id="headerSearchImage" type="file" />
         <label v-if="sessionId == user.id" for="headerSearchImage"></label>
       </div>
-      <div class="canvas-group" v-show="canvasShow">
-        <div class="canvas__input-group">
+      <div class="imageBlock__canvas-group" v-show="canvasShow">
+        <div class="imageBlock__canvas-input-group">
           <input
             v-model="inputHeightValue"
             type="number"
-            class="input-height"
+            class="imageBlock__canvas-input"
           /><input
             v-model="inputWidthValue"
             type="number"
-            class="input-width"
+            class="imageBlock__canvas-input"
           />
           <input type="number" v-model="inputTopValue" />
           <input type="number" v-model="inputLeftValue" />
         </div>
-        <img ref="canvasImg" class="canvas-img" :src="picSrc" alt="" />
+        <img
+          ref="canvasImg"
+          class="imageBlock__canvas-img"
+          :src="picSrc"
+          alt=""
+        />
         <canvas
           @mousedown="mousedown"
           @mousemove="mousemove"
           @mouseup="mouseup"
           ref="canvas"
           :class="canvas"
-          class="canvas"
+          class="imageBlock__canvas"
         ></canvas>
-        <button type="submit" class="canvas-btn">сохранить миниатюру</button>
+        <button type="submit" class="imageBlock__canvas-btn">
+          сохранить миниатюру
+        </button>
       </div>
     </form>
   </div>
@@ -84,15 +95,8 @@
 </style>
 
 <script>
-import image from "../../assets/images/image-default.jpg";
-import Slick from "vue-slick";
-
 export default {
   name: "myPageAvatar",
-
-  components: {
-    Slick,
-  },
 
   props: {
     user: {},
@@ -102,7 +106,6 @@ export default {
 
   data: () => ({
     sliderShow: false,
-    image: image,
     ctx: {},
     picSrc: "",
     inputWidthValue: 350,

@@ -2,36 +2,39 @@
   <header class="header">
     <div class="container">
       <div class="menu col-4">
-        <div class="menu-animation__messages-items">
+        <div class="menu__messages-items">
           <animate-message :amount="3" />
         </div>
         <div class="menu-group">
-          <h1 class="text-center menu-title">Регистрация</h1>
+          <h1 class="menu__title">Регистрация</h1>
           <form
             @submit.prevent="submitHandler"
             method="POST"
             action=""
-            class="d-flex flex-column align-items-center form__register"
+            class="menu__form-register"
           >
-            <div class="input-group">
+            <div class="menu__input-group">
               <input
                 placeholder="Имя"
                 type="text"
-                class="w-100 form__register-input"
+                class="menu__register-input"
                 id="name"
                 v-model.trim="name"
                 :class="{ invalid: $v.name.$dirty && !$v.name.required }"
               />
-              <div class="invalid-group">
-                <div class="invalid" v-if="$v.name.$dirty && !$v.name.required">
+              <div class="menu__invalid-items">
+                <div
+                  class="menu__invalid-item"
+                  v-if="$v.name.$dirty && !$v.name.required"
+                >
                   Поле Имя не должно быть пустым
                 </div>
               </div>
             </div>
-            <div class="input-group">
+            <div class="menu__input-group">
               <input
                 placeholder="Эл. адрес"
-                class="w-100 form__register-input"
+                class="menu__register-input"
                 id="email"
                 type="text"
                 v-model.trim="email"
@@ -41,25 +44,25 @@
                     ($v.email.$dirty && !$v.email.email),
                 }"
               />
-              <div class="invalid-group">
+              <div class="menu__invalid-items">
                 <div
-                  class="invalid"
+                  class="menu__invalid-item"
                   v-if="$v.email.$dirty && !$v.email.required"
                 >
                   Поле Email не должно быть пустым
                 </div>
                 <div
-                  class="invalid"
+                  class="menu__invalid-item"
                   v-else-if="$v.email.$dirty && !$v.email.email"
                 >
                   Введите корретный Email
                 </div>
               </div>
             </div>
-            <div class="input-group">
+            <div class="menu__input-group">
               <input
                 placeholder="Пароль"
-                class="w-100 form__register-input"
+                class="menu__register-input"
                 id="password"
                 type="password"
                 v-model.trim="password"
@@ -69,15 +72,15 @@
                     ($v.password.$dirty && !$v.password.minLength),
                 }"
               />
-              <div class="invalid-group">
+              <div class="menu__invalid-items">
                 <div
-                  class="invalid"
+                  class="menu__invalid-item"
                   v-if="$v.password.$dirty && !$v.password.required"
                 >
                   Введите пароль
                 </div>
                 <div
-                  class="invalid"
+                  class="menu__invalid-item"
                   v-else-if="$v.password.$dirty && !$v.password.minLength"
                 >
                   Пароль должен быть 6
@@ -86,19 +89,18 @@
                 </div>
               </div>
             </div>
-            <label class="submit__button-label" for="formSumbitButton">
+            <label class="menu__submit-button-label" for="formSumbitButton">
               Зарегистрироваться
             </label>
             <button
               id="formSumbitButton"
-              class="form__submit-button"
+              class="menu__submit-button"
               type="submit"
             />
           </form>
-          <div class="menu-decr"></div>
           <router-link
             to="/login"
-            class="mt-2 w-100 btn-flip"
+            class="btn-flip menu__botton-route"
             data-back="перейти"
             data-front="авторизация"
           ></router-link>

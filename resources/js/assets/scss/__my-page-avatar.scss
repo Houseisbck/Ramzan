@@ -1,10 +1,10 @@
-.header__center-image {
+.imageBlock {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
 }
 
-.image-block {
+.imageBlock__image {
     border-radius: 5px;
     cursor: pointer;
     margin-left: 25%;
@@ -14,7 +14,7 @@
 
 }
 
-.header__center-group__input {
+.imageBlock__group-input {
     margin-top: -20px;
     display: flex;
     justify-content: center;
@@ -41,7 +41,7 @@
     }
 }
 
-.canvas-group {
+.imageBlock__canvas-group {
     margin-left: 100px;
     margin-top: -260px;
     background-color: rgb(41, 41, 41);
@@ -52,7 +52,7 @@
     justify-content: center;
 }
 
-.canvas {
+.imageBlock__canvas {
     cursor: none;
     position: absolute;
     z-index: 50;
@@ -61,12 +61,12 @@
     max-width: 600px;
 }
 
-.canvas-img {
+.imageBlock__canvas-img {
     max-width: 600px;
     max-height: 600px;
 }
 
-.canvas-btn {
+.imageBlock__canvas-btn {
     font-family: "Plumb";
     background-color: white;
     border: none;
@@ -77,7 +77,7 @@
     height: 50px;
 }
 
-.canvas__input-group {
+.imageBlock__canvas-input-group {
     padding: 30px 5px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -88,7 +88,7 @@
     }
 }
 
-.slider {
+.imageBlock__slider {
     background-color: rgb(34, 34, 34);
     width: 900px;
     height: 100%;
@@ -98,7 +98,7 @@
     position: absolute;
 }
 
-.slider-group {
+.imageBlock__slider-group {
     border: 3px solid rgb(70, 70, 70);
     height: 800px;
     padding: 15px;
@@ -106,7 +106,7 @@
     display: flex !important;
 }
 
-.slider__image-descr {
+.imageBlock__slider-descr {
     border: 2px solid rgb(70, 70, 70);
     display: flex;
     justify-content: center;
@@ -118,7 +118,7 @@
     color: white;
 }
 
-.image__descr-crud {
+.imageBlock__slider-crud {
     display: flex;
     flex-direction: column;
 
@@ -129,14 +129,14 @@
     }
 }
 
-.slider__image-block {
+.imageBlock__slider-image-group {
     display: flex;
     align-items: center;
     min-width: 600px;
     min-height: 600px;
 }
 
-.slider-image {
+.imageBlock__slider-image {
     margin: auto;
     align-items: center;
 }

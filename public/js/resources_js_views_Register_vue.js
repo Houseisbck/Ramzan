@@ -141,6 +141,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
@@ -262,7 +264,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_ApexMk3_ttf__WEBPACK_IMPORTED_MODULE_4__.default);
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_fonts_Geometos_ttf__WEBPACK_IMPORTED_MODULE_5__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-3563ad7c],\n*[data-v-3563ad7c]::after,\n*[data-v-3563ad7c]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"ApexMk3\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Geometos\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n  font-style: normal;\n  font-weight: 200;\n}\n.header[data-v-3563ad7c] {\n  background-color: #9EC4C9;\n  height: 100vh;\n}\n.menu-group[data-v-3563ad7c] {\n  padding-top: 20vh;\n}\n.menu[data-v-3563ad7c] {\n  position: relative;\n  background-color: #4D5462;\n  height: 100vh;\n  min-width: 400px;\n  border-left: 2px solid white;\n  border-right: 2px solid white;\n}\n.menu-title[data-v-3563ad7c] {\n  margin: auto;\n  padding: 5px;\n  width: 60%;\n  border-bottom: 3px solid #9EC4C9;\n  color: white;\n  font-family: \"Geometos\";\n  font-size: 20px;\n}\n.form__submit-button[data-v-3563ad7c] {\n  display: none;\n}\n.submit__button-label[data-v-3563ad7c] {\n  font-family: \"Geometos\";\n  margin-top: 15px;\n  font-size: 1rem;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 2.5rem;\n  cursor: pointer;\n  color: #4D5462 !important;\n  border: none;\n  background-color: #9EC4C9;\n}\n.submit__button-label[data-v-3563ad7c]:hover {\n  color: #ffffff !important;\n  background-color: #8F828D;\n}\n.input-group[data-v-3563ad7c] {\n  height: 66.4px;\n}\n.invalid[data-v-3563ad7c] {\n  height: 1.4rem;\n  color: white;\n}\n.invalid-group[data-v-3563ad7c] {\n  height: 22.39px;\n  width: 100%;\n}\n.form__register-input[data-v-3563ad7c] {\n  color: #4D5462;\n  padding-left: 10px;\n  padding-right: 10px;\n  height: 2rem;\n  margin-top: 1rem;\n  border: 0;\n  border-bottom: 2px solid #9EC4C9;\n  outline: none;\n  font-family: \"Plumb\";\n}\n.form__register-input[data-v-3563ad7c]:focus::-webkit-input-placeholder {\n  opacity: 0;\n  -webkit-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus::-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus:-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.form__register-input[data-v-3563ad7c] :focus:-ms-input-placeholder {\n  opacity: 0;\n  -ms-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.btn-flip[data-v-3563ad7c] {\n  opacity: 1;\n  outline: 0;\n  color: #ffff;\n  line-height: 40px;\n  position: relative;\n  text-align: center;\n  letter-spacing: 1px;\n  display: inline-block;\n  text-decoration: none !important;\n  font-family: \"Geometos\";\n  text-transform: uppercase;\n}\n.btn-flip[data-v-3563ad7c]:hover:after {\n  opacity: 1;\n  transform: translateY(0) rotateX(0);\n}\n.btn-flip[data-v-3563ad7c]:hover:before {\n  opacity: 0;\n  transform: translateY(50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:after {\n  top: 0;\n  left: 0;\n  opacity: 0;\n  width: 100%;\n  color: white;\n  display: block;\n  transition: 0.5s;\n  position: absolute;\n  background: #8F828D;\n  content: attr(data-back);\n  transform: translateY(-50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:before {\n  top: 0;\n  left: 0;\n  opacity: 1;\n  color: #4D5462;\n  display: block;\n  padding: 0 30px;\n  line-height: 40px;\n  transition: 0.5s;\n  position: relative;\n  background: #9EC4C9;\n  content: attr(data-front);\n  transform: translateY(0) rotateX(0);\n}\n.menu__bottom-icons[data-v-3563ad7c] {\n  margin-top: 50px;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-rows: 150px 150px;\n}\n.menu-animation__messages-items[data-v-3563ad7c] {\n  width: 400px;\n  top: 200px;\n  right: -400px;\n  position: absolute;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-3563ad7c],\n*[data-v-3563ad7c]::after,\n*[data-v-3563ad7c]::before {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Downcome\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Plumb\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"ApexMk3\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-style: normal;\n  font-weight: 300;\n}\n@font-face {\n  font-family: \"Geometos\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n  font-style: normal;\n  font-weight: 200;\n}\n.header[data-v-3563ad7c] {\n  background-color: #9EC4C9;\n  height: 100vh;\n}\n.menu-group[data-v-3563ad7c] {\n  padding-top: 20vh;\n}\n.menu[data-v-3563ad7c] {\n  position: relative;\n  background-color: #4D5462;\n  height: 100vh;\n  min-width: 400px;\n  border-left: 2px solid white;\n  border-right: 2px solid white;\n}\n.menu__title[data-v-3563ad7c] {\n  text-align: center;\n  margin: auto;\n  padding: 5px;\n  width: 60%;\n  border-bottom: 3px solid #9EC4C9;\n  color: white;\n  font-family: \"Geometos\";\n  font-size: 20px;\n}\n.menu__form-register[data-v-3563ad7c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.menu__submit-button[data-v-3563ad7c] {\n  display: none;\n}\n.menu__submit-button-label[data-v-3563ad7c] {\n  font-family: \"Geometos\";\n  margin-top: 15px;\n  font-size: 1rem;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 2.5rem;\n  cursor: pointer;\n  color: #4D5462 !important;\n  border: none;\n  background-color: #9EC4C9;\n}\n.menu__submit-button-label[data-v-3563ad7c]:hover {\n  color: #ffffff !important;\n  background-color: #8F828D;\n}\n.menu__input-group[data-v-3563ad7c] {\n  width: 100%;\n  height: 66.4px;\n}\n.menu__invalid-item[data-v-3563ad7c] {\n  height: 1.4rem;\n  color: white;\n}\n.menu__invalid-items[data-v-3563ad7c] {\n  height: 22.39px;\n  width: 100%;\n}\n.menu__register-input[data-v-3563ad7c] {\n  width: 100%;\n  color: #4D5462;\n  padding-left: 10px;\n  padding-right: 10px;\n  height: 2rem;\n  margin-top: 1rem;\n  border: 0;\n  border-bottom: 2px solid #9EC4C9;\n  outline: none;\n  font-family: \"Plumb\";\n}\n.menu__register-input[data-v-3563ad7c]:focus::-webkit-input-placeholder {\n  opacity: 0;\n  -webkit-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.menu__register-input[data-v-3563ad7c] :focus::-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.menu__register-input[data-v-3563ad7c] :focus:-moz-placeholder {\n  opacity: 0;\n  -moz-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.menu__register-input[data-v-3563ad7c] :focus:-ms-input-placeholder {\n  opacity: 0;\n  -ms-transition: opacity 0.8s ease;\n  transition: opacity 0.8s ease;\n}\n.menu__botton-route[data-v-3563ad7c] {\n  width: 100%;\n  margin-top: 5px;\n}\n.btn-flip[data-v-3563ad7c] {\n  opacity: 1;\n  outline: 0;\n  color: #ffff;\n  line-height: 40px;\n  position: relative;\n  text-align: center;\n  letter-spacing: 1px;\n  display: inline-block;\n  text-decoration: none !important;\n  font-family: \"Geometos\";\n  text-transform: uppercase;\n}\n.btn-flip[data-v-3563ad7c]:hover:after {\n  opacity: 1;\n  transform: translateY(0) rotateX(0);\n}\n.btn-flip[data-v-3563ad7c]:hover:before {\n  opacity: 0;\n  transform: translateY(50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:after {\n  top: 0;\n  left: 0;\n  opacity: 0;\n  width: 100%;\n  color: white;\n  display: block;\n  transition: 0.5s;\n  position: absolute;\n  background: #8F828D;\n  content: attr(data-back);\n  transform: translateY(-50%) rotateX(90deg);\n}\n.btn-flip[data-v-3563ad7c]:before {\n  top: 0;\n  left: 0;\n  opacity: 1;\n  color: #4D5462;\n  display: block;\n  padding: 0 30px;\n  line-height: 40px;\n  transition: 0.5s;\n  position: relative;\n  background: #9EC4C9;\n  content: attr(data-front);\n  transform: translateY(0) rotateX(0);\n}\n.menu__bottom-icons[data-v-3563ad7c] {\n  margin-top: 50px;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-rows: 150px 150px;\n}\n.menu__messages-items[data-v-3563ad7c] {\n  width: 400px;\n  top: 200px;\n  right: -400px;\n  position: absolute;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -467,7 +469,7 @@ var render = function() {
       _c("div", { staticClass: "menu col-4" }, [
         _c(
           "div",
-          { staticClass: "menu-animation__messages-items" },
+          { staticClass: "menu__messages-items" },
           [_c("animate-message", { attrs: { amount: 3 } })],
           1
         ),
@@ -476,15 +478,12 @@ var render = function() {
           "div",
           { staticClass: "menu-group" },
           [
-            _c("h1", { staticClass: "text-center menu-title" }, [
-              _vm._v("Регистрация")
-            ]),
+            _c("h1", { staticClass: "menu__title" }, [_vm._v("Регистрация")]),
             _vm._v(" "),
             _c(
               "form",
               {
-                staticClass:
-                  "d-flex flex-column align-items-center form__register",
+                staticClass: "menu__form-register",
                 attrs: { method: "POST", action: "" },
                 on: {
                   submit: function($event) {
@@ -494,7 +493,7 @@ var render = function() {
                 }
               },
               [
-                _c("div", { staticClass: "input-group" }, [
+                _c("div", { staticClass: "menu__input-group" }, [
                   _c("input", {
                     directives: [
                       {
@@ -505,7 +504,7 @@ var render = function() {
                         modifiers: { trim: true }
                       }
                     ],
-                    staticClass: "w-100 form__register-input",
+                    staticClass: "menu__register-input",
                     class: {
                       invalid: _vm.$v.name.$dirty && !_vm.$v.name.required
                     },
@@ -524,9 +523,9 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "invalid-group" }, [
+                  _c("div", { staticClass: "menu__invalid-items" }, [
                     _vm.$v.name.$dirty && !_vm.$v.name.required
-                      ? _c("div", { staticClass: "invalid" }, [
+                      ? _c("div", { staticClass: "menu__invalid-item" }, [
                           _vm._v(
                             "\n                Поле Имя не должно быть пустым\n              "
                           )
@@ -535,7 +534,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "input-group" }, [
+                _c("div", { staticClass: "menu__input-group" }, [
                   _c("input", {
                     directives: [
                       {
@@ -546,7 +545,7 @@ var render = function() {
                         modifiers: { trim: true }
                       }
                     ],
-                    staticClass: "w-100 form__register-input",
+                    staticClass: "menu__register-input",
                     class: {
                       invalid:
                         (_vm.$v.email.$dirty && !_vm.$v.email.required) ||
@@ -571,15 +570,15 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "invalid-group" }, [
+                  _c("div", { staticClass: "menu__invalid-items" }, [
                     _vm.$v.email.$dirty && !_vm.$v.email.required
-                      ? _c("div", { staticClass: "invalid" }, [
+                      ? _c("div", { staticClass: "menu__invalid-item" }, [
                           _vm._v(
                             "\n                Поле Email не должно быть пустым\n              "
                           )
                         ])
                       : _vm.$v.email.$dirty && !_vm.$v.email.email
-                      ? _c("div", { staticClass: "invalid" }, [
+                      ? _c("div", { staticClass: "menu__invalid-item" }, [
                           _vm._v(
                             "\n                Введите корретный Email\n              "
                           )
@@ -588,7 +587,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "input-group" }, [
+                _c("div", { staticClass: "menu__input-group" }, [
                   _c("input", {
                     directives: [
                       {
@@ -599,7 +598,7 @@ var render = function() {
                         modifiers: { trim: true }
                       }
                     ],
-                    staticClass: "w-100 form__register-input",
+                    staticClass: "menu__register-input",
                     class: {
                       invalid:
                         (_vm.$v.password.$dirty && !_vm.$v.password.required) ||
@@ -624,15 +623,15 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "invalid-group" }, [
+                  _c("div", { staticClass: "menu__invalid-items" }, [
                     _vm.$v.password.$dirty && !_vm.$v.password.required
-                      ? _c("div", { staticClass: "invalid" }, [
+                      ? _c("div", { staticClass: "menu__invalid-item" }, [
                           _vm._v(
                             "\n                Введите пароль\n              "
                           )
                         ])
                       : _vm.$v.password.$dirty && !_vm.$v.password.minLength
-                      ? _c("div", { staticClass: "invalid" }, [
+                      ? _c("div", { staticClass: "menu__invalid-item" }, [
                           _vm._v(
                             "\n                Пароль должен быть 6\n                " +
                               _vm._s(_vm.$v.password.$params.minLength) +
@@ -648,23 +647,21 @@ var render = function() {
                 _c(
                   "label",
                   {
-                    staticClass: "submit__button-label",
+                    staticClass: "menu__submit-button-label",
                     attrs: { for: "formSumbitButton" }
                   },
                   [_vm._v("\n            Зарегистрироваться\n          ")]
                 ),
                 _vm._v(" "),
                 _c("button", {
-                  staticClass: "form__submit-button",
+                  staticClass: "menu__submit-button",
                   attrs: { id: "formSumbitButton", type: "submit" }
                 })
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "menu-decr" }),
-            _vm._v(" "),
             _c("router-link", {
-              staticClass: "mt-2 w-100 btn-flip",
+              staticClass: "btn-flip menu__botton-route",
               attrs: {
                 to: "/login",
                 "data-back": "перейти",

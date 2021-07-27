@@ -24,7 +24,8 @@
     border-right: 2px solid white;
 }
 
-.menu-title {
+.menu__title {
+    text-align: center;
     margin: auto;
     padding: 5px;
     width: 60%;
@@ -34,12 +35,18 @@
     font-size: 20px;
 }
 
-.form__submit-button {
+.menu__form-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu__submit-button {
     display: none;
 }
 
 
-.submit__button-label {
+.menu__submit-button-label {
     font-family: 'Geometos';
     margin-top: 15px;
     font-size: 1rem;
@@ -59,21 +66,23 @@
     }
 }
 
-.input-group {
+.menu__input-group {
+    width: 100%;
     height: 66.40px;
 }
 
-.invalid {
+.menu__invalid-item {
     height: 1.4rem;
     color: rgb(255, 255, 255);
 }
 
-.invalid-group {
+.menu__invalid-items {
     height: 22.39px;
     width: 100%;
 }
 
-.form__register-input {
+.menu__register-input {
+    width: 100%;
     color: #4D5462;
     padding-left: 10px;
     padding-right: 10px;
@@ -106,6 +115,11 @@
 }
 
 $speed: 0.5s;
+
+.menu__botton-route {
+    width: 100%;
+    margin-top: 5px;
+}
 
 .btn-flip {
     opacity: 1;
@@ -171,7 +185,7 @@ $speed: 0.5s;
 }
 
 
-.menu-animation__messages-items {
+.menu__messages-items {
     width: 400px;
     top: 200px;
     right: -400px;

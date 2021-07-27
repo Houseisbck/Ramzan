@@ -3,19 +3,16 @@
     <div class="container">
       <div class="menu col-4">
         <div class="menu-group">
-          <div class="menu-animation__messages-items">
+          <div class="menu__messages-items">
             <animate-message :amount="3" />
           </div>
-          <h1 class="text-center menu-title">авторизация</h1>
-          <form
-            @submit.prevent="submitHandler"
-            class="d-flex flex-column align-items-center form__register"
-          >
-            <div class="input-group">
+          <h1 class="menu__title">авторизация</h1>
+          <form @submit.prevent="submitHandler" class="menu__form__register">
+            <div class="menu__input-group">
               <input
                 placeholder="Эл. адрес"
                 type="text"
-                class="w-100 mt-4 form__register-input"
+                class="menu__register-input"
                 v-model.trim="email"
                 :class="{
                   invalid:
@@ -23,37 +20,37 @@
                     ($v.email.$dirty && !$v.email.email),
                 }"
               />
-              <div class="invalid-group">
+              <div class="menu__invalid-items">
                 <div
-                  class="invalid"
+                  class="menu__invalid-item"
                   v-if="$v.email.$dirty && !$v.email.required"
                 >
                   Поле Email не должно быть пустым
                 </div>
                 <div
-                  class="invalid"
+                  class="menu__invalid-item"
                   v-else-if="$v.email.$dirty && !$v.email.email"
                 >
                   Введите корретный Email
                 </div>
               </div>
             </div>
-            <div class="input-group">
+            <div class="menu__input-group">
               <input
                 placeholder="Пароль"
                 type="password"
-                class="w-100 mt-4 form__register-input"
+                class="menu__register-input"
                 v-model.trim="password"
               />
-              <div class="invalid-group">
+              <div class="menu__invalid-items">
                 <div
-                  class="invalid"
+                  class="menu__invalid-item"
                   v-if="$v.password.$dirty && !$v.password.required"
                 >
                   Введите пароль
                 </div>
                 <div
-                  class="invalid"
+                  class="menu__invalid-item"
                   v-else-if="$v.password.$dirty && !$v.password.minLength"
                 >
                   Пароль должен быть
@@ -62,19 +59,18 @@
                 </div>
               </div>
             </div>
-            <label class="submit__button-label" for="formSumbitButton">
+            <label class="menu__submit-button-label" for="formSumbitButton">
               Авторизироваться
             </label>
             <input
               id="formSumbitButton"
-              class="form__submit-button"
+              class="menu__submit-button"
               type="submit"
             />
           </form>
-          <div class="menu-decr"></div>
           <router-link
             to="/"
-            class="mt-2 w-100 btn-flip"
+            class="btn-flip menu__botton-route"
             data-back="перейти"
             data-front="Регистрация"
           ></router-link>
