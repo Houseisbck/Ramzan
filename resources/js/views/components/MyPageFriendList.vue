@@ -3,29 +3,29 @@
     <div class="friendlist-group">
       <div class="friendlist__top-panel">Друзья: 6</div>
       <div class="friendlist__content-group">
-        <a href="#" class="friendlist-item">
-          <img :src="friendavatar" alt="" />
-          <div>Олег</div>
+        <a href="#" class="friendlist__item-group">
+          <img class="friendlist__item-img" :src="friendavatar" alt="" />
+          <div class="friendlist__item-text">Олег</div>
         </a>
-        <a class="friendlist-item">
-          <img :src="friendavatar" alt="" />
-          <div>Олег</div>
+        <a class="friendlist__item-group">
+          <img class="friendlist__item-img" :src="friendavatar" alt="" />
+          <div class="friendlist__item-text">Олег</div>
         </a>
-        <a class="friendlist-item">
-          <img :src="friendavatar" alt="" />
-          <div>Олег</div>
+        <a class="friendlist__item-group">
+          <img class="friendlist__item-img" :src="friendavatar" alt="" />
+          <div class="friendlist__item-text">Олег</div>
         </a>
-        <a class="friendlist-item">
-          <img :src="friendavatar" alt="" />
-          <div>Олег</div>
+        <a class="friendlist__item-group">
+          <img class="friendlist__item-img" :src="friendavatar" alt="" />
+          <div class="friendlist__item-text">Олег</div>
         </a>
-        <a class="friendlist-item">
-          <img :src="friendavatar" alt="" />
-          <div>Олег</div>
+        <a class="friendlist__item-group">
+          <img class="friendlist__item-img" :src="friendavatar" alt="" />
+          <div class="friendlist__item-text">Олег</div>
         </a>
-        <a class="friendlist-item">
-          <img :src="friendavatar" alt="" />
-          <div>Олег</div>
+        <a class="friendlist__item-group">
+          <img class="friendlist__item-img" :src="friendavatar" alt="" />
+          <div class="friendlist__item-text">Олег</div>
         </a>
       </div>
     </div>

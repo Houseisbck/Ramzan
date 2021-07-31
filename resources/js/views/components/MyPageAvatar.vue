@@ -95,8 +95,14 @@
 </style>
 
 <script>
+import AvatarCropper from "vue-avatar-cropper";
+
 export default {
   name: "myPageAvatar",
+
+  components: {
+    AvatarCropper,
+  },
 
   props: {
     user: {},
@@ -105,6 +111,14 @@ export default {
   },
 
   data: () => ({
+    trigger: false,
+    message: "готово",
+    labels: {
+      submit: "выбрать",
+      cancel: "закрыть",
+    },
+    //
+    //
     sliderShow: false,
     ctx: {},
     picSrc: "",
@@ -122,6 +136,30 @@ export default {
   }),
 
   methods: {
+    changeTrigger() {
+      this.trigger = true;
+    },
+    handleUploading(form, xhr) {
+      this.message = "uploading...";
+    },
+    handleUploaded(response) {
+      if (response.status === "success") {
+        this.userAvatar = response.url;
+        this.message = "user avatar updated.";
+      }
+    },
+    handleCompleted(response, form, xhr) {
+      this.message = "upload completed.";
+    },
+    handlerError(message, type, xhr) {
+      this.message = "Oops! Something went wrong...";
+    },
+    //
+    //
+    //
+    //
+    //
+    //
     async deleteImg(objectAvatar) {
       const deleteAvatar = new FormData();
       objectAvatar = JSON.stringify(objectAvatar);

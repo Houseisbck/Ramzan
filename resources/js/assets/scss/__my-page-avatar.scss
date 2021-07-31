@@ -42,6 +42,7 @@
 }
 
 .imageBlock__canvas-group {
+    position: relative;
     margin-left: 100px;
     margin-top: -260px;
     background-color: rgb(41, 41, 41);
@@ -56,7 +57,7 @@
     cursor: none;
     position: absolute;
     z-index: 50;
-    top: 160px;
+    top: 100px;
     max-height: 600px;
     max-width: 600px;
 }
@@ -100,9 +101,9 @@
 
 .imageBlock__slider-group {
     border: 3px solid rgb(70, 70, 70);
-    height: 800px;
+    height: 720px;
     padding: 15px;
-    background-color: rgb(207, 207, 207);
+    background-color: #CCC3C6;
     display: flex !important;
 }
 

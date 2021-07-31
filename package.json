@@ -30,7 +30,7 @@
         "bootstrap-vue": "^2.21.2",
         "simple-spinner": "^0.0.5",
         "vue-animejs": "^2.1.1",
-        "vue-avatar-cropper": "^2.0.0",
+        "vue-avatar-cropper": "^2.0.9",
         "vue-req": "^1.0.3",
         "vue-router": "^3.5.1",
         "vue-simple-spinner": "^1.2.10",
