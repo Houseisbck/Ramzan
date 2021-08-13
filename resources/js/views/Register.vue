@@ -141,6 +141,7 @@ export default {
     email: { email, required },
     password: { required, minLength: minLength(6) },
   },
+
   methods: {
     async submitHandler() {
       if (this.$v.$invalid) {

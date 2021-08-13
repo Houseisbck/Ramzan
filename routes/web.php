@@ -3,6 +3,7 @@
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\UpdateController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,6 +20,8 @@ Route::prefix('/page')->group(function () {
 Route::post('/uploadAvatar', [UploadController::class, 'updateAvatar'])->name('updateAvatar');
 
 Route::post('/deleteAvatarImage', [DeleteController::class, 'deleteAvatar'])->name('deleteAvatar');
+
+Route::post('/updateAvatarImage', [UpdateController::class, 'updateAvatar'])->name('updateAvatar');
 
 Route::get('/getUserAvatar/{id}', [UploadController::class, 'getUserAvatar'])->name('getUserAvatar');
 

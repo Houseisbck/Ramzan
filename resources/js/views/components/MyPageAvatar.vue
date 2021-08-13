@@ -1,5 +1,54 @@
 <template>
   <div class="imageBlock">
+    <div
+      class="imageBlock__canvas-group"
+      ref="canvasGroup"
+      v-click-outside="toggleCanvasShow"
+      v-show="canvasShow"
+    >
+      <div class="imageBlock__canvas-box" ref="canvasBox">
+        <img
+          id="canvasImg"
+          ref="canvasImg"
+          class="imageBlock__canvas-img"
+          :src="picSrc"
+          alt=""
+        />
+        <canvas
+          @mousedown="mousedown"
+          @mousemove="mousemove"
+          @mouseup="mouseup"
+          ref="canvas"
+          :class="canvas"
+          class="imageBlock__canvas"
+        ></canvas>
+      </div>
+      <div class="imageBlock__canvas-input-group">
+        <button
+          @click.prevent="save"
+          type="submit"
+          class="imageBlock__canvas-btn"
+        >
+          сохранить миниатюру
+        </button>
+        <div class="imageBlock__canvas-input-box">
+          <input
+            v-model="inputHeightValue"
+            type="number"
+            class="imageBlock__canvas-input"
+          />
+          <div class="imageBlock__canvas-input-descr">высота</div>
+        </div>
+        <div class="imageBlock__canvas-input-box">
+          <input
+            v-model="inputWidthValue"
+            type="number"
+            class="imageBlock__canvas-input"
+          />
+          <div class="imageBlock__canvas-input-descr">ширина</div>
+        </div>
+      </div>
+    </div>
     <form @submit.prevent="save" class="imageBlock__form" action="POST">
       <img
         v-if="userAvatar[0]"
@@ -17,30 +66,51 @@
       >
         <div
           class="imageBlock__slider-group"
-          v-for="objectAvatar in userAvatar"
-          :key="objectAvatar.path"
+          v-for="(objectAvatar, avatar) in userAvatar"
+          :key="avatar"
         >
-          <div class="imageBlock__slider-image-group">
-            <img
-              class="imageBlock__slider-image"
-              :src="objectAvatar.path"
-              alt=""
-            />
-          </div>
-          <div class="imageBlock__slider-descr">
-            <div class="imageBlock__slider-crud">
-              <button
-                @click.prevent="deleteImg(objectAvatar)"
-                class="imageBlock__slider-delete"
-              >
-                Удалить изображение
-              </button>
-              <button @click.prevent="" class="imageBlock__slider-edit">
-                Редактировать
-              </button>
-              <button @click.prevent="" class="imageBlock__slider-upload">
-                Сделать фотографией профиля
-              </button>
+          <div
+            class="imageBlock__slider-box"
+            :style="{ 'margin-left': '-' + 100 * sliderIndex + '%' }"
+          >
+            <div class="imageBlock__slider-image-group">
+              <img
+                class="imageBlock__slider-image"
+                :src="objectAvatar.path"
+                alt=""
+              />
+            </div>
+            <div class="imageBlock__slider-descr">
+              <div class="imageBlock__slider-crud">
+                <button
+                  @click.prevent="deleteImg(objectAvatar)"
+                  class="imageBlock__slider-delete"
+                >
+                  Удалить изображение
+                </button>
+                <button
+                  @click.prevent="editImg(objectAvatar)"
+                  class="imageBlock__slider-edit"
+                >
+                  Редактировать
+                </button>
+                <button
+                  @click.prevent="switchImg(objectAvatar)"
+                  class="imageBlock__slider-upload"
+                >
+                  Сделать фотографией профиля
+                </button>
+                <div class="imageBlock__slider-slick-group">
+                  <button
+                    @click.prevent="SliderSlickPrev"
+                    class="imageBlock__slider-slick-prev"
+                  ></button>
+                  <button
+                    @click.prevent="SliderSlickNext"
+                    class="imageBlock__slider-slick-next"
+                  ></button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -54,38 +124,6 @@
         <input @change="handleOnChange" id="headerSearchImage" type="file" />
         <label v-if="sessionId == user.id" for="headerSearchImage"></label>
       </div>
-      <div class="imageBlock__canvas-group" v-show="canvasShow">
-        <div class="imageBlock__canvas-input-group">
-          <input
-            v-model="inputHeightValue"
-            type="number"
-            class="imageBlock__canvas-input"
-          /><input
-            v-model="inputWidthValue"
-            type="number"
-            class="imageBlock__canvas-input"
-          />
-          <input type="number" v-model="inputTopValue" />
-          <input type="number" v-model="inputLeftValue" />
-        </div>
-        <img
-          ref="canvasImg"
-          class="imageBlock__canvas-img"
-          :src="picSrc"
-          alt=""
-        />
-        <canvas
-          @mousedown="mousedown"
-          @mousemove="mousemove"
-          @mouseup="mouseup"
-          ref="canvas"
-          :class="canvas"
-          class="imageBlock__canvas"
-        ></canvas>
-        <button type="submit" class="imageBlock__canvas-btn">
-          сохранить миниатюру
-        </button>
-      </div>
     </form>
   </div>
 </template>
@@ -95,14 +133,8 @@
 </style>
 
 <script>
-import AvatarCropper from "vue-avatar-cropper";
-
 export default {
   name: "myPageAvatar",
-
-  components: {
-    AvatarCropper,
-  },
 
   props: {
     user: {},
@@ -111,15 +143,8 @@ export default {
   },
 
   data: () => ({
-    trigger: false,
-    message: "готово",
-    labels: {
-      submit: "выбрать",
-      cancel: "закрыть",
-    },
-    //
-    //
-    sliderShow: false,
+    sliderIndex: 0,
+    sliderShow: true,
     ctx: {},
     picSrc: "",
     inputWidthValue: 350,
@@ -136,31 +161,37 @@ export default {
   }),
 
   methods: {
-    changeTrigger() {
-      this.trigger = true;
-    },
-    handleUploading(form, xhr) {
-      this.message = "uploading...";
-    },
-    handleUploaded(response) {
-      if (response.status === "success") {
-        this.userAvatar = response.url;
-        this.message = "user avatar updated.";
+    SliderSlickPrev() {
+      if (this.sliderIndex > 0) {
+        this.sliderIndex--;
       }
     },
-    handleCompleted(response, form, xhr) {
-      this.message = "upload completed.";
+
+    SliderSlickNext() {
+      if (this.sliderIndex < this.userAvatar.length - 1) {
+        this.sliderIndex++;
+      }
     },
-    handlerError(message, type, xhr) {
-      this.message = "Oops! Something went wrong...";
+
+    toggleCanvasShow() {
+      this.canvasShow = false;
     },
-    //
-    //
-    //
-    //
-    //
-    //
+
+    async switchImg(objectAvatar) {
+      const switchAvatar = new FormData();
+      objectAvatar = JSON.stringify(objectAvatar);
+      switchAvatar.append("objectAvatar", objectAvatar);
+      await axios
+        .post("/updateAvatarImage", switchAvatar)
+      //   .then((response) => (this.updateAvatar = response.data));
+      // this.$emit("avatar", this.updateAvatar);
+      return;
+    },
+
     async deleteImg(objectAvatar) {
+      if (this.sliderIndex > 0) {
+        this.sliderIndex--;
+      }
       const deleteAvatar = new FormData();
       objectAvatar = JSON.stringify(objectAvatar);
       deleteAvatar.append("objectAvatar", objectAvatar);
@@ -276,8 +307,8 @@ export default {
         ctx.stroke();
       }
       if (selection.mDown == true) {
-        selection.x = e.x - canvas.offsetLeft - 383;
-        selection.y = e.y - canvas.offsetTop;
+        selection.x = e.x - $("#canvasImg").offset().left;
+        selection.y = e.y - $("#canvasImg").offset().top;
 
         if (
           (this.inputLeftValue = selection.x - this.inputWidthValue / 2 >= 0)
@@ -344,7 +375,6 @@ export default {
 
         return;
       };
-
       return;
     },
 

@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  props: ["src"],
+  props: { src: { type: String, required: true } },
   name: "animate-icon",
   data: () => ({
     iconShow: false,
