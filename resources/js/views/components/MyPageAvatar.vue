@@ -128,10 +128,6 @@
   </div>
 </template>
 
-<style scoped>
-@import "slick-carousel/slick/slick.css";
-</style>
-
 <script>
 export default {
   name: "myPageAvatar",
@@ -144,7 +140,7 @@ export default {
 
   data: () => ({
     sliderIndex: 0,
-    sliderShow: true,
+    sliderShow: false,
     ctx: {},
     picSrc: "",
     inputWidthValue: 350,
@@ -183,8 +179,8 @@ export default {
       switchAvatar.append("objectAvatar", objectAvatar);
       await axios
         .post("/updateAvatarImage", switchAvatar)
-      //   .then((response) => (this.updateAvatar = response.data));
-      // this.$emit("avatar", this.updateAvatar);
+        .then((response) => (this.updateAvatar = response.data));
+      this.$emit("avatar", this.updateAvatar);
       return;
     },
 

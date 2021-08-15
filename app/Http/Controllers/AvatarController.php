@@ -8,9 +8,10 @@ use App\models\UserAvatar;
 use App\models\User;
 use Intervention\Image\Facades\Image;
 
-class UploadController extends Controller
+
+class AvatarController extends Controller
 {
-    public function updateAvatar(Request $request)
+    public function uploadAvatar(Request $request)
     {
 
         $user = Auth::user();
@@ -53,6 +54,43 @@ class UploadController extends Controller
     {
 
         $user = User::where('id', $id)->first();
+
+        $userAvatar = UserAvatar::where('user_id', $user->id)->latest('updated_at')->get();
+
+        return response($userAvatar);
+    }
+
+    public function updateAvatar(Request $request)
+    {
+        $user = Auth::user();
+
+        UserAvatar::whereNotNull('id')->update(['is_active' => false]);
+
+        $objectAvatar = json_decode($request->objectAvatar);
+
+        UserAvatar::where('id', $objectAvatar->id)->update(['is_active' => true]);
+
+        $userAvatars = UserAvatar::where('user_id', $user->id)->orderBy('is_active', 'desc')->orderBy('created_at', 'desc')->get();
+
+        return $userAvatars;
+    }
+
+    public function deleteAvatar(Request $request)
+    {
+
+        $user = Auth::user();
+
+        $objectAvatar = json_decode($request->objectAvatar);
+
+        UserAvatar::where('id', $objectAvatar->id)->where('user_id', $user->id)->delete();
+
+        $deleteAvatarPath = (storage_path('/app' . $objectAvatar->path));
+
+        $deleteAvatarPathMin = (storage_path('/app' . $objectAvatar->path_miniature));
+
+        unlink($deleteAvatarPath);
+
+        unlink($deleteAvatarPathMin);
 
         $userAvatar = UserAvatar::where('user_id', $user->id)->latest('updated_at')->get();
 
